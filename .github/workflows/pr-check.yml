@@ -1,0 +1,73 @@
+# .github/workflows/pr-check.yml
+name: PR Quality Check
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  pr-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install black flake8 isort
+        
+    - name: Run quality checks
+      run: |
+        black --check .
+        flake8 . --max-line-length=127
+        isort --check-only .
+
+---
+
+# pyproject.toml (for Black and isort configuration)
+[tool.black]
+line-length = 127
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 127
+known_first_party = ["app", "models", "utils"]
+
+---
+
+# .flake8
+[flake8]
+max-line-length = 127
+extend-ignore = E203, E501, W503
+exclude = 
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    build,
+    dist,
+    *.egg-info
+
+
+
