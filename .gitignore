@@ -7,5 +7,5 @@ data/cache/
 venv/
 env/
 .streamlit
-
+.gitignore
 
