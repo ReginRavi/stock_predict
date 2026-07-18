@@ -1,12 +1,26 @@
 Company Name,Screener Slug,Company Full Name,Stock P/E,Market Cap (Cr),Dividend Yield (%),Profit Growth 3Y (%),Profit Growth 5Y (%),PEG Ratio 3Y,PEG Ratio 5Y,PEGY Ratio 3Y,PEGY Ratio 5Y
-Life Insurance,LICI,Life Insurance Corporation of India,9.54,"5,47,871",2.31,16,82,0.60,0.12,0.52,0.11
-Ganesh Housing,GANESHHOU,Ganesh Housing Ltd,192,"6,860",0.18,-27,23,Negative Growth,8.35,Negative Growth+Yield,8.28
-20 Microns,20MICRONS,20 Microns Ltd,12.1,722,0.61,18,21,0.67,0.58,0.65,0.56
-PDS,PDSL,PDS Ltd,185,"5,118",0.91,-32,-9,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield
-Manba Finance,MANBA,Manba Finance Ltd,15.2,687,0.55,44,29,0.35,0.52,0.34,0.51
-Anant Raj,ANANTRAJ,Anant Raj Ltd,71.4,"21,308",0.17,41,72,1.74,0.99,1.73,0.99
-IKIO Tech,IKIO,IKIO Technologies Ltd,115,"1,695",0.00,-16,-7,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield
-Maiden Forgings,543874,Maiden Forgings Ltd,25.8,130,0.00,-19,24,Negative Growth,1.07,Negative Growth+Yield,1.07
-Physicswallah,PWL,Physicswallah Ltd,"2,541","39,467",0.00,30,18,84.70,141.17,84.70,141.17
-Themis Medicare,THEMISMED,Themis Medicare Ltd,,"1,012",0.45,N/A,N/A,N/A,N/A,N/A,N/A
-Oricon Enterpris,ORICONENT,Oricon Enterprises Ltd,129,942,0.83,-22,26,Negative Growth,4.96,Negative Growth+Yield,4.81
+3MINDIA,3MINDIA,3M India Ltd,72.5,"39,298",0.46,9,30,8.06,2.42,7.66,2.38
+ABBOTINDIA,ABBOTINDIA,Abbott India Ltd,38.4,"59,617",1.87,18,18,2.13,2.13,1.93,1.93
+DIXON,DIXON,Dixon Technologies (India) Ltd,115,"87,611",0.06,53,38,2.17,3.03,2.17,3.02
+INDIGO,INDIGOPNTS,Indigo Paints Ltd,33.9,"5,078",0.33,5,16,6.78,2.12,6.36,2.08
+TCPLPACK,TCPLPACK,TCPL Packaging Ltd,27.5,"2,926",0.78,1,26,27.50,1.06,15.45,1.03
+SRF,SRF,SRF Ltd,47.6,"85,213",0.31,-4,14,Negative Growth,3.40,Negative Growth+Yield,3.33
+NDGL,NDGL,Naga Dhunseri Group Ltd,,277,0.09,N/A,N/A,N/A,N/A,N/A,N/A
+CARTRADE,CARTRADE,Cartrade Tech Ltd,108,"12,963",0.00,55,9,1.96,12.00,1.96,12.00
+ETHOSLTD,ETHOSLTD,Ethos Ltd,74.1,"7,126",0.00,17,84,4.36,0.88,4.36,0.88
+GLAXO,GLAXO,Glaxosmithkline Pharmaceuticals Ltd,45.8,"41,586",2.32,16,14,2.86,3.27,2.50,2.81
+MPHASIS,MPHASIS,Mphasis Ltd,32.0,"45,699",2.59,0,5,Zero Growth,6.40,12.36,4.22
+NBIFIN,NBIFIN,NBI Industrial Finance Company Ltd,50.6,629,0.02,33,51,1.53,0.99,1.53,0.99
+GODREJPROP,GODREJPROP,Godrej Properties Ltd,446,"63,321",0.48,-37,49,Negative Growth,9.10,Negative Growth+Yield,9.01
+MPSLTD,MPSLTD,MPS Ltd,27.2,"3,587",3.96,15,17,1.81,1.60,1.43,1.30
+COROMANDEL,COROMANDEL,Coromandel International Ltd,29.5,"60,015",0.54,0,9,Zero Growth,3.28,54.63,3.09
+JUBLCPL,JUBLCPL,Jubilant Agri & Consumer Products Ltd,23.3,"3,034",0.00,N/A,N/A,N/A,N/A,N/A,N/A
+ECLERX,ECLERX,eClerx Services Ltd,40.6,"18,620",0.03,7,16,5.80,2.54,5.78,2.53
+MASTEK,MASTEK,Mastek Ltd,23.8,"5,495",1.30,40,68,0.59,0.35,0.58,0.34
+PRESTIGE,PRESTIGE,Prestige Estates Projects Ltd,398,"72,923",0.11,-17,-8,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield
+POLYMED,POLYMED,Poly Medicure Ltd,49.9,"17,033",0.21,26,22,1.92,2.27,1.90,2.25
+BHARTIHEXA,BHARTIHEXA,Bharti Hexacom Ltd,45.6,"80,275",1.12,47,35,0.97,1.30,0.95,1.26
+NPST,NPST,Network People Services Technologies Ltd,80.3,"3,296",0.13,84,107,0.96,0.75,0.95,0.75
+TECHM,TECHM,Tech Mahindra Ltd,38.6,"1,54,153",3.24,2,-1,19.30,Negative Growth,7.37,17.23
+JLHL,JLHL,Jupiter Life Line Hospitals Ltd,55.7,"10,182",0.06,19,62,2.93,0.90,2.92,0.90
+COFORGE,COFORGE,Coforge Ltd,43.8,"66,775",1.01,25,45,1.75,0.97,1.68,0.95
