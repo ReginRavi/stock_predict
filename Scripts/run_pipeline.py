@@ -584,7 +584,7 @@ def main():
                 
                 if commit_rc == 0:
                     print("🚀 Pushing changes to remote repository...")
-                    push_rc = run_cmd(["git", "push"], cwd=str(repo_root))
+                    push_rc = run_cmd(["git", "push", "-u", "origin", "main"], cwd=str(repo_root))
                     if push_rc != 0:
                         print("⚠️ Warning: 'git push' failed. Check if remote upstream repository is configured.")
                 else:
