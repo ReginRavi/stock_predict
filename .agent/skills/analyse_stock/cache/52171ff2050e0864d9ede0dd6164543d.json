@@ -1,0 +1,20 @@
+{
+  "company": "20 Microns Ltd",
+  "fundamental_ratios": {
+    "Market Cap": "725",
+    "Current Price": "205",
+    "High / Low": "284",
+    "Stock P/E": "12.1",
+    "Book Value": "122",
+    "Dividend Yield": "0.61",
+    "ROCE": "17.8",
+    "ROE": "14.7",
+    "Face Value": "5.00"
+  },
+  "pros": [
+    "Company has delivered good profit growth of 21.3% CAGR over last 5 years"
+  ],
+  "cons": [],
+  "timestamp": 1784296177.23103,
+  "source": "screener.in"
+}

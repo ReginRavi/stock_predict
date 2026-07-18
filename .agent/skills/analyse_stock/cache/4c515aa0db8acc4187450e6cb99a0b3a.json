@@ -1,0 +1,28 @@
+{
+  "company": "PDS Ltd",
+  "fundamental_ratios": {
+    "Market Cap": "5,105",
+    "Current Price": "362",
+    "High / Low": "419",
+    "Stock P/E": "185",
+    "Book Value": "49.4",
+    "Dividend Yield": "0.91",
+    "ROCE": "4.71",
+    "ROE": "3.92",
+    "Face Value": "2.00"
+  },
+  "pros": [
+    "Company is almost debt free.",
+    "Company has been maintaining a healthy dividend payout of 52.7%",
+    "Company's median sales growth is 23.6% of last 10 years"
+  ],
+  "cons": [
+    "Stock is trading at 7.33 times its book value",
+    "Tax rate seems low",
+    "Company has a low return on equity of 12.4% over last 3 years.",
+    "Earnings include an other income of Rs.58.7 Cr.",
+    "Promoter holding has decreased over last 3 years: -4.93%"
+  ],
+  "timestamp": 1784296178.555573,
+  "source": "screener.in"
+}

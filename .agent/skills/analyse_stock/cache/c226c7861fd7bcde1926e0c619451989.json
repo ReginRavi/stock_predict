@@ -1,0 +1,29 @@
+{
+  "company": "Oricon Enterprises Ltd",
+  "fundamental_ratios": {
+    "Market Cap": "952",
+    "Current Price": "60.0",
+    "High / Low": "73.1",
+    "Stock P/E": "130",
+    "Book Value": "61.6",
+    "Dividend Yield": "0.83",
+    "ROCE": "1.36",
+    "ROE": "0.71",
+    "Face Value": "2.00"
+  },
+  "pros": [
+    "Company has reduced debt.",
+    "Company is almost debt free.",
+    "Stock is trading at 0.97 times its book value",
+    "Company has been maintaining a healthy dividend payout of 35.9%"
+  ],
+  "cons": [
+    "The company has delivered a poor sales growth of -46.7% over past five years.",
+    "Company has a low return on equity of 4.57% over last 3 years.",
+    "Earnings include an other income of Rs.53.0 Cr.",
+    "Company has high debtors of 398 days.",
+    "Working capital days have increased from 2,113 days to 4,186 days"
+  ],
+  "timestamp": 1784296193.078109,
+  "source": "screener.in"
+}

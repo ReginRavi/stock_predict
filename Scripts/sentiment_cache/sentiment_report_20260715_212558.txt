@@ -1,0 +1,19 @@
+MARKET SENTIMENT ANALYSIS REPORT
+==================================================
+
+Generated: 2026-07-15T21:25:58.820335
+
+OVERALL MARKET SENTIMENT:
+  Sentiment: POSITIVE
+  Score: 0.4
+  Articles Analyzed: 5
+
+SYMBOL-SPECIFIC SENTIMENT:
+  HDFCBANK: POSITIVE (Score: 0.575)
+  RELIANCE: POSITIVE (Score: 0.575)
+
+MARKET INSIGHTS:
+  • Market sentiment is strongly positive with bullish momentum
+  • News coverage is predominantly positive
+  • Positive sentiment detected for: HDFCBANK, RELIANCE
+  • Current conditions favor equity investments with proper risk management

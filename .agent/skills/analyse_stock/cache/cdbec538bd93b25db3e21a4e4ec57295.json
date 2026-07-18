@@ -1,0 +1,24 @@
+{
+  "company": "Manba Finance Ltd",
+  "fundamental_ratios": {
+    "Market Cap": "686",
+    "Current Price": "137",
+    "High / Low": "155",
+    "Stock P/E": "15.1",
+    "Book Value": "81.6",
+    "Dividend Yield": "0.55",
+    "ROCE": "12.5",
+    "ROE": "11.6",
+    "Face Value": "10.0"
+  },
+  "pros": [
+    "Company is expected to give good quarter",
+    "Company has delivered good profit growth of 29.0% CAGR over last 5 years"
+  ],
+  "cons": [
+    "Company has low interest coverage ratio.",
+    "Company has a low return on equity of 13.3% over last 3 years."
+  ],
+  "timestamp": 1784296179.851834,
+  "source": "screener.in"
+}

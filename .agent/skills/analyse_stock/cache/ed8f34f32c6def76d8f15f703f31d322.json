@@ -1,0 +1,26 @@
+{
+  "company": "Anant Raj Ltd",
+  "fundamental_ratios": {
+    "Market Cap": "21,312",
+    "Current Price": "592",
+    "High / Low": "744",
+    "Stock P/E": "71.4",
+    "Book Value": "141",
+    "Dividend Yield": "0.17",
+    "ROCE": "7.88",
+    "ROE": "6.81",
+    "Face Value": "2.00"
+  },
+  "pros": [
+    "Company has reduced debt.",
+    "Company is almost debt free.",
+    "Company has delivered good profit growth of 71.5% CAGR over last 5 years"
+  ],
+  "cons": [
+    "Stock is trading at 4.21 times its book value",
+    "Company has a low return on equity of 5.88% over last 3 years.",
+    "Promoter holding has decreased over last 3 years: -5.81%"
+  ],
+  "timestamp": 1784296181.1338801,
+  "source": "screener.in"
+}

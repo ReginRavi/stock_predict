@@ -1,0 +1,26 @@
+{
+  "company": "FDC Ltd",
+  "fundamental_ratios": {
+    "Market Cap": "6,906",
+    "Current Price": "424",
+    "High / Low": "528",
+    "Stock P/E": "22.9",
+    "Book Value": "153",
+    "Dividend Yield": "1.18",
+    "ROCE": "16.8",
+    "ROE": "12.6",
+    "Face Value": "1.00"
+  },
+  "pros": [
+    "Company has reduced debt.",
+    "Company is almost debt free.",
+    "Company has been maintaining a healthy dividend payout of 19.4%"
+  ],
+  "cons": [
+    "The company has delivered a poor sales growth of 9.95% over past five years.",
+    "Company has a low return on equity of 13.0% over last 3 years.",
+    "Working capital days have increased from 69.5 days to 123 days"
+  ],
+  "timestamp": 1784131855.763628,
+  "source": "screener.in"
+}

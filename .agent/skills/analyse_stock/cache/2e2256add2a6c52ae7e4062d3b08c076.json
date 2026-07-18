@@ -1,0 +1,24 @@
+{
+  "company": "Life Insurance Corporation of India",
+  "fundamental_ratios": {
+    "Market Cap": "5,47,684",
+    "Current Price": "433",
+    "High / Low": "468",
+    "Stock P/E": "9.54",
+    "Book Value": "139",
+    "Dividend Yield": "2.31",
+    "ROCE": "35.3",
+    "ROE": "38.1",
+    "Face Value": "10.0"
+  },
+  "pros": [
+    "Company is almost debt free.",
+    "Company has a good return on equity (ROE) track record: 3 Years ROE 45.9%"
+  ],
+  "cons": [
+    "The company has delivered a poor sales growth of 7.45% over past five years.",
+    "Tax rate seems low"
+  ],
+  "timestamp": 1784296174.361828,
+  "source": "screener.in"
+}

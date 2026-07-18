@@ -1,0 +1,23 @@
+{
+  "company": "Ganesh Housing Ltd",
+  "fundamental_ratios": {
+    "Market Cap": "6,864",
+    "Current Price": "823",
+    "High / Low": "994",
+    "Stock P/E": "192",
+    "Book Value": "180",
+    "Dividend Yield": "0.18",
+    "ROCE": "3.26",
+    "ROE": "2.38",
+    "Face Value": "10.0"
+  },
+  "pros": [
+    "Company has been maintaining a healthy dividend payout of 26.6%"
+  ],
+  "cons": [
+    "Company has high debtors of 344 days.",
+    "Working capital days have increased from 401 days to 874 days"
+  ],
+  "timestamp": 1784296175.6842098,
+  "source": "screener.in"
+}
