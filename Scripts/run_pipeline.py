@@ -62,8 +62,8 @@ def main():
         print(f"❌ Error: get_pe_ratios.py failed with code {rc}")
         sys.exit(rc)
         
-    # 3. Convert generated CSV output to Markdown and save
-    csv_path = Path(args.output_csv) if args.output_csv else (scripts_dir / "output" / f"peg_ratios_{date.today().isoformat()}.csv")
+    repo_root = scripts_dir.parent
+    csv_path = Path(args.output_csv) if args.output_csv else (repo_root / "output" / f"peg_ratios_{date.today().isoformat()}.csv")
     md_path = csv_path.with_suffix(".md")
     
     print("\n" + "=" * 60)
