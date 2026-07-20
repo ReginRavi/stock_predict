@@ -305,10 +305,12 @@ def main():
             margin-bottom: 1.5rem;
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
         }}
         
         .search-input {{
             flex: 1;
+            min-width: 250px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             color: var(--text-main);
@@ -324,11 +326,28 @@ def main():
             box-shadow: 0 0 0 3px var(--primary-glow);
         }}
         
+        .sort-select {{
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }}
+        
+        .sort-select:focus {{
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }}
+        
         .table-container {{
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            overflow: hidden;
+            overflow-x: auto;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             margin-bottom: 2.5rem;
         }}
@@ -353,10 +372,25 @@ def main():
             letter-spacing: 0.05em;
             cursor: pointer;
             user-select: none;
+            transition: color 0.2s ease, background-color 0.2s ease;
         }}
         
         th:hover {{
             color: var(--text-main);
+            background-color: rgba(59, 130, 246, 0.1);
+        }}
+
+        th .sort-icon {{
+            display: inline-block;
+            margin-left: 0.35rem;
+            opacity: 0.4;
+            font-size: 0.75rem;
+            transition: opacity 0.2s ease;
+        }}
+
+        th.sorted-asc .sort-icon, th.sorted-desc .sort-icon {{
+            opacity: 1;
+            color: var(--primary);
         }}
         
         tr:last-child td {{
@@ -441,20 +475,31 @@ def main():
         
         <div class="search-container">
             <input type="text" id="searchInput" class="search-input" placeholder="Search by company name or ticker..." onkeyup="filterTable()">
+            <select id="sortSelect" class="sort-select" onchange="handleSortSelect(this.value)">
+                <option value="">Sort By: Default</option>
+                <option value="name-asc">Company Name (A-Z)</option>
+                <option value="pe-asc">Stock P/E (Low to High)</option>
+                <option value="pe-desc">Stock P/E (High to Low)</option>
+                <option value="growth-desc">3Y Profit Growth (High to Low)</option>
+                <option value="peg-asc">PEG Ratio 3Y (Low to High)</option>
+                <option value="pegy-asc">PEGY Ratio 3Y (Low to High)</option>
+                <option value="mcap-desc">Market Cap (High to Low)</option>
+                <option value="rec-desc">Recommendation (Strong Buy First)</option>
+            </select>
         </div>
         
         <div class="table-container">
             <table id="stockTable">
                 <thead>
                     <tr>
-                        <th onclick="sortTable(0)">Company Name</th>
-                        <th onclick="sortTable(1)">Stock P/E</th>
-                        <th onclick="sortTable(2)">Div Yield (%)</th>
-                        <th onclick="sortTable(3)">3Y Growth (%)</th>
-                        <th onclick="sortTable(4)">PEG Ratio 3Y</th>
-                        <th onclick="sortTable(5)">PEGY Ratio 3Y</th>
-                        <th onclick="sortTable(6)">Market Cap (Cr)</th>
-                        <th>Recommendation</th>
+                        <th onclick="sortTable(0)">Company Name <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(1)">Stock P/E <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(2)">Div Yield (%) <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(3)">3Y Growth (%) <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(4)">PEG Ratio 3Y <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(5)">PEGY Ratio 3Y <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(6)">Market Cap (Cr) <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(7)">Recommendation <span class="sort-icon">↕</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -484,67 +529,94 @@ def main():
             }}
         }}
         
-        function sortTable(n) {{
+        let currentSortCol = -1;
+        let currentSortDir = 'asc';
+
+        const recPriority = {{
+            'STRONG BUY': 4,
+            'BUY': 3,
+            'HOLD': 2,
+            'NEUTRAL': 1,
+            'SELL': 0
+        }};
+
+        function parseCellVal(val, colIndex) {{
+            if (!val) return null;
+            let clean = val.trim();
+            if (clean === 'N/A' || clean === '' || clean.includes('Negative')) return null;
+            if (colIndex === 7) {{
+                return recPriority[clean.toUpperCase()] !== undefined ? recPriority[clean.toUpperCase()] : -1;
+            }}
+            let num = parseFloat(clean.replace(/,/g, ''));
+            return isNaN(num) ? clean.toLowerCase() : num;
+        }}
+
+        function sortTable(n, forceDir = null) {{
             const table = document.getElementById("stockTable");
-            let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-            switching = true;
-            dir = "asc";
-            
-            while (switching) {{
-                switching = false;
-                rows = table.rows;
-                
-                for (i = 1; i < (rows.length - 1); i++) {{
-                    shouldSwitch = false;
-                    x = rows[i].getElementsByTagName("TD")[n];
-                    y = rows[i + 1].getElementsByTagName("TD")[n];
-                    
-                    let xVal = x.textContent || x.innerText;
-                    let yVal = y.textContent || y.innerText;
-                    
-                    // Parse values as numbers if possible
-                    let xNum = parseFloat(xVal.replace(/,/g, ''));
-                    let yNum = parseFloat(yVal.replace(/,/g, ''));
-                    
-                    let isNum = !isNaN(xNum) && !isNaN(yNum);
-                    
-                    if (dir == "asc") {{
-                        if (isNum) {{
-                            if (xNum > yNum) {{
-                                shouldSwitch = true;
-                                break;
-                            }}
-                        }} else {{
-                            if (xVal.toLowerCase() > yVal.toLowerCase()) {{
-                                shouldSwitch = true;
-                                break;
-                            }}
-                        }}
-                    }} else if (dir == "desc") {{
-                        if (isNum) {{
-                            if (xNum < yNum) {{
-                                shouldSwitch = true;
-                                break;
-                            }}
-                        }} else {{
-                            if (xVal.toLowerCase() < yVal.toLowerCase()) {{
-                                shouldSwitch = true;
-                                break;
-                            }}
-                        }}
+            const tbody = table.querySelector("tbody");
+            const rows = Array.from(tbody.querySelectorAll("tr"));
+            const headers = table.querySelectorAll("th");
+
+            if (forceDir) {{
+                currentSortDir = forceDir;
+            }} else if (currentSortCol === n) {{
+                currentSortDir = currentSortDir === 'asc' ? 'desc' : 'asc';
+            }} else {{
+                currentSortDir = 'asc';
+            }}
+            currentSortCol = n;
+
+            headers.forEach((th, idx) => {{
+                th.classList.remove('sorted-asc', 'sorted-desc');
+                const icon = th.querySelector('.sort-icon');
+                if (icon) {{
+                    if (idx === n) {{
+                        icon.textContent = currentSortDir === 'asc' ? '▲' : '▼';
+                        th.classList.add(currentSortDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+                    }} else {{
+                        icon.textContent = '↕';
                     }}
                 }}
-                
-                if (shouldSwitch) {{
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                    switchcount++;
-                }} else {{
-                    if (switchcount == 0 && dir == "asc") {{
-                        dir = "desc";
-                        switching = true;
-                    }}
+            }});
+
+            rows.sort((a, b) => {{
+                const aCell = a.getElementsByTagName("td")[n];
+                const bCell = b.getElementsByTagName("td")[n];
+                const aVal = parseCellVal(aCell ? aCell.textContent : '', n);
+                const bVal = parseCellVal(bCell ? bCell.textContent : '', n);
+
+                if (aVal === null && bVal === null) return 0;
+                if (aVal === null) return 1;
+                if (bVal === null) return -1;
+
+                if (typeof aVal === 'number' && typeof bVal === 'number') {{
+                    return currentSortDir === 'asc' ? aVal - bVal : bVal - aVal;
                 }}
+                return currentSortDir === 'asc' 
+                    ? String(aVal).localeCompare(String(bVal)) 
+                    : String(bVal).localeCompare(String(aVal));
+            }});
+
+            rows.forEach(row => tbody.appendChild(row));
+        }}
+
+        function handleSortSelect(val) {{
+            if (!val) return;
+            const parts = val.split('-');
+            const type = parts[0];
+            const dir = parts[1];
+            const colMap = {{
+                'name': 0,
+                'pe': 1,
+                'div': 2,
+                'growth': 3,
+                'peg': 4,
+                'pegy': 5,
+                'mcap': 6,
+                'rec': 7
+            }};
+            if (colMap[type] !== undefined) {{
+                sortTable(colMap[type], dir);
             }}
         }}
     </script>
