@@ -2,7 +2,7 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import urlparse
 
-URL = "https://www.screener.in/screens/2375280/bearish-crossovers/"
+URL = "https://www.screener.in/screens/2703064/bearishcrossover2/"
 
 
 def extract_name(url: str) -> str:

@@ -6,7 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 
 #URL = "https://www.screener.in/screens/2375280/bearish-crossovers/"
-URL = "https://www.screener.in/screens/2703064/bearishcrossover2/?utm_source=email&utm_medium=alerts&utm_campaign=screen-results"
+URL = "https://www.screener.in/screens/2703064/bearishcrossover2/"
 
 
 def build_session() -> requests.Session:
