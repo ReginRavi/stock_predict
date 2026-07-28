@@ -1,9 +1,17 @@
+import sys
 from datetime import date
 from pathlib import Path
 from typing import List, Optional
 
 import requests
 from bs4 import BeautifulSoup
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 #URL = "https://www.screener.in/screens/2375280/bearish-crossovers/"
 URL = "https://www.screener.in/screens/2703064/bearishcrossover2/"

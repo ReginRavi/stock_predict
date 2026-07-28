@@ -17,6 +17,13 @@ from typing import List, Dict, Tuple, Optional
 import requests
 from bs4 import BeautifulSoup
 
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 def build_session() -> requests.Session:
     session = requests.Session()
     session.headers.update({
