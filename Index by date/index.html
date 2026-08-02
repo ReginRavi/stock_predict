@@ -269,8 +269,8 @@
                 <div class="card-value">91.25</div>
             </div>
             <div class="card">
-                <div class="card-title">Market Mood</div>
-                <div class="card-value" style="color: var(--success);">🟢 Bullish</div>
+                <div class="card-title">Average VLRT Score</div>
+                <div class="card-value" style="color: var(--primary);">6.1/10</div>
             </div>
         </div>
         
@@ -279,6 +279,7 @@
             <select id="sortSelect" class="sort-select" onchange="handleSortSelect(this.value)">
                 <option value="">Sort By: Default</option>
                 <option value="name-asc">Company Name (A-Z)</option>
+                <option value="vlrt-desc">VLRT Score (High to Low)</option>
                 <option value="pe-asc">Stock P/E (Low to High)</option>
                 <option value="pe-desc">Stock P/E (High to Low)</option>
                 <option value="growth-desc">3Y Profit Growth (High to Low)</option>
@@ -300,7 +301,8 @@
                         <th onclick="sortTable(4)">PEG Ratio 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(5)">PEGY Ratio 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(6)">Market Cap (Cr) <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(7)">Recommendation <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(7)">VLRT Score <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(8)">Recommendation <span class="sort-icon">↕</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -312,6 +314,7 @@
                         <td>2.28</td>
                         <td>2.21</td>
                         <td>76,227</td>
+                        <td><span class="badge badge-warning" title="Breakdown: V:2.0 L:10.0 R:8.4 T:6.0">⚡ 6.6/10</span></td>
                         <td><span class="badge badge-danger">SELL</span></td>
                     </tr>
                     <tr>
@@ -322,6 +325,7 @@
                         <td>0.34</td>
                         <td>0.34</td>
                         <td>9,780</td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:8.8 R:8.4 T:6.0">⚡ 8.3/10</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
                     <tr>
@@ -332,6 +336,7 @@
                         <td>0.57</td>
                         <td>0.57</td>
                         <td>754</td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:5.6 R:8.4 T:10.0">⚡ 8.5/10</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
                     <tr>
@@ -342,6 +347,7 @@
                         <td>N/A</td>
                         <td>N/A</td>
                         <td>573</td>
+                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:5.6 R:4.0 T:4.0">⚡ 4.4/10</span></td>
                         <td><span class="badge badge-neutral">NEUTRAL</span></td>
                     </tr>
                     <tr>
@@ -352,6 +358,7 @@
                         <td>N/A</td>
                         <td>N/A</td>
                         <td>221</td>
+                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:4.0 R:4.0 T:3.2">⚡ 3.8/10</span></td>
                         <td><span class="badge badge-danger">SELL</span></td>
                     </tr>
                     <tr>
@@ -362,6 +369,7 @@
                         <td>3.52</td>
                         <td>3.52</td>
                         <td>12,334</td>
+                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:8.8 R:8.4 T:3.2">⚡ 5.6/10</span></td>
                         <td><span class="badge badge-danger">SELL</span></td>
                     </tr>
                     <tr>
@@ -372,6 +380,7 @@
                         <td>10.50</td>
                         <td>10.28</td>
                         <td>4,292</td>
+                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:7.2 R:6.4 T:6.0">⚡ 5.4/10</span></td>
                         <td><span class="badge badge-danger">SELL</span></td>
                     </tr>
                 </tbody>
@@ -414,10 +423,10 @@
             if (!val) return null;
             let clean = val.trim();
             if (clean === 'N/A' || clean === '' || clean.includes('Negative')) return null;
-            if (colIndex === 7) {
+            if (colIndex === 8) {
                 return recPriority[clean.toUpperCase()] !== undefined ? recPriority[clean.toUpperCase()] : -1;
             }
-            let num = parseFloat(clean.replace(/,/g, ''));
+            let num = parseFloat(clean.replace(/,/g, '').replace(/⚡/g, '').replace(/\/10/g, ''));
             return isNaN(num) ? clean.toLowerCase() : num;
         }
 
@@ -483,7 +492,8 @@
                 'peg': 4,
                 'pegy': 5,
                 'mcap': 6,
-                'rec': 7
+                'vlrt': 7,
+                'rec': 8
             };
             if (colMap[type] !== undefined) {
                 sortTable(colMap[type], dir);
