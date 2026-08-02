@@ -97,15 +97,22 @@ def main():
                 rows = list(reader)
             
             if rows:
-                headers = ["Company Name", "Stock P/E", "Dividend Yield (%)", "Profit Growth 3Y (%)", "PEG Ratio 3Y", "PEGY Ratio 3Y", "Market Cap (Cr)"]
+                headers = ["Company Name", "Stock P/E", "Dividend Yield (%)", "Profit Growth 3Y (%)", "PEG Ratio 3Y", "PEGY Ratio 3Y", "Market Cap (Cr)", "VLRT Score"]
                 
                 md_lines = []
                 md_lines.append(f"# Stock Analysis Report - {date.today().isoformat()}")
-                md_lines.append(f"\nGenerated automatically by the stock analysis pipeline.")
+                md_lines.append(f"\nGenerated automatically by the stock analysis pipeline with Quant VLRT Analysis.")
                 md_lines.append(f"\n| {' | '.join(headers)} |")
                 md_lines.append(f"| {' | '.join(['---'] * len(headers))} |")
                 
                 for r in rows:
+                    vlrt_val = r.get("VLRT Score", "")
+                    if not vlrt_val or vlrt_val == "N/A":
+                        # Compute fallback if missing
+                        from get_pe_ratios import compute_vlrt_score
+                        v_res = compute_vlrt_score(r.get("PEG Ratio 3Y", ""), r.get("PEGY Ratio 3Y", ""), r.get("Market Cap (Cr)", ""), r.get("Profit Growth 3Y (%)", ""), r.get("Dividend Yield (%)", ""), r.get("Stock P/E", ""))
+                        vlrt_val = str(v_res["score"])
+
                     row_vals = [
                         r.get("Company Name", ""),
                         r.get("Stock P/E", ""),
@@ -113,7 +120,8 @@ def main():
                         r.get("Profit Growth 3Y (%)", ""),
                         r.get("PEG Ratio 3Y", ""),
                         r.get("PEGY Ratio 3Y", ""),
-                        r.get("Market Cap (Cr)", "")
+                        r.get("Market Cap (Cr)", ""),
+                        f"{vlrt_val}/10"
                     ]
                     md_lines.append(f"| {' | '.join(row_vals)} |")
                 
@@ -128,14 +136,22 @@ def main():
                 
                 # Compute stats
                 valid_pes = []
+                vlrt_scores = []
                 for r in rows:
                     try:
                         pe_val = float(r.get("Stock P/E", "").replace(",", "").strip())
                         valid_pes.append(pe_val)
                     except ValueError:
                         pass
+
+                    try:
+                        v_val = float(r.get("VLRT Score", "").strip())
+                        vlrt_scores.append(v_val)
+                    except ValueError:
+                        pass
                 
                 avg_pe = f"{sum(valid_pes) / len(valid_pes):.2f}" if valid_pes else "N/A"
+                avg_vlrt = f"{sum(vlrt_scores) / len(vlrt_scores):.1f}/10" if vlrt_scores else "N/A"
                 
                 # Find top pick by min PEG Ratio 3Y
                 min_peg = float('inf')
@@ -163,6 +179,24 @@ def main():
                     pegy = r.get("PEGY Ratio 3Y", "")
                     mcap = r.get("Market Cap (Cr)", "")
                     
+                    # Compute VLRT
+                    vlrt_score_str = r.get("VLRT Score", "")
+                    vlrt_breakdown = r.get("VLRT Breakdown", "")
+                    if not vlrt_score_str or vlrt_score_str == "N/A":
+                        from get_pe_ratios import compute_vlrt_score
+                        v_res = compute_vlrt_score(peg, pegy, mcap, growth, div_yield, pe)
+                        vlrt_score_val = v_res["score"]
+                        vlrt_badge_cls = v_res["badge_class"]
+                        vlrt_breakdown = v_res["breakdown"]
+                    else:
+                        vlrt_score_val = float(vlrt_score_str)
+                        if vlrt_score_val >= 8.0:
+                            vlrt_badge_cls = "badge-success"
+                        elif vlrt_score_val >= 6.0:
+                            vlrt_badge_cls = "badge-warning"
+                        else:
+                            vlrt_badge_cls = "badge-danger"
+
                     # Determine recommendation and badge
                     rec_str = "HOLD"
                     badge_class = "badge-warning"
@@ -183,7 +217,6 @@ def main():
                             rec_str = "SELL"
                             badge_class = "badge-danger"
                     except ValueError:
-                        # Non-numeric PEG (e.g. Negative Growth or N/A)
                         if "Negative" in peg or "Negative" in pegy:
                             rec_str = "SELL"
                             badge_class = "badge-danger"
@@ -191,7 +224,6 @@ def main():
                             rec_str = "NEUTRAL"
                             badge_class = "badge-neutral"
                     
-                    # Treat outlier PE values as SELL
                     try:
                         pe_f = float(pe.replace(",", "").strip())
                         if pe_f > 100:
@@ -208,6 +240,7 @@ def main():
                         <td>{peg}</td>
                         <td>{pegy}</td>
                         <td>{mcap}</td>
+                        <td><span class="badge {vlrt_badge_cls}" title="Breakdown: {vlrt_breakdown}">⚡ {vlrt_score_val}/10</span></td>
                         <td><span class="badge {badge_class}">{rec_str}</span></td>
                     </tr>"""
                     table_rows_html.append(row_html)
@@ -486,8 +519,8 @@ def main():
                 <div class="card-value">{avg_pe}</div>
             </div>
             <div class="card">
-                <div class="card-title">Market Mood</div>
-                <div class="card-value" style="color: var(--success);">🟢 Bullish</div>
+                <div class="card-title">Average VLRT Score</div>
+                <div class="card-value" style="color: var(--primary);">{avg_vlrt}</div>
             </div>
         </div>
         
@@ -496,6 +529,7 @@ def main():
             <select id="sortSelect" class="sort-select" onchange="handleSortSelect(this.value)">
                 <option value="">Sort By: Default</option>
                 <option value="name-asc">Company Name (A-Z)</option>
+                <option value="vlrt-desc">VLRT Score (High to Low)</option>
                 <option value="pe-asc">Stock P/E (Low to High)</option>
                 <option value="pe-desc">Stock P/E (High to Low)</option>
                 <option value="growth-desc">3Y Profit Growth (High to Low)</option>
@@ -517,7 +551,8 @@ def main():
                         <th onclick="sortTable(4)">PEG Ratio 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(5)">PEGY Ratio 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(6)">Market Cap (Cr) <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(7)">Recommendation <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(7)">VLRT Score <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(8)">Recommendation <span class="sort-icon">↕</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -562,10 +597,10 @@ def main():
             if (!val) return null;
             let clean = val.trim();
             if (clean === 'N/A' || clean === '' || clean.includes('Negative')) return null;
-            if (colIndex === 7) {{
+            if (colIndex === 8) {{
                 return recPriority[clean.toUpperCase()] !== undefined ? recPriority[clean.toUpperCase()] : -1;
             }}
-            let num = parseFloat(clean.replace(/,/g, ''));
+            let num = parseFloat(clean.replace(/,/g, '').replace(/⚡/g, '').replace(/\/10/g, ''));
             return isNaN(num) ? clean.toLowerCase() : num;
         }}
 
@@ -631,7 +666,8 @@ def main():
                 'peg': 4,
                 'pegy': 5,
                 'mcap': 6,
-                'rec': 7
+                'vlrt': 7,
+                'rec': 8
             }};
             if (colMap[type] !== undefined) {{
                 sortTable(colMap[type], dir);

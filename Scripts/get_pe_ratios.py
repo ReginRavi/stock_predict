@@ -93,6 +93,100 @@ def parse_profit_growth(soup: BeautifulSoup) -> Tuple[Optional[str], Optional[st
             break
     return growth_3y, growth_5y
 
+def compute_vlrt_score(peg_str: str, pegy_str: str, mcap_str: str, growth_str: str, div_str: str, pe_str: str) -> dict:
+    """
+    Computes Quant AMC's VLRT (Valuation, Liquidity, Risk Appetite, Timing) Score (0.0 to 10.0).
+    """
+    v_score = 1.0
+    try:
+        peg_val = float(peg_str.strip())
+        pegy_val = float(pegy_str.strip())
+        if peg_val < 0.6 and pegy_val < 0.6:
+            v_score = 2.5
+        elif peg_val < 1.0:
+            v_score = 2.1
+        elif peg_val <= 1.5:
+            v_score = 1.6
+        elif peg_val <= 2.0:
+            v_score = 1.1
+        else:
+            v_score = 0.5
+    except ValueError:
+        if "Negative" in peg_str or "Negative" in pegy_str:
+            v_score = 0.2
+        else:
+            v_score = 1.0
+
+    l_score = 1.0
+    try:
+        mcap_val = float(mcap_str.replace(",", "").strip())
+        if mcap_val >= 20000:
+            l_score = 2.5
+        elif mcap_val >= 5000:
+            l_score = 2.2
+        elif mcap_val >= 1000:
+            l_score = 1.8
+        elif mcap_val >= 500:
+            l_score = 1.4
+        else:
+            l_score = 1.0
+    except ValueError:
+        l_score = 1.0
+
+    r_score = 1.0
+    try:
+        g_val = float(growth_str.replace("%", "").strip())
+        d_val = float(div_str.replace("%", "").strip())
+        if g_val > 25 and d_val > 0.5:
+            r_score = 2.5
+        elif g_val > 15:
+            r_score = 2.1
+        elif g_val > 0:
+            r_score = 1.6
+        elif g_val == 0:
+            r_score = 1.1
+        else:
+            r_score = 0.5
+    except ValueError:
+        r_score = 1.0
+
+    t_score = 1.0
+    try:
+        pe_val = float(pe_str.replace(",", "").strip())
+        if pe_val < 25 and v_score >= 1.6:
+            t_score = 2.5
+        elif pe_val < 50 and v_score >= 1.5:
+            t_score = 2.1
+        elif pe_val < 100:
+            t_score = 1.5
+        else:
+            t_score = 0.8
+    except ValueError:
+        t_score = 1.0
+
+    total_score = round(v_score + l_score + r_score + t_score, 1)
+    
+    if total_score >= 8.0:
+        status = "Strong"
+        badge_class = "badge-success"
+    elif total_score >= 6.0:
+        status = "Moderate"
+        badge_class = "badge-warning"
+    else:
+        status = "Weak"
+        badge_class = "badge-danger"
+
+    return {
+        "score": total_score,
+        "v": round(v_score * 4, 1),
+        "l": round(l_score * 4, 1),
+        "r": round(r_score * 4, 1),
+        "t": round(t_score * 4, 1),
+        "status": status,
+        "badge_class": badge_class,
+        "breakdown": f"V:{round(v_score*4,1)} L:{round(l_score*4,1)} R:{round(r_score*4,1)} T:{round(t_score*4,1)}"
+    }
+
 def fetch_company_metrics(session: requests.Session, slug: str) -> Dict[str, str]:
     """Fetch company details, P/E, Market Cap, Growth, Dividend Yield, and calculate PEG & PEGY ratios."""
     url = f"https://www.screener.in/company/{slug}/"
@@ -252,7 +346,9 @@ def main():
                 "PEG Ratio 3Y": "N/A",
                 "PEG Ratio 5Y": "N/A",
                 "PEGY Ratio 3Y": "N/A",
-                "PEGY Ratio 5Y": "N/A"
+                "PEGY Ratio 5Y": "N/A",
+                "VLRT Score": "N/A",
+                "VLRT Breakdown": "N/A"
             })
             continue
             
@@ -260,7 +356,8 @@ def main():
         metrics = fetch_company_metrics(session, slug)
         
         if metrics["pe"] != "N/A":
-            print(f" ✅ P/E: {metrics['pe']} | PEG 3Y: {metrics['peg_3y']} | PEGY 3Y: {metrics['pegy_3y']}")
+            vlrt = compute_vlrt_score(metrics['peg_3y'], metrics['pegy_3y'], metrics['mcap'], metrics['growth_3y'], metrics['div_yield'], metrics['pe'])
+            print(f" ✅ P/E: {metrics['pe']} | PEG 3Y: {metrics['peg_3y']} | VLRT: {vlrt['score']}/10")
             results.append({
                 "Company Name": name,
                 "Screener Slug": slug,
@@ -273,7 +370,9 @@ def main():
                 "PEG Ratio 3Y": metrics["peg_3y"],
                 "PEG Ratio 5Y": metrics["peg_5y"],
                 "PEGY Ratio 3Y": metrics["pegy_3y"],
-                "PEGY Ratio 5Y": metrics["pegy_5y"]
+                "PEGY Ratio 5Y": metrics["pegy_5y"],
+                "VLRT Score": str(vlrt["score"]),
+                "VLRT Breakdown": vlrt["breakdown"]
             })
         else:
             print(" ❌ Detail Fetch Failed")
@@ -289,7 +388,9 @@ def main():
                 "PEG Ratio 3Y": "N/A",
                 "PEG Ratio 5Y": "N/A",
                 "PEGY Ratio 3Y": "N/A",
-                "PEGY Ratio 5Y": "N/A"
+                "PEGY Ratio 5Y": "N/A",
+                "VLRT Score": "N/A",
+                "VLRT Breakdown": "N/A"
             })
             
     # Write CSV output
@@ -297,7 +398,8 @@ def main():
     fieldnames = [
         "Company Name", "Screener Slug", "Company Full Name", "Stock P/E", 
         "Market Cap (Cr)", "Dividend Yield (%)", "Profit Growth 3Y (%)", 
-        "Profit Growth 5Y (%)", "PEG Ratio 3Y", "PEG Ratio 5Y", "PEGY Ratio 3Y", "PEGY Ratio 5Y"
+        "Profit Growth 5Y (%)", "PEG Ratio 3Y", "PEG Ratio 5Y", "PEGY Ratio 3Y", "PEGY Ratio 5Y",
+        "VLRT Score", "VLRT Breakdown"
     ]
     
     try:
