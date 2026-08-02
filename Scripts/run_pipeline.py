@@ -97,21 +97,26 @@ def main():
                 rows = list(reader)
             
             if rows:
-                headers = ["Company Name", "Stock P/E", "Dividend Yield (%)", "Profit Growth 3Y (%)", "PEG Ratio 3Y", "PEGY Ratio 3Y", "Market Cap (Cr)", "VLRT Score"]
+                headers = ["Company Name", "Stock P/E", "Dividend Yield (%)", "Profit Growth 3Y (%)", "PEG Ratio 3Y", "PEGY Ratio 3Y", "Market Cap (Cr)", "VLRT Score", "S-Curve Stage"]
                 
                 md_lines = []
                 md_lines.append(f"# Stock Analysis Report - {date.today().isoformat()}")
-                md_lines.append(f"\nGenerated automatically by the stock analysis pipeline with Quant VLRT Analysis.")
+                md_lines.append(f"\nGenerated automatically by the stock analysis pipeline with Quant VLRT & S-Curve Analysis.")
                 md_lines.append(f"\n| {' | '.join(headers)} |")
                 md_lines.append(f"| {' | '.join(['---'] * len(headers))} |")
                 
                 for r in rows:
                     vlrt_val = r.get("VLRT Score", "")
                     if not vlrt_val or vlrt_val == "N/A":
-                        # Compute fallback if missing
                         from get_pe_ratios import compute_vlrt_score
                         v_res = compute_vlrt_score(r.get("PEG Ratio 3Y", ""), r.get("PEGY Ratio 3Y", ""), r.get("Market Cap (Cr)", ""), r.get("Profit Growth 3Y (%)", ""), r.get("Dividend Yield (%)", ""), r.get("Stock P/E", ""))
                         vlrt_val = str(v_res["score"])
+
+                    scurve_badge = r.get("S-Curve Stage", "")
+                    if not scurve_badge or scurve_badge == "N/A":
+                        from get_pe_ratios import compute_s_curve_stage
+                        sc_res = compute_s_curve_stage(r.get("Profit Growth 3Y (%)", ""), r.get("PEG Ratio 3Y", ""), r.get("Stock P/E", ""))
+                        scurve_badge = sc_res["badge"]
 
                     row_vals = [
                         r.get("Company Name", ""),
@@ -121,7 +126,8 @@ def main():
                         r.get("PEG Ratio 3Y", ""),
                         r.get("PEGY Ratio 3Y", ""),
                         r.get("Market Cap (Cr)", ""),
-                        f"{vlrt_val}/10"
+                        f"{vlrt_val}/10",
+                        scurve_badge
                     ]
                     md_lines.append(f"| {' | '.join(row_vals)} |")
                 
@@ -197,6 +203,21 @@ def main():
                         else:
                             vlrt_badge_cls = "badge-danger"
 
+                    # Compute S-Curve
+                    scurve_badge = r.get("S-Curve Stage", "")
+                    if not scurve_badge or scurve_badge == "N/A":
+                        from get_pe_ratios import compute_s_curve_stage
+                        sc_res = compute_s_curve_stage(growth, peg, pe)
+                        scurve_badge = sc_res["badge"]
+                        scurve_cls = sc_res["badge_class"]
+                    else:
+                        if "Inflection" in scurve_badge or "Accelerating" in scurve_badge:
+                            scurve_cls = "badge-success"
+                        elif "Mature" in scurve_badge:
+                            scurve_cls = "badge-warning"
+                        else:
+                            scurve_cls = "badge-danger"
+
                     # Determine recommendation and badge
                     rec_str = "HOLD"
                     badge_class = "badge-warning"
@@ -241,6 +262,7 @@ def main():
                         <td>{pegy}</td>
                         <td>{mcap}</td>
                         <td><span class="badge {vlrt_badge_cls}" title="Breakdown: {vlrt_breakdown}">⚡ {vlrt_score_val}/10</span></td>
+                        <td><span class="badge {scurve_cls}">{scurve_badge}</span></td>
                         <td><span class="badge {badge_class}">{rec_str}</span></td>
                     </tr>"""
                     table_rows_html.append(row_html)
@@ -552,7 +574,8 @@ def main():
                         <th onclick="sortTable(5)">PEGY Ratio 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(6)">Market Cap (Cr) <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(7)">VLRT Score <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(8)">Recommendation <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(8)">S-Curve Stage <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(9)">Recommendation <span class="sort-icon">↕</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -597,7 +620,7 @@ def main():
             if (!val) return null;
             let clean = val.trim();
             if (clean === 'N/A' || clean === '' || clean.includes('Negative')) return null;
-            if (colIndex === 8) {{
+            if (colIndex === 9) {{
                 return recPriority[clean.toUpperCase()] !== undefined ? recPriority[clean.toUpperCase()] : -1;
             }}
             let num = parseFloat(clean.replace(/,/g, '').replace(/⚡/g, '').replace(/\/10/g, ''));
@@ -667,7 +690,8 @@ def main():
                 'pegy': 5,
                 'mcap': 6,
                 'vlrt': 7,
-                'rec': 8
+                'scurve': 8,
+                'rec': 9
             }};
             if (colMap[type] !== undefined) {{
                 sortTable(colMap[type], dir);

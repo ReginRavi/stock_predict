@@ -302,7 +302,8 @@
                         <th onclick="sortTable(5)">PEGY Ratio 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(6)">Market Cap (Cr) <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(7)">VLRT Score <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(8)">Recommendation <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(8)">S-Curve Stage <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(9)">Recommendation <span class="sort-icon">↕</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -315,6 +316,7 @@
                         <td>2.21</td>
                         <td>76,227</td>
                         <td><span class="badge badge-warning" title="Breakdown: V:2.0 L:10.0 R:8.4 T:6.0">⚡ 6.6/10</span></td>
+                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
                         <td><span class="badge badge-danger">SELL</span></td>
                     </tr>
                     <tr>
@@ -326,6 +328,7 @@
                         <td>0.34</td>
                         <td>9,780</td>
                         <td><span class="badge badge-success" title="Breakdown: V:10.0 L:8.8 R:8.4 T:6.0">⚡ 8.3/10</span></td>
+                        <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
                     <tr>
@@ -337,6 +340,7 @@
                         <td>0.57</td>
                         <td>754</td>
                         <td><span class="badge badge-success" title="Breakdown: V:10.0 L:5.6 R:8.4 T:10.0">⚡ 8.5/10</span></td>
+                        <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
                     <tr>
@@ -348,6 +352,7 @@
                         <td>N/A</td>
                         <td>573</td>
                         <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:5.6 R:4.0 T:4.0">⚡ 4.4/10</span></td>
+                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
                         <td><span class="badge badge-neutral">NEUTRAL</span></td>
                     </tr>
                     <tr>
@@ -359,6 +364,7 @@
                         <td>N/A</td>
                         <td>221</td>
                         <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:4.0 R:4.0 T:3.2">⚡ 3.8/10</span></td>
+                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
                         <td><span class="badge badge-danger">SELL</span></td>
                     </tr>
                     <tr>
@@ -370,6 +376,7 @@
                         <td>3.52</td>
                         <td>12,334</td>
                         <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:8.8 R:8.4 T:3.2">⚡ 5.6/10</span></td>
+                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
                         <td><span class="badge badge-danger">SELL</span></td>
                     </tr>
                     <tr>
@@ -381,6 +388,7 @@
                         <td>10.28</td>
                         <td>4,292</td>
                         <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:7.2 R:6.4 T:6.0">⚡ 5.4/10</span></td>
+                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
                         <td><span class="badge badge-danger">SELL</span></td>
                     </tr>
                 </tbody>
@@ -423,7 +431,7 @@
             if (!val) return null;
             let clean = val.trim();
             if (clean === 'N/A' || clean === '' || clean.includes('Negative')) return null;
-            if (colIndex === 8) {
+            if (colIndex === 9) {
                 return recPriority[clean.toUpperCase()] !== undefined ? recPriority[clean.toUpperCase()] : -1;
             }
             let num = parseFloat(clean.replace(/,/g, '').replace(/⚡/g, '').replace(/\/10/g, ''));
@@ -493,7 +501,8 @@
                 'pegy': 5,
                 'mcap': 6,
                 'vlrt': 7,
-                'rec': 8
+                'scurve': 8,
+                'rec': 9
             };
             if (colMap[type] !== undefined) {
                 sortTable(colMap[type], dir);

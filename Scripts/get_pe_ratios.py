@@ -93,6 +93,30 @@ def parse_profit_growth(soup: BeautifulSoup) -> Tuple[Optional[str], Optional[st
             break
     return growth_3y, growth_5y
 
+def compute_s_curve_stage(growth_str: str, peg_str: str, pe_str: str) -> dict:
+    """
+    Computes S-Curve Lifecycle Stage:
+    - Phase 2: Inflection (🚀 Inflection) -> Growth > 25%, PEG < 1.0
+    - Phase 2: Accelerating (📈 Accelerating) -> Growth > 15%, PEG < 1.5
+    - Phase 3: Mature (🛡️ Mature) -> Growth 5-15%
+    - Phase 1/4: Stagnant/Declining (⚠️ Stagnant / 🔻 Declining)
+    """
+    try:
+        g = float(growth_str.replace("%", "").strip())
+        peg = float(peg_str.strip())
+        if g >= 25.0 and peg < 1.0:
+            return {"stage": "Phase 2: Inflection", "badge": "🚀 Inflection", "badge_class": "badge-success"}
+        elif g >= 15.0 and peg < 1.5:
+            return {"stage": "Phase 2: Accelerating", "badge": "📈 Accelerating", "badge_class": "badge-success"}
+        elif g >= 5.0:
+            return {"stage": "Phase 3: Mature", "badge": "🛡️ Mature", "badge_class": "badge-warning"}
+        else:
+            return {"stage": "Phase 4: Stagnant", "badge": "⚠️ Stagnant", "badge_class": "badge-danger"}
+    except ValueError:
+        if "Negative" in growth_str or "Negative" in peg_str:
+            return {"stage": "Phase 4: Declining", "badge": "🔻 Declining", "badge_class": "badge-danger"}
+        return {"stage": "Phase 1: Incubation", "badge": "🔍 Discovery", "badge_class": "badge-neutral"}
+
 def compute_vlrt_score(peg_str: str, pegy_str: str, mcap_str: str, growth_str: str, div_str: str, pe_str: str) -> dict:
     """
     Computes Quant AMC's VLRT (Valuation, Liquidity, Risk Appetite, Timing) Score (0.0 to 10.0).
@@ -357,7 +381,8 @@ def main():
         
         if metrics["pe"] != "N/A":
             vlrt = compute_vlrt_score(metrics['peg_3y'], metrics['pegy_3y'], metrics['mcap'], metrics['growth_3y'], metrics['div_yield'], metrics['pe'])
-            print(f" ✅ P/E: {metrics['pe']} | PEG 3Y: {metrics['peg_3y']} | VLRT: {vlrt['score']}/10")
+            scurve = compute_s_curve_stage(metrics['growth_3y'], metrics['peg_3y'], metrics['pe'])
+            print(f" ✅ P/E: {metrics['pe']} | PEG 3Y: {metrics['peg_3y']} | VLRT: {vlrt['score']}/10 | S-Curve: {scurve['badge']}")
             results.append({
                 "Company Name": name,
                 "Screener Slug": slug,
@@ -372,7 +397,8 @@ def main():
                 "PEGY Ratio 3Y": metrics["pegy_3y"],
                 "PEGY Ratio 5Y": metrics["pegy_5y"],
                 "VLRT Score": str(vlrt["score"]),
-                "VLRT Breakdown": vlrt["breakdown"]
+                "VLRT Breakdown": vlrt["breakdown"],
+                "S-Curve Stage": scurve["badge"]
             })
         else:
             print(" ❌ Detail Fetch Failed")
@@ -390,7 +416,8 @@ def main():
                 "PEGY Ratio 3Y": "N/A",
                 "PEGY Ratio 5Y": "N/A",
                 "VLRT Score": "N/A",
-                "VLRT Breakdown": "N/A"
+                "VLRT Breakdown": "N/A",
+                "S-Curve Stage": "N/A"
             })
             
     # Write CSV output
@@ -399,7 +426,7 @@ def main():
         "Company Name", "Screener Slug", "Company Full Name", "Stock P/E", 
         "Market Cap (Cr)", "Dividend Yield (%)", "Profit Growth 3Y (%)", 
         "Profit Growth 5Y (%)", "PEG Ratio 3Y", "PEG Ratio 5Y", "PEGY Ratio 3Y", "PEGY Ratio 5Y",
-        "VLRT Score", "VLRT Breakdown"
+        "VLRT Score", "VLRT Breakdown", "S-Curve Stage"
     ]
     
     try:
