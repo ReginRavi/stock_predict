@@ -703,6 +703,16 @@ def main():
 """
                 html_path.write_text(html_template, encoding="utf-8")
                 print(f"💾 Saved HTML dashboard to: {html_path.resolve()}")
+
+                # Also save to "Index by date" folder with index_YYYY-MM-DD.html and index.html
+                index_by_date_dir = repo_root / "Index by date"
+                index_by_date_dir.mkdir(parents=True, exist_ok=True)
+                dated_html_path = index_by_date_dir / f"index_{date.today().isoformat()}.html"
+                dated_html_path.write_text(html_template, encoding="utf-8")
+                print(f"💾 Saved dated HTML dashboard to: {dated_html_path.resolve()}")
+
+                index_by_date_main = index_by_date_dir / "index.html"
+                index_by_date_main.write_text(html_template, encoding="utf-8")
             else:
                 print("⚠️ Warning: CSV file is empty, cannot generate Markdown or HTML report.")
         except Exception as e:
