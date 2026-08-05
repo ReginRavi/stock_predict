@@ -1,0 +1,13 @@
+Company Name,Screener Slug,Company Full Name,Stock P/E,Market Cap (Cr),Dividend Yield (%),Profit Growth 3Y (%),Profit Growth 5Y (%),PEG Ratio 3Y,PEG Ratio 5Y,PEGY Ratio 3Y,PEGY Ratio 5Y,VLRT Score,VLRT Breakdown,S-Curve Stage
+Automotive Axles,AUTOAXLES,Automotive Axles Ltd,17.4,"2,930",1.65,1,46,17.40,0.38,6.57,0.37,5.4,V:2.0 L:7.2 R:6.4 T:6.0,⚠️ Stagnant
+Uno Minda,UNOMINDA,Uno Minda Ltd,74.6,"72,295",0.21,29,53,2.57,1.41,2.55,1.40,6.6,V:2.0 L:10.0 R:8.4 T:6.0,🛡️ Mature
+Advance Agrolife,ADVANCE,Advance Agrolife Ltd,24.4,861,0.00,33,31,0.74,0.79,0.74,0.79,8.1,V:8.4 L:5.6 R:8.4 T:10.0,🚀 Inflection
+Ashok Leyland,ASHOKLEY,Ashok Leyland Ltd,27.8,"1,03,474",1.98,42,69,0.66,0.40,0.63,0.39,9.2,V:8.4 L:10.0 R:10.0 T:8.4,🚀 Inflection
+Worth Peripheral,WORTHPERI,Worth Peripherals Ltd,12.3,239,0.67,-1,7,Negative Growth,1.76,Negative Growth+Yield,1.60,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Laxmi India Fin.,LAXMIINDIA,Laxmi India Finance Ltd,14.1,701,0.00,46,37,0.31,0.38,0.31,0.38,8.5,V:10.0 L:5.6 R:8.4 T:10.0,🚀 Inflection
+Renaiss. Global,RGL,Renaissance Global Ltd,64.6,"1,339",0.00,0,0,Zero Growth,Zero Growth,Zero Growth+Yield,Zero Growth+Yield,5.4,V:4.0 L:7.2 R:4.4 T:6.0,🔍 Discovery
+Sikko Industries,SIKKO,Sikko Industries Ltd,46.0,235,0.00,21,14,2.19,3.29,2.19,3.29,5.1,V:2.0 L:4.0 R:8.4 T:6.0,🛡️ Mature
+T N Newsprint,TNPL,Tamil Nadu Newsprint & Papers Ltd,4.28,"1,061",1.95,-14,38,Negative Growth,0.11,Negative Growth+Yield,0.11,4.0,V:0.8 L:7.2 R:2.0 T:6.0,🔻 Declining
+Sudarshan Chem.,SUDARSCHEM,Sudarshan Chemical Industries Ltd,29.2,"8,647",0.46,111,18,0.26,1.62,0.26,1.58,8.9,V:10.0 L:8.8 R:8.4 T:8.4,🚀 Inflection
+Lakshmi Mills,LAKSHMIMIL,Lakshmi Mills Company Ltd,,559,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.4,V:4.0 L:5.6 R:4.0 T:4.0,🔍 Discovery
+VLS Finance,VLSFINANCE,VLS Finance Ltd,42.0,832,0.57,-28,-38,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.6,V:0.8 L:5.6 R:2.0 T:6.0,🔻 Declining
