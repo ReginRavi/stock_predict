@@ -24,45 +24,78 @@ def build_session() -> requests.Session:
 
 
 def fetch_stock_names(url: str, session: Optional[requests.Session] = None) -> List[str]:
-    """Fetch the table column labelled 'Name' and return all stocks listed there."""
+    """Fetch the table column labelled 'Name' across all pages of the screen and return all stocks listed there."""
     session = session or build_session()
-    response = session.get(url)
-    response.raise_for_status()
+    all_names: List[str] = []
+    page = 1
 
-    soup = BeautifulSoup(response.text, "html.parser")
-    name_header = next(
-        (th for th in soup.find_all("th") if th.get_text(strip=True) == "Name"),
-        None,
-    )
-    if not name_header:
-        raise RuntimeError("Could not find the 'Name' column header in the page.")
+    while True:
+        sep = "&" if "?" in url else "?"
+        page_url = f"{url}{sep}page={page}"
+        response = session.get(page_url)
+        if response.status_code != 200:
+            break
 
-    header_row = name_header.find_parent("tr")
-    headers = [th.get_text(strip=True) for th in header_row.find_all("th")]
-    try:
-        name_index = headers.index("Name")
-    except ValueError as exc:
-        raise RuntimeError("'Name' column not present in header row.") from exc
+        soup = BeautifulSoup(response.text, "html.parser")
+        name_header = next(
+            (th for th in soup.find_all("th") if th.get_text(strip=True) == "Name"),
+            None,
+        )
+        if not name_header:
+            if page == 1:
+                raise RuntimeError("Could not find the 'Name' column header in the page.")
+            break
 
-    table = name_header.find_parent("table")
-    if not table:
-        raise RuntimeError("Unable to locate the table containing the 'Name' column.")
+        header_row = name_header.find_parent("tr")
+        headers = [th.get_text(strip=True) for th in header_row.find_all("th")]
+        try:
+            name_index = headers.index("Name")
+        except ValueError as exc:
+            if page == 1:
+                raise RuntimeError("'Name' column not present in header row.") from exc
+            break
 
-    body = table.find("tbody") or table
-    names: List[str] = []
-    for row in body.find_all("tr"):
-        if row.find("th"):
-            continue
-        cells = row.find_all(["td", "th"])
-        if len(cells) <= name_index:
-            continue
-        cell_text = cells[name_index].get_text(strip=True)
-        if cell_text:
-            names.append(cell_text)
+        table = name_header.find_parent("table")
+        if not table:
+            if page == 1:
+                raise RuntimeError("Unable to locate the table containing the 'Name' column.")
+            break
 
-    if not names:
+        body = table.find("tbody") or table
+        page_names: List[str] = []
+        for row in body.find_all("tr"):
+            if row.find("th"):
+                continue
+            cells = row.find_all(["td", "th"])
+            if len(cells) <= name_index:
+                continue
+            cell_text = cells[name_index].get_text(strip=True)
+            if cell_text and cell_text != "Name":
+                page_names.append(cell_text)
+
+        if not page_names:
+            break
+
+        all_names.extend(page_names)
+
+        # Check if next page exists
+        has_next = False
+        pagination = soup.select_one(".pagination, ul.pagination, div.pagination")
+        if pagination:
+            next_btn = pagination.find(lambda el: "Next" in el.get_text())
+            if next_btn:
+                has_next = True
+        elif f"page={page + 1}" in response.text:
+            has_next = True
+
+        if not has_next:
+            break
+
+        page += 1
+
+    if not all_names:
         raise RuntimeError("No stock names found under the 'Name' column.")
-    return names
+    return all_names
 
 
 def save_stock_names(names: List[str], directory: str = "output") -> Path:
