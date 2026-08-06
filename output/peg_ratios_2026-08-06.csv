@@ -1,0 +1,9 @@
+Company Name,Screener Slug,Company Full Name,Stock P/E,Market Cap (Cr),Dividend Yield (%),Profit Growth 3Y (%),Profit Growth 5Y (%),PEG Ratio 3Y,PEG Ratio 5Y,PEGY Ratio 3Y,PEGY Ratio 5Y,VLRT Score,VLRT Breakdown,S-Curve Stage
+Hindustan Zinc,HINDZINC,Hindustan Zinc Ltd,14.8,"2,49,985",1.86,9,12,1.64,1.23,1.36,1.07,6.7,V:4.4 L:10.0 R:6.4 T:6.0,🛡️ Mature
+DRS Dilip Road,DRSDILIP,DRS Dilip Roadlines Ltd,27.1,166,0.00,8,23,3.39,1.18,3.39,1.18,4.6,V:2.0 L:4.0 R:6.4 T:6.0,🛡️ Mature
+Paradeep Phosph.,PARADEEP,Paradeep Phosphates Ltd,14.2,"15,374",0.68,48,35,0.30,0.41,0.29,0.40,9.7,V:10.0 L:8.8 R:10.0 T:10.0,🚀 Inflection
+Jay Jalaram Tech,KORE,Jay Jalaram Technologies Ltd,24.5,215,0.00,44,98,0.56,0.25,0.56,0.25,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection
+Alfred Herbert,ALFREDHERB,Alfred Herbert (India) Ltd,6.67,244,0.63,N/A,N/A,N/A,N/A,N/A,N/A,4.5,V:4.0 L:4.0 R:4.0 T:6.0,🔍 Discovery
+PG Electroplast,PGEL,PG Electroplast Ltd,141,"17,427",0.04,41,60,3.44,2.35,3.44,2.35,5.6,V:2.0 L:8.8 R:8.4 T:3.2,🛡️ Mature
+RSD Finance,RSDFIN,RSD Finance Ltd,73.4,197,0.00,-19,-4,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+PCBL Chemical,PCBL,PCBL Chemical Ltd,49.4,"12,778",1.85,-18,-5,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,4.4,V:0.8 L:8.8 R:2.0 T:6.0,🔻 Declining

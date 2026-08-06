@@ -14,8 +14,8 @@ if hasattr(sys.stdout, "reconfigure"):
         pass
 
 #URL = "https://www.screener.in/screens/2375280/bearish-crossovers/"
-#URL = "https://www.screener.in/screens/2703064/bearishcrossover2/"
-URL ="https://www.screener.in/screens/3804271/below50/"
+URL = "https://www.screener.in/screens/2703064/bearishcrossover2/"
+#URL ="https://www.screener.in/screens/3804271/below50/"
 
 def build_session() -> requests.Session:
     session = requests.Session()
