@@ -99,13 +99,24 @@ def fetch_stock_names(url: str, session: Optional[requests.Session] = None) -> L
 
 
 def save_stock_names(names: List[str], directory: str = "output") -> Path:
-    """Persist the names to a txt file named after today's date."""
-    filename = f"{date.today().isoformat()}.txt"
+    """Persist the names to txt files named after today's date."""
+    today_str = date.today().isoformat()
     out_dir = Path(directory)
     out_dir.mkdir(parents=True, exist_ok=True)
-    output_path = out_dir / filename
-    output_path.write_text("\n".join(names) + "\n", encoding="utf-8")
-    return output_path
+    
+    # Save YYYY-MM-DD.txt for pipeline compatibility
+    date_path = out_dir / f"{today_str}.txt"
+    date_path.write_text("\n".join(names) + "\n", encoding="utf-8")
+    
+    # Save stocklist_YYYY-MM-DD.txt and stocklist.txt
+    stocklist_date_path = out_dir / f"stocklist_{today_str}.txt"
+    stocklist_date_path.write_text("\n".join(names) + "\n", encoding="utf-8")
+    
+    stocklist_path = out_dir / "stocklist.txt"
+    stocklist_path.write_text("\n".join(names) + "\n", encoding="utf-8")
+    
+    print(f"💾 Saved stock list to {stocklist_date_path}")
+    return date_path
 
 
 if __name__ == "__main__":
