@@ -171,9 +171,25 @@ def main():
                     except ValueError:
                         pass
                 
-                if top_pick == "N/A" and rows:
-                    top_pick = rows[0].get("Company Name", "")
-                    
+                # Sort rows by VLRT Score High to Low by default
+                from get_pe_ratios import compute_vlrt_score
+                def get_vlrt_score_for_sort(r):
+                    val_str = r.get("VLRT Score", "").strip()
+                    try:
+                        return float(val_str)
+                    except (ValueError, TypeError):
+                        res = compute_vlrt_score(
+                            r.get("PEG Ratio 3Y", ""),
+                            r.get("PEGY Ratio 3Y", ""),
+                            r.get("Market Cap (Cr)", ""),
+                            r.get("Profit Growth 3Y (%)", ""),
+                            r.get("Dividend Yield (%)", ""),
+                            r.get("Stock P/E", "")
+                        )
+                        return res["score"]
+
+                rows = sorted(rows, key=get_vlrt_score_for_sort, reverse=True)
+
                 # Build rows
                 table_rows_html = []
                 for r in rows:
@@ -549,9 +565,8 @@ def main():
         <div class="search-container">
             <input type="text" id="searchInput" class="search-input" placeholder="Search by company name or ticker..." onkeyup="filterTable()">
             <select id="sortSelect" class="sort-select" onchange="handleSortSelect(this.value)">
-                <option value="">Sort By: Default</option>
+                <option value="vlrt-desc" selected>Sort By: VLRT Score (High to Low)</option>
                 <option value="name-asc">Company Name (A-Z)</option>
-                <option value="vlrt-desc">VLRT Score (High to Low)</option>
                 <option value="pe-asc">Stock P/E (Low to High)</option>
                 <option value="pe-desc">Stock P/E (High to Low)</option>
                 <option value="growth-desc">3Y Profit Growth (High to Low)</option>
@@ -573,7 +588,7 @@ def main():
                         <th onclick="sortTable(4)">PEG Ratio 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(5)">PEGY Ratio 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(6)">Market Cap (Cr) <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(7)">VLRT Score <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(7)" class="sorted-desc">VLRT Score <span class="sort-icon">▼</span></th>
                         <th onclick="sortTable(8)">S-Curve Stage <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(9)">Recommendation <span class="sort-icon">↕</span></th>
                     </tr>
@@ -605,8 +620,8 @@ def main():
             }}
         }}
         
-        let currentSortCol = -1;
-        let currentSortDir = 'asc';
+        let currentSortCol = 7;
+        let currentSortDir = 'desc';
 
         const recPriority = {{
             'STRONG BUY': 4,
