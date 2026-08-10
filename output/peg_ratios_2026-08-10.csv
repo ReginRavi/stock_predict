@@ -1,0 +1,116 @@
+Company Name,Screener Slug,Company Full Name,Stock P/E,Market Cap (Cr),Dividend Yield (%),Profit Growth 3Y (%),Profit Growth 5Y (%),PEG Ratio 3Y,PEG Ratio 5Y,PEGY Ratio 3Y,PEGY Ratio 5Y,VLRT Score,VLRT Breakdown,S-Curve Stage
+Bombay Oxygen,509470,Bombay Oxygen Investments Ltd,,297,0.13,N/A,N/A,N/A,N/A,N/A,N/A,4.0,V:4.0 L:4.0 R:4.0 T:4.0,🔍 Discovery
+Valor Estate,DBREALTY,Valor Estate Ltd,73.0,"6,389",0.00,36,26,2.03,2.81,2.03,2.81,6.3,V:2.0 L:8.8 R:8.4 T:6.0,🛡️ Mature
+Shri Vasuprada,538092,Shri Vasuprada Plantations Ltd,,84.5,0.00,18,5,N/A,N/A,N/A,N/A,5.1,V:4.0 L:4.0 R:8.4 T:4.0,🔍 Discovery
+V I P Inds.,VIPIND,V I P Industries Ltd,,"4,534",0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.8,V:4.0 L:7.2 R:4.0 T:4.0,🔍 Discovery
+Dhunseri Tea,DTIL,Dhunseri Tea & Industries Ltd,,142,1.47,25,N/A,N/A,N/A,N/A,N/A,5.1,V:4.0 L:4.0 R:8.4 T:4.0,🔍 Discovery
+Sambandam Spg.,SAMBANDAM,Sambandam Spinning Mills Ltd,,46.4,0.00,15,N/A,N/A,N/A,N/A,N/A,4.6,V:4.0 L:4.0 R:6.4 T:4.0,🔍 Discovery
+SignatureGlobal,SIGNATURE,SignatureGlobal India Ltd,,"11,608",0.00,20,N/A,N/A,N/A,N/A,N/A,6.3,V:4.0 L:8.8 R:8.4 T:4.0,🔍 Discovery
+Max Estates,MAXESTATES,Max Estates Ltd,154,"6,896",0.00,17,41,9.06,3.76,9.06,3.76,5.6,V:2.0 L:8.8 R:8.4 T:3.2,🛡️ Mature
+CSL Finance,CSLFINANCE,CSL Finance Ltd,5.91,510,1.35,24,26,0.25,0.23,0.23,0.22,8.5,V:10.0 L:5.6 R:8.4 T:10.0,📈 Accelerating
+Canara Bank,CANBK,Canara Bank,6.09,"1,17,412",3.26,23,50,0.26,0.12,0.23,0.11,9.6,V:10.0 L:10.0 R:8.4 T:10.0,📈 Accelerating
+Punjab Natl.Bank,PNB,Punjab National Bank,6.37,"1,30,570",2.64,89,53,0.07,0.12,0.07,0.11,10.0,V:10.0 L:10.0 R:10.0 T:10.0,🚀 Inflection
+Guj Inds. Power,GIPCL,Gujarat Industries Power Co Ltd,6.35,"2,557",2.48,29,17,0.22,0.37,0.20,0.33,9.3,V:10.0 L:7.2 R:10.0 T:10.0,🚀 Inflection
+Neelamalai Agro,NEAGI,Neelamalai Agro Industries Ltd,75.9,197,0.63,-11,-16,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Rajapalayam Mill,RAJPALAYAM,Rajapalayam Mills Ltd,,772,0.06,N/A,6,N/A,N/A,N/A,N/A,4.4,V:4.0 L:5.6 R:4.0 T:4.0,🔍 Discovery
+Palco Metals Ltd,539121,Palco Metals Ltd,,56.0,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.0,V:4.0 L:4.0 R:4.0 T:4.0,🔍 Discovery
+Northern Spirits,542628,Northern Spirits Ltd,7.68,208,0.23,35,56,0.22,0.14,0.22,0.14,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection
+Virtual Galaxy,VGINFOTECH,Virtual Galaxy Infotech Ltd,8.04,371,0.67,195,84,0.04,0.10,0.04,0.09,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection
+Slone Infosys.,SLONE,Slone Infosystems Ltd,8.25,74.3,0.35,129,N/A,0.06,N/A,0.06,N/A,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection
+Haryana Capfin,532855,Haryana Capfin Ltd,8.43,75.5,0.00,84,63,0.10,0.13,0.10,0.13,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection
+Everest Kanto,EKC,Everest Kanto Cylinder Ltd,14.3,"1,288",0.61,11,-1,1.30,Negative Growth,1.23,Negative Growth+Yield,7.5,V:6.4 L:7.2 R:6.4 T:10.0,🛡️ Mature
+RDB Rasayans,533608,RDB Rasayans Ltd,8.80,292,0.00,12,12,0.73,0.73,0.73,0.73,7.2,V:8.4 L:4.0 R:6.4 T:10.0,🛡️ Mature
+Oil India,OIL,Oil India Ltd,11.4,"73,986",2.32,-13,16,Negative Growth,0.71,Negative Growth+Yield,0.62,4.7,V:0.8 L:10.0 R:2.0 T:6.0,🔻 Declining
+Hind.Adhesive,514428,Hindustan Adhesives Ltd,8.07,142,0.00,54,15,0.15,0.54,0.15,0.54,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection
+Lambodhara Text.,LAMBODHARA,Lambodhara Textiles Ltd,9.44,117,0.44,-14,1,Negative Growth,9.44,Negative Growth+Yield,6.56,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Aries Agro,ARIES,Aries Agro Ltd,11.6,445,0.35,24,11,0.48,1.05,0.48,1.02,8.1,V:10.0 L:4.0 R:8.4 T:10.0,📈 Accelerating
+Orient Beverages,507690,Orient Beverages Ltd,7.24,41.1,0.00,47,23,0.15,0.31,0.15,0.31,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection
+Petronet LNG,PETRONET,Petronet LNG Ltd,11.0,"42,347",3.57,6,5,1.83,2.20,1.15,1.28,6.7,V:4.4 L:10.0 R:6.4 T:6.0,🛡️ Mature
+Suraj Estate,SURAJEST,Suraj Estate Developers Ltd,12.9,994,0.00,27,66,0.48,0.20,0.48,0.20,8.5,V:10.0 L:5.6 R:8.4 T:10.0,🚀 Inflection
+Mah. Seamless,MAHSEAMLES,Maharashtra Seamless Ltd,10.8,"8,140",1.65,-3,21,Negative Growth,0.51,Negative Growth+Yield,0.48,4.4,V:0.8 L:8.8 R:2.0 T:6.0,🔻 Declining
+Puretrop Fruits,530077,Puretrop Fruits Ltd,11.6,130,0.00,-4,-4,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Dilip Buildcon,DBL,Dilip Buildcon Ltd,30.3,"7,183",0.23,28,-6,1.08,Negative Growth,1.07,Negative Growth+Yield,8.0,V:6.4 L:8.8 R:8.4 T:8.4,📈 Accelerating
+Suryaamba Spinni,533101,Suryaamba Spinning Mills Ltd,11.8,36.2,0.81,-27,-6,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Lords Chloro,LORDSCHLO,Lords Chloro Alkali Ltd,12.4,408,0.00,-19,50,Negative Growth,0.25,Negative Growth+Yield,0.25,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Biopol Chemicals,BIOPOL,Biopol Chemicals Ltd,12.4,111,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.5,V:4.0 L:4.0 R:4.0 T:6.0,🔍 Discovery
+T & I Global,522294,T & I Global Ltd,12.4,86.6,0.00,-3,-7,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+E Factor Experie,EFACTOR,E Factor Experiences Ltd,13.6,250,0.63,38,91,0.36,0.15,0.35,0.15,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection
+Gujarat Hotels,507960,Gujarat Hotels Ltd,12.7,72.8,1.56,10,20,1.27,0.64,1.10,0.59,6.7,V:6.4 L:4.0 R:6.4 T:10.0,🛡️ Mature
+NCC,NCC,NCC Ltd,15.0,"9,194",1.50,4,20,3.75,0.75,2.73,0.70,5.8,V:2.0 L:8.8 R:6.4 T:6.0,⚠️ Stagnant
+Vraj Iron,VRAJ,Vraj Iron & Steel Ltd,14.2,418,0.00,-17,25,Negative Growth,0.57,Negative Growth+Yield,0.57,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Arkade,ARKADE,Arkade Developers Ltd,13.6,"2,493",0.74,50,56,0.27,0.24,0.27,0.24,9.3,V:10.0 L:7.2 R:10.0 T:10.0,🚀 Inflection
+Saraswati Commer,ZSARACOM,Saraswati Commercial (India) Ltd,13.7,"1,267",0.00,99,34,0.14,0.40,0.14,0.40,8.9,V:10.0 L:7.2 R:8.4 T:10.0,🚀 Inflection
+Shayona Eng.,544686,Shayona Engineering Ltd,13.9,56.0,0.00,90,125,0.15,0.11,0.15,0.11,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection
+DHP India,531306,DHP India Ltd,14.2,157,0.76,-22,-8,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Dollar Industrie,DOLLAR,Dollar Industries Ltd,14.2,"1,576",1.08,22,4,0.65,3.55,0.62,2.80,8.5,V:8.4 L:7.2 R:8.4 T:10.0,📈 Accelerating
+Bharat Rasayan,BHARATRAS,Bharat Rasayan Ltd,14.5,"2,275",0.03,5,-1,2.90,Negative Growth,2.88,Negative Growth+Yield,5.4,V:2.0 L:7.2 R:6.4 T:6.0,🛡️ Mature
+National Plastic,531287,National Plastic Technologies Ltd,14.6,141,0.65,15,47,0.97,0.31,0.93,0.31,7.2,V:8.4 L:4.0 R:6.4 T:10.0,📈 Accelerating
+BLS Internat.,BLS,BLS International Services Ltd,73.1,"10,736",0.77,44,38,1.66,1.92,1.63,1.89,7.3,V:4.4 L:8.8 R:10.0 T:6.0,🛡️ Mature
+Infosys,INFY,Infosys Ltd,15.4,"4,80,830",4.06,9,11,1.71,1.40,1.18,1.02,6.7,V:4.4 L:10.0 R:6.4 T:6.0,🛡️ Mature
+Chembond Materi.,CHEMBOND,Chembond Material Technologies Ltd,25.1,234,1.12,31,-8,0.81,Negative Growth,0.78,Negative Growth+Yield,7.7,V:8.4 L:4.0 R:10.0 T:8.4,🚀 Inflection
+Jasch Gauging,544112,Jasch Gauging Technologies Ltd,15.8,238,1.90,-4,N/A,Negative Growth,N/A,Negative Growth+Yield,N/A,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Transport Corp.,TCI,Transport Corporation of India Ltd,16.4,"7,196",1.07,13,25,1.26,0.66,1.17,0.63,7.9,V:6.4 L:8.8 R:6.4 T:10.0,🛡️ Mature
+Revathi Equip,RVTH,Revathi Equipment India Ltd,15.9,216,0.00,1,3,15.90,5.30,15.90,5.30,4.6,V:2.0 L:4.0 R:6.4 T:6.0,⚠️ Stagnant
+Accelya Solution,ACCELYA,Accelya Solutions India Ltd,15.3,"1,706",3.93,1,20,15.30,0.77,3.10,0.64,5.4,V:2.0 L:7.2 R:6.4 T:6.0,⚠️ Stagnant
+Mazda,MAZDA,Mazda Ltd,17.2,474,1.54,1,11,17.20,1.56,6.77,1.37,4.6,V:2.0 L:4.0 R:6.4 T:6.0,⚠️ Stagnant
+Flywings Simula.,FWSTC,Flywings Simulator Training Centre Ltd,17.3,193,0.00,39,N/A,0.44,N/A,0.44,N/A,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection
+Krsnaa Diagnost.,KRSNAA,Krsnaa Diagnostics Ltd,17.8,"1,829",0.48,17,-11,1.05,Negative Growth,1.02,Negative Growth+Yield,8.0,V:6.4 L:7.2 R:8.4 T:10.0,📈 Accelerating
+Epigral,EPIGRAL,Epigral Ltd,17.9,"4,858",0.44,-3,26,Negative Growth,0.69,Negative Growth+Yield,0.68,4.0,V:0.8 L:7.2 R:2.0 T:6.0,🔻 Declining
+MOIL,MOIL,MOIL Ltd,19.0,"5,767",1.88,3,5,6.33,3.80,3.89,2.76,5.8,V:2.0 L:8.8 R:6.4 T:6.0,⚠️ Stagnant
+SAL Automotive,539353,SAL Automotive Ltd,19.1,89.2,1.34,0,41,Zero Growth,0.47,14.25,0.45,4.6,V:4.0 L:4.0 R:4.4 T:6.0,🔍 Discovery
+Kotak Mah. Bank,KOTAKBANK,Kotak Mahindra Bank Ltd,26.3,"3,90,181",0.17,9,15,2.92,1.75,2.87,1.73,6.1,V:2.0 L:10.0 R:6.4 T:6.0,🛡️ Mature
+Aryaman Capital,538716,Aryaman Capital Markets Ltd,20.4,503,0.00,165,157,0.12,0.13,0.12,0.13,8.5,V:10.0 L:5.6 R:8.4 T:10.0,🚀 Inflection
+Ahluwalia Contr.,AHLUCONT,Ahluwalia Contracts (India) Ltd,21.0,"5,547",0.07,11,28,1.91,0.75,1.90,0.75,6.4,V:4.4 L:8.8 R:6.4 T:6.0,🛡️ Mature
+Amara Raja Ener.,ARE&M,Amara Raja Energy & Mobility Ltd,20.9,"16,422",1.18,-6,0,Negative Growth,Zero Growth,Negative Growth+Yield,17.71,4.4,V:0.8 L:8.8 R:2.0 T:6.0,🔻 Declining
+CSM Technologies,CSM,CSM Technologies Ltd,24.4,545,0.00,9,29,2.71,0.84,2.71,0.84,5.0,V:2.0 L:5.6 R:6.4 T:6.0,🛡️ Mature
+EID Parry,EIDPARRY,EID Parry (India) Ltd,,"14,091",0.00,N/A,N/A,N/A,N/A,N/A,N/A,5.2,V:4.0 L:8.8 R:4.0 T:4.0,🔍 Discovery
+Balu Forge,BALUFORGE,Balu Forge Industries Ltd,36.6,"5,603",0.03,69,82,0.53,0.45,0.53,0.45,8.9,V:10.0 L:8.8 R:8.4 T:8.4,🚀 Inflection
+Thomas Cook (I),THOMASCOOK,Thomas Cook (India) Ltd,39.9,"4,974",0.47,310,60,0.13,0.66,0.13,0.66,8.5,V:10.0 L:7.2 R:8.4 T:8.4,🚀 Inflection
+DIC India,DICIND,DIC India Ltd,23.0,478,0.58,22,13,1.05,1.77,1.02,1.69,7.2,V:6.4 L:4.0 R:8.4 T:10.0,📈 Accelerating
+Bright Brothers,BRIGHTBROS,Bright Brothers Ltd,17.7,137,1.04,57,6,0.31,2.95,0.30,2.51,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection
+Kalyani Forge,KALYANIFRG,Kalyani Forge Ltd,24.5,229,0.63,244,55,0.10,0.45,0.10,0.44,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection
+Thakkers Develp.,THAKDEV,Thakkers Developers Ltd,140,126,0.00,-62,-39,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,2.5,V:0.8 L:4.0 R:2.0 T:3.2,🔻 Declining
+RNFI Services,RNFI,RNFI Services Ltd,36.3,701,0.00,47,23,0.77,1.58,0.77,1.58,7.7,V:8.4 L:5.6 R:8.4 T:8.4,🚀 Inflection
+Aryaman Fin.Serv,530245,Aryaman Financial Services Ltd,106,732,0.00,54,64,1.96,1.66,1.96,1.66,5.4,V:4.4 L:5.6 R:8.4 T:3.2,🛡️ Mature
+U P Hotels,509960,U P Hotels Ltd,25.0,805,0.00,11,44,2.27,0.57,2.27,0.57,5.0,V:2.0 L:5.6 R:6.4 T:6.0,🛡️ Mature
+C K K Retail,CKKRETAIL,C K K Retail Mart Ltd,26.0,281,0.00,31,124,0.84,0.21,0.84,0.21,7.3,V:8.4 L:4.0 R:8.4 T:8.4,🚀 Inflection
+Apollo Sindoori,APOLSINHOT,Apollo Sindoori Hotels Ltd,29.2,321,0.20,-3,11,Negative Growth,2.65,Negative Growth+Yield,2.61,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+SBI Cards,SBICARD,SBI Cards & Payment Services Ltd,27.4,"62,427",0.38,-1,17,Negative Growth,1.61,Negative Growth+Yield,1.58,4.7,V:0.8 L:10.0 R:2.0 T:6.0,🔻 Declining
+Infinium Pharma,INFINIUM,Infinium Pharmachem Ltd,33.9,340,0.00,3,30,11.30,1.13,11.30,1.13,4.6,V:2.0 L:4.0 R:6.4 T:6.0,⚠️ Stagnant
+Polson,507645,Polson Ltd,28.4,134,0.00,6,-11,4.73,Negative Growth,4.73,Negative Growth+Yield,4.6,V:2.0 L:4.0 R:6.4 T:6.0,🛡️ Mature
+Nuvoco Vistas,NUVOCO,Nuvoco Vistas Corporation Ltd,43.3,"12,067",0.00,-7,66,Negative Growth,0.66,Negative Growth+Yield,0.66,4.4,V:0.8 L:8.8 R:2.0 T:6.0,🔻 Declining
+Pfizer,PFIZER,Pfizer Ltd,29.1,"22,385",1.54,8,9,3.64,3.23,3.05,2.76,6.1,V:2.0 L:10.0 R:6.4 T:6.0,🛡️ Mature
+Bengal Tea & Fab,BENGALTEA,Bengal Tea & Fabrics Ltd,29.3,131,1.03,69,6,0.42,4.88,0.42,4.17,8.1,V:10.0 L:4.0 R:10.0 T:8.4,🚀 Inflection
+Vidhi Specialty,VIDHIING,Vidhi Specialty Food Ingredients Ltd,29.5,"1,578",0.95,9,6,3.28,4.92,2.96,4.24,5.4,V:2.0 L:7.2 R:6.4 T:6.0,🛡️ Mature
+I R C T C,IRCTC,Indian Railway Catering & Tourism Corporation Ltd,30.3,"41,804",1.63,12,54,2.52,0.56,2.22,0.54,6.1,V:2.0 L:10.0 R:6.4 T:6.0,🛡️ Mature
+Container Corpn.,CONCOR,Container Corporation Of India Ltd,30.7,"38,158",1.51,2,17,15.35,1.81,8.75,1.66,6.1,V:2.0 L:10.0 R:6.4 T:6.0,⚠️ Stagnant
+Dalmia BharatLtd,DALBHARAT,Dalmia Bharat Ltd,259,"34,637",0.49,-11,42,Negative Growth,6.17,Negative Growth+Yield,6.10,4.0,V:0.8 L:10.0 R:2.0 T:3.2,🔻 Declining
+Shreyans Inds.,SHREYANIND,Shreyans Industries Ltd,31.7,198,1.05,-56,-7,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Coromandel Inter,COROMANDEL,Coromandel International Ltd,31.7,"61,938",0.52,0,9,Zero Growth,3.52,60.96,3.33,6.1,V:4.0 L:10.0 R:4.4 T:6.0,🔍 Discovery
+Helloji Holidays,544630,Helloji Holidays Ltd,33.9,42.4,0.00,84,46,0.40,0.74,0.40,0.74,7.7,V:10.0 L:4.0 R:8.4 T:8.4,🚀 Inflection
+Chalet Hotels,CHALET,Chalet Hotels Ltd,33.1,"18,351",0.12,60,51,0.55,0.65,0.55,0.65,8.9,V:10.0 L:8.8 R:8.4 T:8.4,🚀 Inflection
+Naperol Invest.,NATPEROXID,Naperol Investments Ltd,34.5,373,0.46,260,-21,0.13,Negative Growth,0.13,Negative Growth+Yield,7.7,V:10.0 L:4.0 R:8.4 T:8.4,🚀 Inflection
+Vesuvius India,VESUVIUS,Vesuvius India Ltd,36.1,"9,412",0.32,26,34,1.39,1.06,1.37,1.05,8.0,V:6.4 L:8.8 R:8.4 T:8.4,📈 Accelerating
+Clean Science,CLEAN,Clean Science & Technology Ltd,34.5,"8,545",0.25,-6,5,Negative Growth,6.90,Negative Growth+Yield,6.57,4.4,V:0.8 L:8.8 R:2.0 T:6.0,🔻 Declining
+V-Guard Industri,VGUARD,V-Guard Industries Ltd,43.2,"14,047",0.47,15,6,2.88,7.20,2.79,6.68,5.8,V:2.0 L:8.8 R:6.4 T:6.0,🛡️ Mature
+Jindal Steel,JINDALSTEL,Jindal Steel Ltd,33.2,"1,15,304",0.18,15,-11,2.21,Negative Growth,2.19,Negative Growth+Yield,6.1,V:2.0 L:10.0 R:6.4 T:6.0,🛡️ Mature
+Suraksha Diagno.,SURAKSHA,Suraksha Diagnostic Ltd,40.5,"1,380",0.19,59,33,0.69,1.23,0.68,1.22,8.1,V:8.4 L:7.2 R:8.4 T:8.4,🚀 Inflection
+Marble City,531281,Marble City India Ltd,73.5,316,0.00,77,156,0.95,0.47,0.95,0.47,6.7,V:8.4 L:4.0 R:8.4 T:6.0,🚀 Inflection
+Pacific Inds,PACIFICIND,Pacific Industries Ltd,47.5,93.0,0.00,28,-24,1.70,Negative Growth,1.70,Negative Growth+Yield,5.7,V:4.4 L:4.0 R:8.4 T:6.0,🛡️ Mature
+Affle 3i,AFFLE,Affle 3i Ltd,155,"22,495",0.00,26,37,5.96,4.19,5.96,4.19,5.9,V:2.0 L:10.0 R:8.4 T:3.2,🛡️ Mature
+JTEKT India,JTEKTINDIA,JTEKT India Ltd,49.0,"3,948",0.53,0,46,Zero Growth,1.07,92.45,1.05,5.4,V:4.0 L:7.2 R:4.4 T:6.0,🔍 Discovery
+H P C L,HINDPETRO,Hindustan Petroleum Corporation Ltd,65.5,"83,655",6.17,58,10,1.13,6.55,1.02,4.05,8.1,V:6.4 L:10.0 R:10.0 T:6.0,📈 Accelerating
+Everest Organics,524790,Everest Organics Ltd,53.0,294,0.00,315,-17,0.17,Negative Growth,0.17,Negative Growth+Yield,7.1,V:10.0 L:4.0 R:8.4 T:6.0,🚀 Inflection
+Nalwa Sons Invst,NSIL,Nalwa Sons Investments Ltd,62.6,"2,941",0.00,-17,7,Negative Growth,8.94,Negative Growth+Yield,8.94,4.0,V:0.8 L:7.2 R:2.0 T:6.0,🔻 Declining
+Bedmutha Indus.,BEDMUTHA,Bedmutha Industries Ltd,50.5,356,0.00,-17,-49,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining
+Hatsun Agro,HATSUN,Hatsun Agro Product Ltd,58.1,"21,235",1.05,30,8,1.94,7.26,1.87,6.42,7.6,V:4.4 L:10.0 R:10.0 T:6.0,🛡️ Mature
+Vasa Denticity,DENTALKART,Vasa Denticity Ltd,60.4,731,0.00,12,101,5.03,0.60,5.03,0.60,5.0,V:2.0 L:5.6 R:6.4 T:6.0,🛡️ Mature
+Tata Consumer,TATACONSUM,Tata Consumer Products Ltd,66.6,"1,09,757",0.90,17,20,3.92,3.33,3.72,3.19,6.6,V:2.0 L:10.0 R:8.4 T:6.0,🛡️ Mature
+SBI Life Insuran,SBILIFE,SBI Life Insurance Company Ltd,71.3,"1,85,455",0.15,13,11,5.48,6.48,5.42,6.39,6.1,V:2.0 L:10.0 R:6.4 T:6.0,🛡️ Mature
+Sarup Industries,514412,Sarup Industries Ltd,73.7,42.0,0.00,31,16,2.38,4.61,2.38,4.61,5.1,V:2.0 L:4.0 R:8.4 T:6.0,🛡️ Mature
+Kiran Vyapar,KIRANVYPAR,Kiran Vyapar Ltd,49.9,536,0.51,-22,-32,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.6,V:0.8 L:5.6 R:2.0 T:6.0,🔻 Declining
+Capillary Tech.,CAPILLARY,Capillary Technologies India Ltd,262,"4,142",0.00,27,-30,9.70,Negative Growth,9.70,Negative Growth+Yield,5.2,V:2.0 L:7.2 R:8.4 T:3.2,🛡️ Mature
+The Ramco Cement,RAMCOCEM,The Ramco Cements Ltd,121,"22,590",0.26,-60,-51,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,4.0,V:0.8 L:10.0 R:2.0 T:3.2,🔻 Declining
+B & A,BNALTD,B & A Ltd,,122,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.0,V:4.0 L:4.0 R:4.0 T:4.0,🔍 Discovery
+One Mobikwik,MOBIKWIK,One Mobikwik Systems Ltd,176,"1,627",0.00,15,10,11.73,17.60,11.73,17.60,4.7,V:2.0 L:7.2 R:6.4 T:3.2,🛡️ Mature
+Prabha Energy,PRABHA,Prabha Energy Ltd,"2,038","2,120",0.00,-42,63,Negative Growth,32.35,Negative Growth+Yield,32.35,3.3,V:0.8 L:7.2 R:2.0 T:3.2,🔻 Declining
