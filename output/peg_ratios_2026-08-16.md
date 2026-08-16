@@ -1,0 +1,88 @@
+# Stock Analysis Report - 2026-08-16
+
+Generated automatically by the stock analysis pipeline with Quant VLRT & S-Curve Analysis.
+
+| Company Name | Stock P/E | Dividend Yield (%) | Profit Growth 3Y (%) | PEG Ratio 3Y | PEGY Ratio 3Y | Market Cap (Cr) | VLRT Score | S-Curve Stage |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| The Ravalgaon |  | 0.00 | -10 | N/A | N/A | 33.6 | 3.5/10 | 🔍 Discovery |
+| Artson |  | 0.00 | 15 | N/A | N/A | 598 | 5.0/10 | 🔍 Discovery |
+| Ceenik Exports |  | 5.15 | N/A | N/A | N/A | 97.5 | 4.0/10 | 🔍 Discovery |
+| Tusaldah |  | 0.00 | N/A | N/A | N/A | 34.6 | 4.0/10 | 🔍 Discovery |
+| Naturite Agro |  | 0.00 | -10 | N/A | N/A | 104 | 3.5/10 | 🔍 Discovery |
+| Praveg |  | 0.37 | N/A | N/A | N/A | 705 | 4.4/10 | 🔍 Discovery |
+| Tega Inds. | 78.8 | 0.12 | 11 | 7.16 | 7.09 | 12,800 | 5.8/10 | 🛡️ Mature |
+| Ruparel Food |  | 0.00 | 5 | N/A | N/A | 43.2 | 4.6/10 | 🔍 Discovery |
+| Hind.Adhesive | 5.26 | 0.00 | 54 | 0.10 | 0.10 | 143 | 8.1/10 | 🚀 Inflection |
+| Shrem InvIT | 14.0 | 2.96 | 186 | 0.08 | 0.07 | 6,200 | 9.7/10 | 🚀 Inflection |
+| Slone Infosys. | 8.29 | 0.35 | 129 | 0.06 | 0.06 | 74.7 | 8.1/10 | 🚀 Inflection |
+| Haryana Capfin | 8.61 | 0.00 | 84 | 0.10 | 0.10 | 77.2 | 8.1/10 | 🚀 Inflection |
+| B P C L | 9.17 | 5.48 | 107 | 0.09 | 0.08 | 1,38,594 | 10.0/10 | 🚀 Inflection |
+| Dynavision | 9.24 | 0.00 | 17 | 0.54 | 0.54 | 80.7 | 8.1/10 | 📈 Accelerating |
+| SIL Investments | 11.5 | 0.57 | 12 | 0.96 | 0.91 | 467 | 7.2/10 | 🛡️ Mature |
+| Shraddha Prime | 9.84 | 0.19 | 344 | 0.03 | 0.03 | 633 | 8.5/10 | 🚀 Inflection |
+| Petronet LNG | 10.3 | 3.54 | 6 | 1.72 | 1.08 | 42,390 | 6.7/10 | 🛡️ Mature |
+| Pushpa Jewellers | 10.4 | 0.00 | 49 | 0.21 | 0.21 | 279 | 8.1/10 | 🚀 Inflection |
+| MANGALAM SEEDS | 17.4 | 0.00 | -9 | Negative Growth | Negative Growth+Yield | 149 | 3.2/10 | 🔻 Declining |
+| KNR Construct. | 33.2 | 0.19 | -33 | Negative Growth | Negative Growth+Yield | 3,724 | 4.0/10 | 🔻 Declining |
+| Chola Financial | 413 | 0.08 | 7 | 59.00 | 58.33 | 29,992 | 5.4/10 | 🛡️ Mature |
+| Brandman Retail | 11.3 | 0.00 | 286 | 0.04 | 0.04 | 335 | 8.1/10 | 🚀 Inflection |
+| Hind.Tin Works | 12.1 | 0.73 | -20 | Negative Growth | Negative Growth+Yield | 113 | 3.2/10 | 🔻 Declining |
+| B & A Packaging | 12.3 | 0.52 | -6 | Negative Growth | Negative Growth+Yield | 95.7 | 3.2/10 | 🔻 Declining |
+| Wipro | 16.1 | 5.98 | 10 | 1.61 | 1.01 | 1,82,241 | 6.7/10 | 🛡️ Mature |
+| WOL 3D India | 14.0 | 0.00 | 40 | 0.35 | 0.35 | 93.2 | 8.1/10 | 🚀 Inflection |
+| Guj Pipavav Port | 14.4 | 6.55 | 15 | 0.96 | 0.67 | 7,671 | 8.4/10 | 📈 Accelerating |
+| National Fitting | 14.3 | 0.61 | 28 | 0.51 | 0.50 | 149 | 8.5/10 | 🚀 Inflection |
+| CESC | 25.8 | 3.58 | 2 | 12.90 | 4.62 | 22,247 | 6.1/10 | ⚠️ Stagnant |
+| Revathi Equip | 16.4 | 0.00 | 1 | 16.40 | 16.40 | 224 | 4.6/10 | ⚠️ Stagnant |
+| Seshasayee Paper | 17.4 | 0.86 | -44 | Negative Growth | Negative Growth+Yield | 1,463 | 4.0/10 | 🔻 Declining |
+| KIFS Financial | 14.9 | 1.30 | 8 | 1.86 | 1.60 | 124 | 5.2/10 | 🛡️ Mature |
+| Semac Construct | 13.1 | 0.00 | -20 | Negative Growth | Negative Growth+Yield | 102 | 3.2/10 | 🔻 Declining |
+| Zodiac Energy | 15.9 | 0.28 | 90 | 0.18 | 0.18 | 404 | 8.1/10 | 🚀 Inflection |
+| Career Point Edu | 16.0 | 1.22 | 98 | 0.16 | 0.16 | 373 | 8.5/10 | 🚀 Inflection |
+| Apollo Finvest | 16.4 | 0.00 | -17 | Negative Growth | Negative Growth+Yield | 131 | 3.2/10 | 🔻 Declining |
+| Rajputana Bio. | 30.7 | 0.00 | 42 | 0.73 | 0.73 | 151 | 7.3/10 | 🚀 Inflection |
+| Excel Industries | 18.5 | 1.36 | -2 | Negative Growth | Negative Growth+Yield | 1,274 | 4.0/10 | 🔻 Declining |
+| Poddar Pigments | 18.4 | 1.51 | -19 | Negative Growth | Negative Growth+Yield | 280 | 3.2/10 | 🔻 Declining |
+| Dynamic Industri | 18.8 | 0.91 | 20 | 0.94 | 0.90 | 33.2 | 7.7/10 | 📈 Accelerating |
+| Krsnaa Diagnost. | 18.2 | 0.48 | 17 | 1.07 | 1.04 | 1,866 | 8.0/10 | 📈 Accelerating |
+| Kotak Mah. Bank | 26.2 | 0.17 | 9 | 2.91 | 2.86 | 3,89,091 | 6.1/10 | 🛡️ Mature |
+| AWL Agri Busine. | 22.6 | 0.52 | 18 | 1.26 | 1.22 | 24,975 | 8.7/10 | 📈 Accelerating |
+| Shiva Texyarn | 23.0 | 0.37 | 39 | 0.59 | 0.58 | 211 | 8.1/10 | 🚀 Inflection |
+| Chandan Healthca | 22.8 | 0.00 | 89 | 0.26 | 0.26 | 606 | 8.5/10 | 🚀 Inflection |
+| Vilas Transcore | 23.2 | 0.00 | 26 | 0.89 | 0.89 | 916 | 8.1/10 | 🚀 Inflection |
+| Godrej Agrovet | 19.2 | 1.89 | 31 | 0.62 | 0.58 | 11,166 | 9.3/10 | 🚀 Inflection |
+| Chemcon Special. | 24.8 | 3.40 | -24 | Negative Growth | Negative Growth+Yield | 700 | 3.6/10 | 🔻 Declining |
+| Ahluwalia Contr. | 25.0 | 0.07 | 11 | 2.27 | 2.26 | 5,609 | 5.8/10 | 🛡️ Mature |
+| Keynote Finan. | 62.8 | 0.37 | N/A | N/A | N/A | 149 | 4.5/10 | 🔍 Discovery |
+| ICRA | 39.2 | 1.33 | 10 | 3.92 | 3.46 | 5,082 | 5.8/10 | 🛡️ Mature |
+| C K K Retail | 26.3 | 0.00 | 31 | 0.85 | 0.85 | 284 | 7.3/10 | 🚀 Inflection |
+| Holmarc Opto | 26.4 | 0.37 | 11 | 2.40 | 2.32 | 108 | 4.6/10 | 🛡️ Mature |
+| Dodla Dairy | 35.2 | 0.45 | 32 | 1.10 | 1.08 | 6,693 | 8.0/10 | 📈 Accelerating |
+| E to E Transportation | 26.3 | 0.00 | 32 | 0.82 | 0.82 | 460 | 7.3/10 | 🚀 Inflection |
+| L&T Technology | 29.4 | 1.67 | 4 | 7.35 | 5.19 | 36,881 | 6.1/10 | ⚠️ Stagnant |
+| Vidhi Specialty | 28.9 | 0.97 | 9 | 3.21 | 2.90 | 1,548 | 5.4/10 | 🛡️ Mature |
+| Heidelberg Cem. | 29.5 | 4.42 | 12 | 2.46 | 1.80 | 3,586 | 5.4/10 | 🛡️ Mature |
+| Honda India | 29.8 | 5.88 | -9 | Negative Growth | Negative Growth+Yield | 2,180 | 4.0/10 | 🔻 Declining |
+| Puravankara | 33.1 | 0.00 | 38 | 0.87 | 0.87 | 5,175 | 8.5/10 | 🚀 Inflection |
+| Balkrishna Inds | 33.4 | 0.68 | -1 | Negative Growth | Negative Growth+Yield | 45,692 | 4.7/10 | 🔻 Declining |
+| Forbes & Co | 28.6 | 0.00 | 11 | 2.60 | 2.60 | 395 | 4.6/10 | 🛡️ Mature |
+| JSW Dulux | 37.6 | 1.58 | 2 | 18.80 | 10.50 | 14,424 | 5.8/10 | ⚠️ Stagnant |
+| Blue Dart Expres | 38.5 | 0.49 | -8 | Negative Growth | Negative Growth+Yield | 12,200 | 4.4/10 | 🔻 Declining |
+| Borosil | 20.4 | 0.00 | 61 | 0.33 | 0.33 | 8,185 | 9.3/10 | 🚀 Inflection |
+| Suyog Gurbaxani | 23.4 | 0.00 | 230 | 0.10 | 0.10 | 260 | 8.1/10 | 🚀 Inflection |
+| Supreme Inds. | 48.0 | 1.01 | 6 | 8.00 | 6.85 | 45,208 | 6.1/10 | 🛡️ Mature |
+| Bharti Hexacom | 43.9 | 1.11 | 46 | 0.95 | 0.93 | 81,055 | 9.2/10 | 🚀 Inflection |
+| ICICI Pru Life | 43.8 | 0.32 | 25 | 1.75 | 1.73 | 73,868 | 7.2/10 | 🛡️ Mature |
+| KFin Technolog. | 45.4 | 1.28 | 22 | 2.06 | 1.95 | 16,246 | 6.3/10 | 🛡️ Mature |
+| Salona Cotspin | 59.7 | 0.39 | -55 | Negative Growth | Negative Growth+Yield | 137 | 3.2/10 | 🔻 Declining |
+| Blackbuck | 60.0 | 0.00 | 37 | 1.62 | 1.62 | 10,404 | 6.9/10 | 🛡️ Mature |
+| Cochin Shipyard | 66.6 | 0.50 | 31 | 2.15 | 2.11 | 39,370 | 6.6/10 | 🛡️ Mature |
+| Kiran Vyapar | 51.1 | 0.50 | -22 | Negative Growth | Negative Growth+Yield | 549 | 3.6/10 | 🔻 Declining |
+| Voltas | 102 | 0.30 | -12 | Negative Growth | Negative Growth+Yield | 43,693 | 4.0/10 | 🔻 Declining |
+| GRP | 91.0 | 0.17 | 3 | 30.33 | 28.71 | 1,072 | 5.4/10 | ⚠️ Stagnant |
+| Lak. Electrical | 174 | 0.37 | -61 | Negative Growth | Negative Growth+Yield | 202 | 2.5/10 | 🔻 Declining |
+| ZR2 Bioenergy | 208 | 0.08 | 312 | 0.67 | 0.67 | 191 | 6.0/10 | 🚀 Inflection |
+| Bhudevi Infra | 210 | 0.00 | -28 | Negative Growth | Negative Growth+Yield | 84.1 | 2.5/10 | 🔻 Declining |
+| Bombay Oxygen | 279 | 0.13 | N/A | N/A | N/A | 293 | 3.8/10 | 🔍 Discovery |
+| SKP Bearing | 17.6 | 0.69 | 4 | 4.40 | 3.75 | 269 | 4.6/10 | ⚠️ Stagnant |
+| Digitide Solutio | 39.2 | 0.00 | N/A | N/A | N/A | 1,492 | 5.3/10 | 🔍 Discovery |
