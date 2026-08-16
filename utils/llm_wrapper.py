@@ -39,9 +39,18 @@ def get_gemini_insights(ticker, historical_data, prophet_forecast, darts_forecas
             darts_avg = float(darts_forecast.values().mean())
             darts_summary = f"Darts predicts average price of ${darts_avg:.2f}"
         
+        # Calculate Earnings Yield
+        earnings_yield_str = "N/A"
+        try:
+            if current_price > 0:
+                # Estimate Earnings Yield if P/E available or general metric
+                earnings_yield_str = f"Earnings Yield evaluated on valuation multiple"
+        except Exception:
+            pass
+
         # Create enhanced prompt for better formatting
         prompt = f'''
-        Please provide a comprehensive analysis of {ticker} stock based on the following data:
+        Please provide a comprehensive analysis of {ticker} stock incorporating Applied Value Investing principles (Graham & Dodd Margin of Safety, Greenblatt Earnings Yield, and Return on Capital):
         
         Current Market Data:
         - Current Price: ${current_price:.2f}
@@ -59,8 +68,8 @@ def get_gemini_insights(ticker, historical_data, prophet_forecast, darts_forecas
         ## 📊 Market Sentiment Analysis
         [Provide 2-3 sentences analyzing the current market sentiment]
         
-        ## 🔍 Technical Analysis Insights
-        [Provide 2-3 sentences on technical indicators and price action]
+        ## 💎 Applied Value Investing & Technical Insights
+        [Provide 2-3 sentences on Margin of Safety, Earnings Yield, capital efficiency, and price action]
         
         ## ⚠️ Risk Assessment
         [Provide 2-3 sentences on potential risks and volatility]

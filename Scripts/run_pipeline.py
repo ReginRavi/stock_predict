@@ -97,11 +97,11 @@ def main():
                 rows = list(reader)
             
             if rows:
-                headers = ["Company Name", "Stock P/E", "Dividend Yield (%)", "Profit Growth 3Y (%)", "PEG Ratio 3Y", "PEGY Ratio 3Y", "Market Cap (Cr)", "VLRT Score", "S-Curve Stage"]
+                headers = ["Company Name", "Stock P/E", "Earnings Yield (%)", "ROCE (%)", "Dividend Yield (%)", "Profit Growth 3Y (%)", "PEG Ratio 3Y", "PEGY Ratio 3Y", "Market Cap (Cr)", "VLRT Score", "AVI Score", "Value Classification", "S-Curve Stage"]
                 
                 md_lines = []
                 md_lines.append(f"# Stock Analysis Report - {date.today().isoformat()}")
-                md_lines.append(f"\nGenerated automatically by the stock analysis pipeline with Quant VLRT & S-Curve Analysis.")
+                md_lines.append(f"\nGenerated automatically by the stock analysis pipeline with Quant VLRT, Applied Value Investing (AVI), & S-Curve Lifecycle Analysis.")
                 md_lines.append(f"\n| {' | '.join(headers)} |")
                 md_lines.append(f"| {' | '.join(['---'] * len(headers))} |")
                 
@@ -112,6 +112,14 @@ def main():
                         v_res = compute_vlrt_score(r.get("PEG Ratio 3Y", ""), r.get("PEGY Ratio 3Y", ""), r.get("Market Cap (Cr)", ""), r.get("Profit Growth 3Y (%)", ""), r.get("Dividend Yield (%)", ""), r.get("Stock P/E", ""))
                         vlrt_val = str(v_res["score"])
 
+                    avi_val = r.get("AVI Score", "")
+                    avi_cat = r.get("AVI Category", "")
+                    if not avi_val or avi_val == "N/A":
+                        from get_pe_ratios import compute_avi_score
+                        a_res = compute_avi_score(r.get("Stock P/E", ""), r.get("Profit Growth 3Y (%)", ""), r.get("PEG Ratio 3Y", ""), r.get("Dividend Yield (%)", ""), r.get("ROCE (%)", "N/A"), r.get("ROE (%)", "N/A"))
+                        avi_val = str(a_res["score"])
+                        avi_cat = a_res["badge"]
+
                     scurve_badge = r.get("S-Curve Stage", "")
                     if not scurve_badge or scurve_badge == "N/A":
                         from get_pe_ratios import compute_s_curve_stage
@@ -121,12 +129,16 @@ def main():
                     row_vals = [
                         r.get("Company Name", ""),
                         r.get("Stock P/E", ""),
+                        r.get("Earnings Yield (%)", "N/A"),
+                        r.get("ROCE (%)", "N/A"),
                         r.get("Dividend Yield (%)", ""),
                         r.get("Profit Growth 3Y (%)", ""),
                         r.get("PEG Ratio 3Y", ""),
                         r.get("PEGY Ratio 3Y", ""),
                         r.get("Market Cap (Cr)", ""),
                         f"{vlrt_val}/10",
+                        f"{avi_val}/10",
+                        avi_cat,
                         scurve_badge
                     ]
                     md_lines.append(f"| {' | '.join(row_vals)} |")
@@ -143,6 +155,9 @@ def main():
                 # Compute stats
                 valid_pes = []
                 vlrt_scores = []
+                avi_scores = []
+                deep_value_count = 0
+
                 for r in rows:
                     try:
                         pe_val = float(r.get("Stock P/E", "").replace(",", "").strip())
@@ -155,46 +170,46 @@ def main():
                         vlrt_scores.append(v_val)
                     except ValueError:
                         pass
-                
-                avg_pe = f"{sum(valid_pes) / len(valid_pes):.2f}" if valid_pes else "N/A"
-                avg_vlrt = f"{sum(vlrt_scores) / len(vlrt_scores):.1f}/10" if vlrt_scores else "N/A"
-                
-                # Find top pick by min PEG Ratio 3Y
-                min_peg = float('inf')
-                top_pick = "N/A"
-                for r in rows:
+
                     try:
-                        peg_val = float(r.get("PEG Ratio 3Y", "").strip())
-                        if peg_val < min_peg:
-                            min_peg = peg_val
-                            top_pick = r.get("Company Name", "")
+                        a_val = float(r.get("AVI Score", "").strip())
+                        avi_scores.append(a_val)
+                        if a_val >= 6.5 or "Deep Value" in r.get("AVI Category", "") or "Quality Value" in r.get("AVI Category", ""):
+                            deep_value_count += 1
                     except ValueError:
                         pass
                 
-                # Sort rows by VLRT Score High to Low by default
-                from get_pe_ratios import compute_vlrt_score
-                def get_vlrt_score_for_sort(r):
-                    val_str = r.get("VLRT Score", "").strip()
+                avg_pe = f"{sum(valid_pes) / len(valid_pes):.2f}" if valid_pes else "N/A"
+                avg_vlrt = f"{sum(vlrt_scores) / len(vlrt_scores):.1f}/10" if vlrt_scores else "N/A"
+                avg_avi = f"{sum(avi_scores) / len(avi_scores):.1f}/10" if avi_scores else "N/A"
+                
+                # Find top pick by max AVI Score & min PEG Ratio
+                from get_pe_ratios import compute_avi_score
+                def get_avi_sort_key(r):
+                    score_str = r.get("AVI Score", "").strip()
                     try:
-                        return float(val_str)
+                        return float(score_str)
                     except (ValueError, TypeError):
-                        res = compute_vlrt_score(
-                            r.get("PEG Ratio 3Y", ""),
-                            r.get("PEGY Ratio 3Y", ""),
-                            r.get("Market Cap (Cr)", ""),
+                        res = compute_avi_score(
+                            r.get("Stock P/E", ""),
                             r.get("Profit Growth 3Y (%)", ""),
+                            r.get("PEG Ratio 3Y", ""),
                             r.get("Dividend Yield (%)", ""),
-                            r.get("Stock P/E", "")
+                            r.get("ROCE (%)", "N/A"),
+                            r.get("ROE (%)", "N/A")
                         )
                         return res["score"]
 
-                rows = sorted(rows, key=get_vlrt_score_for_sort, reverse=True)
+                rows = sorted(rows, key=get_avi_sort_key, reverse=True)
+                top_pick = rows[0].get("Company Name", "N/A") if rows else "N/A"
 
-                # Build rows
+                # Build rows HTML
                 table_rows_html = []
                 for r in rows:
                     company = r.get("Company Name", "")
                     pe = r.get("Stock P/E", "")
+                    ey = r.get("Earnings Yield (%)", "N/A")
+                    roce = r.get("ROCE (%)", "N/A")
                     div_yield = r.get("Dividend Yield (%)", "")
                     growth = r.get("Profit Growth 3Y (%)", "")
                     peg = r.get("PEG Ratio 3Y", "")
@@ -218,6 +233,26 @@ def main():
                             vlrt_badge_cls = "badge-warning"
                         else:
                             vlrt_badge_cls = "badge-danger"
+
+                    # Compute AVI Score & Category
+                    avi_score_str = r.get("AVI Score", "")
+                    avi_breakdown = r.get("AVI Breakdown", "")
+                    avi_badge = r.get("AVI Category", "")
+                    if not avi_score_str or avi_score_str == "N/A":
+                        from get_pe_ratios import compute_avi_score
+                        a_res = compute_avi_score(pe, growth, peg, div_yield, roce, r.get("ROE (%)", "N/A"))
+                        avi_score_val = a_res["score"]
+                        avi_badge_cls = a_res["badge_class"]
+                        avi_badge = a_res["badge"]
+                        avi_breakdown = a_res["breakdown"]
+                    else:
+                        avi_score_val = float(avi_score_str)
+                        if avi_score_val >= 6.5:
+                            avi_badge_cls = "badge-success"
+                        elif avi_score_val >= 4.5:
+                            avi_badge_cls = "badge-warning"
+                        else:
+                            avi_badge_cls = "badge-danger"
 
                     # Compute S-Curve
                     scurve_badge = r.get("S-Curve Stage", "")
@@ -272,12 +307,15 @@ def main():
                     row_html = f"""                    <tr>
                         <td style="font-weight: 500;">{company}</td>
                         <td>{pe}</td>
+                        <td style="font-weight: 600; color: #38bdf8;">{ey}</td>
+                        <td>{roce if roce != 'N/A' else 'N/A'}{'%' if roce != 'N/A' and not roce.endswith('%') else ''}</td>
                         <td>{div_yield}</td>
                         <td>{growth}</td>
                         <td>{peg}</td>
                         <td>{pegy}</td>
                         <td>{mcap}</td>
                         <td><span class="badge {vlrt_badge_cls}" title="Breakdown: {vlrt_breakdown}">⚡ {vlrt_score_val}/10</span></td>
+                        <td><span class="badge {avi_badge_cls}" title="Breakdown: {avi_breakdown}">{avi_badge} ({avi_score_val}/10)</span></td>
                         <td><span class="badge {scurve_cls}">{scurve_badge}</span></td>
                         <td><span class="badge {badge_class}">{rec_str}</span></td>
                     </tr>"""
@@ -291,7 +329,7 @@ def main():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Screener Dashboard</title>
+    <title>Stock Screener & Applied Value Investing Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -324,7 +362,7 @@ def main():
         }}
         
         .container {{
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }}
         
@@ -341,7 +379,7 @@ def main():
             font-family: 'Outfit', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }}
@@ -357,8 +395,8 @@ def main():
         
         .stats-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
             margin-bottom: 2.5rem;
         }}
         
@@ -366,7 +404,7 @@ def main():
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             transition: transform 0.2s ease, border-color 0.2s ease;
         }}
@@ -378,14 +416,14 @@ def main():
         
         .card-title {{
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }}
         
         .card-value {{
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 700;
             font-family: 'Outfit', sans-serif;
         }}
@@ -448,19 +486,20 @@ def main():
         }}
         
         th, td {{
-            padding: 1rem 1.25rem;
+            padding: 0.9rem 1.1rem;
             border-bottom: 1px solid var(--border);
         }}
         
         th {{
-            background-color: rgba(15, 23, 42, 0.3);
+            background-color: rgba(15, 23, 42, 0.4);
             color: var(--text-muted);
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             cursor: pointer;
             user-select: none;
+            white-space: nowrap;
             transition: color 0.2s ease, background-color 0.2s ease;
         }}
         
@@ -498,6 +537,7 @@ def main():
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.02em;
+            white-space: nowrap;
         }}
         
         .badge-success {{
@@ -537,8 +577,8 @@ def main():
     <div class="container">
         <header>
             <div>
-                <h1>Stock Value Screener</h1>
-                <p style="color: var(--text-muted); margin-top: 0.25rem;">Bearish Crossover Screener & Value Metrics</p>
+                <h1>Applied Value Investing Screener</h1>
+                <p style="color: var(--text-muted); margin-top: 0.25rem;">Bearish Crossover Screener • Quant VLRT • Graham & Greenblatt Value Metrics</p>
             </div>
             <div class="timestamp">Last Updated: {date.today().isoformat()}</div>
         </header>
@@ -553,6 +593,14 @@ def main():
                 <div class="card-value" style="color: var(--success);">{top_pick}</div>
             </div>
             <div class="card">
+                <div class="card-title">Avg AVI Score</div>
+                <div class="card-value" style="color: #ec4899;">{avg_avi}</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Deep / Quality Value Picks</div>
+                <div class="card-value" style="color: var(--success);">{deep_value_count}</div>
+            </div>
+            <div class="card">
                 <div class="card-title">Average P/E Ratio</div>
                 <div class="card-value">{avg_pe}</div>
             </div>
@@ -565,10 +613,13 @@ def main():
         <div class="search-container">
             <input type="text" id="searchInput" class="search-input" placeholder="Search by company name or ticker..." onkeyup="filterTable()">
             <select id="sortSelect" class="sort-select" onchange="handleSortSelect(this.value)">
-                <option value="vlrt-desc" selected>Sort By: VLRT Score (High to Low)</option>
+                <option value="avi-desc" selected>Sort By: AVI Score (High to Low)</option>
+                <option value="ey-desc">Earnings Yield (High to Low)</option>
+                <option value="vlrt-desc">VLRT Score (High to Low)</option>
                 <option value="name-asc">Company Name (A-Z)</option>
                 <option value="pe-asc">Stock P/E (Low to High)</option>
                 <option value="pe-desc">Stock P/E (High to Low)</option>
+                <option value="roce-desc">ROCE (High to Low)</option>
                 <option value="growth-desc">3Y Profit Growth (High to Low)</option>
                 <option value="peg-asc">PEG Ratio 3Y (Low to High)</option>
                 <option value="pegy-asc">PEGY Ratio 3Y (Low to High)</option>
@@ -583,14 +634,17 @@ def main():
                     <tr>
                         <th onclick="sortTable(0)">Company Name <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(1)">Stock P/E <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(2)">Div Yield (%) <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(3)">3Y Growth (%) <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(4)">PEG Ratio 3Y <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(5)">PEGY Ratio 3Y <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(6)">Market Cap (Cr) <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(7)" class="sorted-desc">VLRT Score <span class="sort-icon">▼</span></th>
-                        <th onclick="sortTable(8)">S-Curve Stage <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(9)">Recommendation <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(2)">Earnings Yield <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(3)">ROCE <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(4)">Div Yield <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(5)">3Y Growth <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(6)">PEG 3Y <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(7)">PEGY 3Y <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(8)">Market Cap <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(9)">VLRT Score <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(10)" class="sorted-desc">AVI Classification <span class="sort-icon">▼</span></th>
+                        <th onclick="sortTable(11)">S-Curve Stage <span class="sort-icon">↕</span></th>
+                        <th onclick="sortTable(12)">Recommendation <span class="sort-icon">↕</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -620,7 +674,7 @@ def main():
             }}
         }}
         
-        let currentSortCol = 7;
+        let currentSortCol = 10;
         let currentSortDir = 'desc';
 
         const recPriority = {{
@@ -635,10 +689,14 @@ def main():
             if (!val) return null;
             let clean = val.trim();
             if (clean === 'N/A' || clean === '' || clean.includes('Negative')) return null;
-            if (colIndex === 9) {{
+            if (colIndex === 12) {{
                 return recPriority[clean.toUpperCase()] !== undefined ? recPriority[clean.toUpperCase()] : -1;
             }}
-            let num = parseFloat(clean.replace(/,/g, '').replace(/⚡/g, '').replace(/\/10/g, ''));
+            // Match score / percentage pattern
+            let scoreMatch = clean.match(/(\d+(?:\.\d+)?)\s*\/\s*10/);
+            if (scoreMatch) return parseFloat(scoreMatch[1]);
+            
+            let num = parseFloat(clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').replace(/\/10/g, '').strip ? clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').trim() : clean);
             return isNaN(num) ? clean.toLowerCase() : num;
         }}
 
@@ -653,7 +711,7 @@ def main():
             }} else if (currentSortCol === n) {{
                 currentSortDir = currentSortDir === 'asc' ? 'desc' : 'asc';
             }} else {{
-                currentSortDir = 'asc';
+                currentSortDir = (n === 0 || n === 1 || n === 6 || n === 7) ? 'asc' : 'desc';
             }}
             currentSortCol = n;
 
@@ -699,14 +757,17 @@ def main():
             const colMap = {{
                 'name': 0,
                 'pe': 1,
-                'div': 2,
-                'growth': 3,
-                'peg': 4,
-                'pegy': 5,
-                'mcap': 6,
-                'vlrt': 7,
-                'scurve': 8,
-                'rec': 9
+                'ey': 2,
+                'roce': 3,
+                'div': 4,
+                'growth': 5,
+                'peg': 6,
+                'pegy': 7,
+                'mcap': 8,
+                'vlrt': 9,
+                'avi': 10,
+                'scurve': 11,
+                'rec': 12
             }};
             if (colMap[type] !== undefined) {{
                 sortTable(colMap[type], dir);

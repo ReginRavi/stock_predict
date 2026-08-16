@@ -211,8 +211,151 @@ def compute_vlrt_score(peg_str: str, pegy_str: str, mcap_str: str, growth_str: s
         "breakdown": f"V:{round(v_score*4,1)} L:{round(l_score*4,1)} R:{round(r_score*4,1)} T:{round(t_score*4,1)}"
     }
 
+def compute_avi_score(pe_str: str, growth_str: str, peg_str: str, div_str: str, roce_str: str = "N/A", roe_str: str = "N/A") -> dict:
+    """
+    Computes Applied Value Investing (AVI) Score (0.0 to 10.0) based on Graham, Greenblatt, and Lynch principles:
+    1. Earnings Yield (E/P): Valuation yield (max 3.5 pts)
+    2. Margin of Safety & Growth (PEG/PEGY) (max 2.5 pts)
+    3. Capital Efficiency (ROCE / ROE) (max 2.5 pts)
+    4. Cash Yield / Dividend Protection (max 1.5 pts)
+    """
+    ey_pct = 0.0
+    pe_val = None
+    try:
+        pe_val = float(pe_str.replace(",", "").strip())
+        if pe_val > 0:
+            ey_pct = round(100.0 / pe_val, 2)
+    except (ValueError, AttributeError):
+        pass
+
+    # 1. Earnings Yield / Valuation Score (0 - 3.5 pts)
+    val_score = 0.5
+    if pe_val is not None and pe_val > 0:
+        if ey_pct >= 10.0:    # P/E <= 10
+            val_score = 3.5
+        elif ey_pct >= 6.67:  # P/E <= 15
+            val_score = 2.8
+        elif ey_pct >= 5.0:   # P/E <= 20
+            val_score = 2.2
+        elif ey_pct >= 4.0:   # P/E <= 25
+            val_score = 1.6
+        elif ey_pct >= 2.5:   # P/E <= 40
+            val_score = 1.0
+        else:
+            val_score = 0.5
+    elif pe_str != "N/A" and ("Negative" in pe_str or (pe_val is not None and pe_val <= 0)):
+        val_score = 0.0
+
+    # 2. Margin of Safety & Growth Score (0 - 2.5 pts)
+    mos_score = 1.0
+    try:
+        peg_val = float(peg_str.strip())
+        if peg_val < 0.6:
+            mos_score = 2.5
+        elif peg_val < 1.0:
+            mos_score = 2.1
+        elif peg_val <= 1.5:
+            mos_score = 1.5
+        elif peg_val <= 2.0:
+            mos_score = 1.0
+        else:
+            mos_score = 0.5
+    except (ValueError, AttributeError):
+        if "Negative" in peg_str:
+            mos_score = 0.2
+        else:
+            mos_score = 1.0
+
+    # 3. Capital Efficiency / Moat Quality (ROCE / ROE) (0 - 2.5 pts)
+    cap_score = 1.0
+    roce_val = None
+    roe_val = None
+    try:
+        if roce_str != "N/A":
+            roce_val = float(roce_str.replace("%", "").replace(",", "").strip())
+    except (ValueError, AttributeError):
+        pass
+    try:
+        if roe_str != "N/A":
+            roe_val = float(roe_str.replace("%", "").replace(",", "").strip())
+    except (ValueError, AttributeError):
+        pass
+
+    best_ret = max([v for v in [roce_val, roe_val] if v is not None], default=None)
+    if best_ret is not None:
+        if best_ret >= 25.0:
+            cap_score = 2.5
+        elif best_ret >= 18.0:
+            cap_score = 2.1
+        elif best_ret >= 12.0:
+            cap_score = 1.6
+        elif best_ret >= 8.0:
+            cap_score = 1.1
+        else:
+            cap_score = 0.6
+    else:
+        # Fallback to profit growth if ROCE/ROE not parsed
+        try:
+            g_val = float(growth_str.replace("%", "").replace(",", "").strip())
+            if g_val >= 20.0:
+                cap_score = 2.0
+            elif g_val >= 10.0:
+                cap_score = 1.5
+            elif g_val > 0:
+                cap_score = 1.0
+            else:
+                cap_score = 0.5
+        except (ValueError, AttributeError):
+            cap_score = 1.0
+
+    # 4. Cash Yield / Dividend Cushion (0 - 1.5 pts)
+    div_score = 0.5
+    try:
+        d_val = float(div_str.replace("%", "").replace(",", "").strip())
+        if d_val >= 3.0:
+            div_score = 1.5
+        elif d_val >= 1.5:
+            div_score = 1.2
+        elif d_val >= 0.5:
+            div_score = 0.8
+        elif d_val > 0:
+            div_score = 0.5
+        else:
+            div_score = 0.2
+    except (ValueError, AttributeError):
+        div_score = 0.5
+
+    total_avi = round(val_score + mos_score + cap_score + div_score, 1)
+
+    if total_avi >= 8.0:
+        badge = "💎 Deep Value"
+        badge_class = "badge-success"
+        category = "Deep Value"
+    elif total_avi >= 6.5:
+        badge = "🌟 Quality Value"
+        badge_class = "badge-success"
+        category = "Quality Value"
+    elif total_avi >= 4.5:
+        badge = "⚖️ Fair Value"
+        badge_class = "badge-warning"
+        category = "Fair Value"
+    else:
+        badge = "⚠️ Value Trap"
+        badge_class = "badge-danger"
+        category = "Value Trap"
+
+    return {
+        "score": total_avi,
+        "earnings_yield": f"{ey_pct:.2f}%" if pe_val is not None and pe_val > 0 else "N/A",
+        "earnings_yield_num": ey_pct,
+        "badge": badge,
+        "badge_class": badge_class,
+        "category": category,
+        "breakdown": f"EY:{val_score} MoS:{mos_score} Cap:{cap_score} Div:{div_score}"
+    }
+
 def fetch_company_metrics(session: requests.Session, slug: str) -> Dict[str, str]:
-    """Fetch company details, P/E, Market Cap, Growth, Dividend Yield, and calculate PEG & PEGY ratios."""
+    """Fetch company details, P/E, Market Cap, Growth, Dividend Yield, ROCE/ROE, and calculate PEG & PEGY ratios."""
     url = f"https://www.screener.in/company/{slug}/"
     metrics = {
         "fullname": slug,
@@ -224,7 +367,9 @@ def fetch_company_metrics(session: requests.Session, slug: str) -> Dict[str, str
         "peg_3y": "N/A",
         "peg_5y": "N/A",
         "pegy_3y": "N/A",
-        "pegy_5y": "N/A"
+        "pegy_5y": "N/A",
+        "roce": "N/A",
+        "roe": "N/A"
     }
     try:
         response = session.get(url, timeout=15)
@@ -251,6 +396,8 @@ def fetch_company_metrics(session: requests.Session, slug: str) -> Dict[str, str
         
         metrics["pe"] = ratios.get("Stock P/E", ratios.get("P/E", "N/A"))
         metrics["mcap"] = ratios.get("Market Cap", "N/A")
+        metrics["roce"] = ratios.get("ROCE", "N/A").replace("%", "").strip() if ratios.get("ROCE") else "N/A"
+        metrics["roe"] = ratios.get("ROE", "N/A").replace("%", "").strip() if ratios.get("ROE") else "N/A"
         
         # Extract Dividend Yield
         div_str = ratios.get("Dividend Yield", "0.00").replace("%", "").strip()
@@ -367,12 +514,19 @@ def main():
                 "Dividend Yield (%)": "N/A",
                 "Profit Growth 3Y (%)": "N/A",
                 "Profit Growth 5Y (%)": "N/A",
+                "Earnings Yield (%)": "N/A",
+                "ROCE (%)": "N/A",
+                "ROE (%)": "N/A",
                 "PEG Ratio 3Y": "N/A",
                 "PEG Ratio 5Y": "N/A",
                 "PEGY Ratio 3Y": "N/A",
                 "PEGY Ratio 5Y": "N/A",
                 "VLRT Score": "N/A",
-                "VLRT Breakdown": "N/A"
+                "VLRT Breakdown": "N/A",
+                "S-Curve Stage": "N/A",
+                "AVI Score": "N/A",
+                "AVI Breakdown": "N/A",
+                "AVI Category": "N/A"
             })
             continue
             
@@ -382,12 +536,16 @@ def main():
         if metrics["pe"] != "N/A":
             vlrt = compute_vlrt_score(metrics['peg_3y'], metrics['pegy_3y'], metrics['mcap'], metrics['growth_3y'], metrics['div_yield'], metrics['pe'])
             scurve = compute_s_curve_stage(metrics['growth_3y'], metrics['peg_3y'], metrics['pe'])
-            print(f" ✅ P/E: {metrics['pe']} | PEG 3Y: {metrics['peg_3y']} | VLRT: {vlrt['score']}/10 | S-Curve: {scurve['badge']}")
+            avi = compute_avi_score(metrics['pe'], metrics['growth_3y'], metrics['peg_3y'], metrics['div_yield'], metrics.get('roce', 'N/A'), metrics.get('roe', 'N/A'))
+            print(f" ✅ P/E: {metrics['pe']} | EY: {avi['earnings_yield']} | PEG 3Y: {metrics['peg_3y']} | VLRT: {vlrt['score']}/10 | AVI: {avi['score']}/10 ({avi['category']}) | S-Curve: {scurve['badge']}")
             results.append({
                 "Company Name": name,
                 "Screener Slug": slug,
                 "Company Full Name": metrics["fullname"],
                 "Stock P/E": metrics["pe"],
+                "Earnings Yield (%)": avi["earnings_yield"],
+                "ROCE (%)": metrics.get("roce", "N/A"),
+                "ROE (%)": metrics.get("roe", "N/A"),
                 "Market Cap (Cr)": metrics["mcap"],
                 "Dividend Yield (%)": metrics["div_yield"],
                 "Profit Growth 3Y (%)": metrics["growth_3y"],
@@ -398,7 +556,10 @@ def main():
                 "PEGY Ratio 5Y": metrics["pegy_5y"],
                 "VLRT Score": str(vlrt["score"]),
                 "VLRT Breakdown": vlrt["breakdown"],
-                "S-Curve Stage": scurve["badge"]
+                "S-Curve Stage": scurve["badge"],
+                "AVI Score": str(avi["score"]),
+                "AVI Breakdown": avi["breakdown"],
+                "AVI Category": avi["badge"]
             })
         else:
             print(" ❌ Detail Fetch Failed")
@@ -407,6 +568,9 @@ def main():
                 "Screener Slug": slug,
                 "Company Full Name": "N/A",
                 "Stock P/E": "N/A",
+                "Earnings Yield (%)": "N/A",
+                "ROCE (%)": "N/A",
+                "ROE (%)": "N/A",
                 "Market Cap (Cr)": "N/A",
                 "Dividend Yield (%)": "N/A",
                 "Profit Growth 3Y (%)": "N/A",
@@ -417,16 +581,19 @@ def main():
                 "PEGY Ratio 5Y": "N/A",
                 "VLRT Score": "N/A",
                 "VLRT Breakdown": "N/A",
-                "S-Curve Stage": "N/A"
+                "S-Curve Stage": "N/A",
+                "AVI Score": "N/A",
+                "AVI Breakdown": "N/A",
+                "AVI Category": "N/A"
             })
             
     # Write CSV output
     output_file.parent.mkdir(parents=True, exist_ok=True)
     fieldnames = [
-        "Company Name", "Screener Slug", "Company Full Name", "Stock P/E", 
-        "Market Cap (Cr)", "Dividend Yield (%)", "Profit Growth 3Y (%)", 
+        "Company Name", "Screener Slug", "Company Full Name", "Stock P/E", "Earnings Yield (%)",
+        "ROCE (%)", "ROE (%)", "Market Cap (Cr)", "Dividend Yield (%)", "Profit Growth 3Y (%)", 
         "Profit Growth 5Y (%)", "PEG Ratio 3Y", "PEG Ratio 5Y", "PEGY Ratio 3Y", "PEGY Ratio 5Y",
-        "VLRT Score", "VLRT Breakdown", "S-Curve Stage"
+        "VLRT Score", "VLRT Breakdown", "S-Curve Stage", "AVI Score", "AVI Breakdown", "AVI Category"
     ]
     
     try:
