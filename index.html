@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Screener & Applied Value Investing Dashboard</title>
+    <title>Strong Buy Stock Screener & Applied Value Investing Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
             font-family: 'Outfit', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -251,45 +251,41 @@
     <div class="container">
         <header>
             <div>
-                <h1>Applied Value Investing Screener</h1>
-                <p style="color: var(--text-muted); margin-top: 0.25rem;">Bearish Crossover Screener • Quant VLRT • Graham & Greenblatt Value Metrics</p>
+                <h1>Strong Buy Screener & Applied Value</h1>
+                <p style="color: var(--text-muted); margin-top: 0.25rem;">Filtered for Strong Buy Recommendations • Quant VLRT & Applied Value Metrics</p>
             </div>
             <div class="timestamp">Last Updated: 2026-08-16</div>
         </header>
         
         <div class="stats-grid">
             <div class="card">
-                <div class="card-title">Total Stocks Analyzed</div>
-                <div class="card-value">82</div>
+                <div class="card-title">Strong Buy Picks</div>
+                <div class="card-value" style="color: var(--success);">14</div>
             </div>
             <div class="card">
-                <div class="card-title">Top Value Pick</div>
+                <div class="card-title">Top VLRT Pick</div>
                 <div class="card-value" style="color: var(--success);">B P C L</div>
             </div>
             <div class="card">
-                <div class="card-title">Avg AVI Score</div>
-                <div class="card-value" style="color: #ec4899;">4.8/10</div>
+                <div class="card-title">Avg VLRT Score</div>
+                <div class="card-value" style="color: var(--primary);">8.5/10</div>
             </div>
             <div class="card">
-                <div class="card-title">Deep / Quality Value Picks</div>
-                <div class="card-value" style="color: var(--success);">19</div>
+                <div class="card-title">Avg AVI Score</div>
+                <div class="card-value" style="color: #ec4899;">8.0/10</div>
             </div>
             <div class="card">
                 <div class="card-title">Average P/E Ratio</div>
-                <div class="card-value">43.32</div>
-            </div>
-            <div class="card">
-                <div class="card-title">Average VLRT Score</div>
-                <div class="card-value" style="color: var(--primary);">6.0/10</div>
+                <div class="card-value">12.08</div>
             </div>
         </div>
         
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search by company name or ticker..." onkeyup="filterTable()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search strong buy company name or ticker..." onkeyup="filterTable()">
             <select id="sortSelect" class="sort-select" onchange="handleSortSelect(this.value)">
-                <option value="avi-desc" selected>Sort By: AVI Score (High to Low)</option>
+                <option value="vlrt-desc" selected>Sort By: VLRT Score (High to Low)</option>
+                <option value="avi-desc">AVI Score (High to Low)</option>
                 <option value="ey-desc">Earnings Yield (High to Low)</option>
-                <option value="vlrt-desc">VLRT Score (High to Low)</option>
                 <option value="name-asc">Company Name (A-Z)</option>
                 <option value="pe-asc">Stock P/E (Low to High)</option>
                 <option value="pe-desc">Stock P/E (High to Low)</option>
@@ -298,7 +294,6 @@
                 <option value="peg-asc">PEG Ratio 3Y (Low to High)</option>
                 <option value="pegy-asc">PEGY Ratio 3Y (Low to High)</option>
                 <option value="mcap-desc">Market Cap (High to Low)</option>
-                <option value="rec-desc">Recommendation (Strong Buy First)</option>
             </select>
         </div>
         
@@ -315,8 +310,8 @@
                         <th onclick="sortTable(6)">PEG 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(7)">PEGY 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(8)">Market Cap <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(9)">VLRT Score <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(10)" class="sorted-desc">AVI Classification <span class="sort-icon">▼</span></th>
+                        <th onclick="sortTable(9)" class="sorted-desc">VLRT Score <span class="sort-icon">▼</span></th>
+                        <th onclick="sortTable(10)">AVI Classification <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(11)">S-Curve Stage <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(12)">Recommendation <span class="sort-icon">↕</span></th>
                     </tr>
@@ -338,17 +333,17 @@
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: 500;">Slone Infosys.</td>
-                        <td>8.29</td>
-                        <td style="font-weight: 600; color: #38bdf8;">12.06%</td>
-                        <td>26.0%</td>
-                        <td>0.35</td>
-                        <td>129</td>
-                        <td>0.06</td>
-                        <td>0.06</td>
-                        <td>74.7</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:2.5 Div:0.5">💎 Deep Value (9.0/10)</span></td>
+                        <td style="font-weight: 500;">Shrem InvIT</td>
+                        <td>14.0</td>
+                        <td style="font-weight: 600; color: #38bdf8;">7.14%</td>
+                        <td>7.39%</td>
+                        <td>2.96</td>
+                        <td>186</td>
+                        <td>0.08</td>
+                        <td>0.07</td>
+                        <td>6,200</td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:8.8 R:10.0 T:10.0">⚡ 9.7/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:0.6 Div:1.2">🌟 Quality Value (7.1/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
@@ -368,19 +363,94 @@
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: 500;">Guj Pipavav Port</td>
-                        <td>14.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">6.94%</td>
-                        <td>30.2%</td>
-                        <td>6.55</td>
-                        <td>15</td>
-                        <td>0.96</td>
-                        <td>0.67</td>
-                        <td>7,671</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:8.4 L:8.8 R:6.4 T:10.0">⚡ 8.4/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.1 Cap:2.5 Div:1.5">💎 Deep Value (8.9/10)</span></td>
-                        <td><span class="badge badge-success">📈 Accelerating</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
+                        <td style="font-weight: 500;">National Fitting</td>
+                        <td>14.3</td>
+                        <td style="font-weight: 600; color: #38bdf8;">6.99%</td>
+                        <td>14.6%</td>
+                        <td>0.61</td>
+                        <td>28</td>
+                        <td>0.51</td>
+                        <td>0.50</td>
+                        <td>149</td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:10.0 T:10.0">⚡ 8.5/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:1.6 Div:0.8">🌟 Quality Value (7.7/10)</span></td>
+                        <td><span class="badge badge-success">🚀 Inflection</span></td>
+                        <td><span class="badge badge-success">STRONG BUY</span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">Career Point Edu</td>
+                        <td>16.0</td>
+                        <td style="font-weight: 600; color: #38bdf8;">6.25%</td>
+                        <td>46.7%</td>
+                        <td>1.22</td>
+                        <td>98</td>
+                        <td>0.16</td>
+                        <td>0.16</td>
+                        <td>373</td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:10.0 T:10.0">⚡ 8.5/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:2.2 MoS:2.5 Cap:2.5 Div:0.8">💎 Deep Value (8.0/10)</span></td>
+                        <td><span class="badge badge-success">🚀 Inflection</span></td>
+                        <td><span class="badge badge-success">STRONG BUY</span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">Chandan Healthca</td>
+                        <td>22.8</td>
+                        <td style="font-weight: 600; color: #38bdf8;">4.39%</td>
+                        <td>22.8%</td>
+                        <td>0.00</td>
+                        <td>89</td>
+                        <td>0.26</td>
+                        <td>0.26</td>
+                        <td>606</td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:5.6 R:8.4 T:10.0">⚡ 8.5/10</span></td>
+                        <td><span class="badge badge-warning" title="Breakdown: EY:1.6 MoS:2.5 Cap:2.1 Div:0.2">⚖️ Fair Value (6.4/10)</span></td>
+                        <td><span class="badge badge-success">🚀 Inflection</span></td>
+                        <td><span class="badge badge-success">STRONG BUY</span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">Hind.Adhesive</td>
+                        <td>5.26</td>
+                        <td style="font-weight: 600; color: #38bdf8;">19.01%</td>
+                        <td>15.5%</td>
+                        <td>0.00</td>
+                        <td>54</td>
+                        <td>0.10</td>
+                        <td>0.10</td>
+                        <td>143</td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:1.6 Div:0.2">🌟 Quality Value (7.8/10)</span></td>
+                        <td><span class="badge badge-success">🚀 Inflection</span></td>
+                        <td><span class="badge badge-success">STRONG BUY</span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">Slone Infosys.</td>
+                        <td>8.29</td>
+                        <td style="font-weight: 600; color: #38bdf8;">12.06%</td>
+                        <td>26.0%</td>
+                        <td>0.35</td>
+                        <td>129</td>
+                        <td>0.06</td>
+                        <td>0.06</td>
+                        <td>74.7</td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:2.5 Div:0.5">💎 Deep Value (9.0/10)</span></td>
+                        <td><span class="badge badge-success">🚀 Inflection</span></td>
+                        <td><span class="badge badge-success">STRONG BUY</span></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">Haryana Capfin</td>
+                        <td>8.61</td>
+                        <td style="font-weight: 600; color: #38bdf8;">11.61%</td>
+                        <td>3.71%</td>
+                        <td>0.00</td>
+                        <td>84</td>
+                        <td>0.10</td>
+                        <td>0.10</td>
+                        <td>77.2</td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:0.6 Div:0.2">🌟 Quality Value (6.8/10)</span></td>
+                        <td><span class="badge badge-success">🚀 Inflection</span></td>
+                        <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
                     <tr>
                         <td style="font-weight: 500;">Dynavision</td>
@@ -428,51 +498,6 @@
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: 500;">Career Point Edu</td>
-                        <td>16.0</td>
-                        <td style="font-weight: 600; color: #38bdf8;">6.25%</td>
-                        <td>46.7%</td>
-                        <td>1.22</td>
-                        <td>98</td>
-                        <td>0.16</td>
-                        <td>0.16</td>
-                        <td>373</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:10.0 T:10.0">⚡ 8.5/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.2 MoS:2.5 Cap:2.5 Div:0.8">💎 Deep Value (8.0/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Hind.Adhesive</td>
-                        <td>5.26</td>
-                        <td style="font-weight: 600; color: #38bdf8;">19.01%</td>
-                        <td>15.5%</td>
-                        <td>0.00</td>
-                        <td>54</td>
-                        <td>0.10</td>
-                        <td>0.10</td>
-                        <td>143</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:1.6 Div:0.2">🌟 Quality Value (7.8/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">National Fitting</td>
-                        <td>14.3</td>
-                        <td style="font-weight: 600; color: #38bdf8;">6.99%</td>
-                        <td>14.6%</td>
-                        <td>0.61</td>
-                        <td>28</td>
-                        <td>0.51</td>
-                        <td>0.50</td>
-                        <td>149</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:10.0 T:10.0">⚡ 8.5/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:1.6 Div:0.8">🌟 Quality Value (7.7/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
                         <td style="font-weight: 500;">WOL 3D India</td>
                         <td>14.0</td>
                         <td style="font-weight: 600; color: #38bdf8;">7.14%</td>
@@ -488,36 +513,6 @@
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: 500;">Godrej Agrovet</td>
-                        <td>19.2</td>
-                        <td style="font-weight: 600; color: #38bdf8;">5.21%</td>
-                        <td>22.5%</td>
-                        <td>1.89</td>
-                        <td>31</td>
-                        <td>0.62</td>
-                        <td>0.58</td>
-                        <td>11,166</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:8.4 L:8.8 R:10.0 T:10.0">⚡ 9.3/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.2 MoS:2.1 Cap:2.1 Div:1.2">🌟 Quality Value (7.6/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Petronet LNG</td>
-                        <td>10.3</td>
-                        <td style="font-weight: 600; color: #38bdf8;">9.71%</td>
-                        <td>23.4%</td>
-                        <td>3.54</td>
-                        <td>6</td>
-                        <td>1.72</td>
-                        <td>1.08</td>
-                        <td>42,390</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:4.4 L:10.0 R:6.4 T:6.0">⚡ 6.7/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:1.0 Cap:2.1 Div:1.5">🌟 Quality Value (7.4/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-warning">HOLD</span></td>
-                    </tr>
-                    <tr>
                         <td style="font-weight: 500;">Zodiac Energy</td>
                         <td>15.9</td>
                         <td style="font-weight: 600; color: #38bdf8;">6.29%</td>
@@ -531,1026 +526,6 @@
                         <td><span class="badge badge-success" title="Breakdown: EY:2.2 MoS:2.5 Cap:2.1 Div:0.5">🌟 Quality Value (7.3/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Shrem InvIT</td>
-                        <td>14.0</td>
-                        <td style="font-weight: 600; color: #38bdf8;">7.14%</td>
-                        <td>7.39%</td>
-                        <td>2.96</td>
-                        <td>186</td>
-                        <td>0.08</td>
-                        <td>0.07</td>
-                        <td>6,200</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:8.8 R:10.0 T:10.0">⚡ 9.7/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:0.6 Div:1.2">🌟 Quality Value (7.1/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Haryana Capfin</td>
-                        <td>8.61</td>
-                        <td style="font-weight: 600; color: #38bdf8;">11.61%</td>
-                        <td>3.71%</td>
-                        <td>0.00</td>
-                        <td>84</td>
-                        <td>0.10</td>
-                        <td>0.10</td>
-                        <td>77.2</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:0.6 Div:0.2">🌟 Quality Value (6.8/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Wipro</td>
-                        <td>16.1</td>
-                        <td style="font-weight: 600; color: #38bdf8;">6.21%</td>
-                        <td>23.7%</td>
-                        <td>5.98</td>
-                        <td>10</td>
-                        <td>1.61</td>
-                        <td>1.01</td>
-                        <td>1,82,241</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:4.4 L:10.0 R:6.4 T:6.0">⚡ 6.7/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.2 MoS:1.0 Cap:2.1 Div:1.5">🌟 Quality Value (6.8/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-warning">HOLD</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Borosil</td>
-                        <td>20.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">4.90%</td>
-                        <td>26.6%</td>
-                        <td>0.00</td>
-                        <td>61</td>
-                        <td>0.33</td>
-                        <td>0.33</td>
-                        <td>8,185</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:8.8 R:8.4 T:10.0">⚡ 9.3/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:1.6 MoS:2.5 Cap:2.5 Div:0.2">🌟 Quality Value (6.8/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Suyog Gurbaxani</td>
-                        <td>23.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">4.27%</td>
-                        <td>22.1%</td>
-                        <td>0.00</td>
-                        <td>230</td>
-                        <td>0.10</td>
-                        <td>0.10</td>
-                        <td>260</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:1.6 MoS:2.5 Cap:2.5 Div:0.2">🌟 Quality Value (6.8/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Chandan Healthca</td>
-                        <td>22.8</td>
-                        <td style="font-weight: 600; color: #38bdf8;">4.39%</td>
-                        <td>22.8%</td>
-                        <td>0.00</td>
-                        <td>89</td>
-                        <td>0.26</td>
-                        <td>0.26</td>
-                        <td>606</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:5.6 R:8.4 T:10.0">⚡ 8.5/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.6 MoS:2.5 Cap:2.1 Div:0.2">⚖️ Fair Value (6.4/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">SIL Investments</td>
-                        <td>11.5</td>
-                        <td style="font-weight: 600; color: #38bdf8;">8.70%</td>
-                        <td>1.87%</td>
-                        <td>0.57</td>
-                        <td>12</td>
-                        <td>0.96</td>
-                        <td>0.91</td>
-                        <td>467</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:8.4 L:4.0 R:6.4 T:10.0">⚡ 7.2/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:2.8 MoS:2.1 Cap:0.6 Div:0.8">⚖️ Fair Value (6.3/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">KIFS Financial</td>
-                        <td>14.9</td>
-                        <td style="font-weight: 600; color: #38bdf8;">6.71%</td>
-                        <td>8.18%</td>
-                        <td>1.30</td>
-                        <td>8</td>
-                        <td>1.86</td>
-                        <td>1.60</td>
-                        <td>124</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.4 L:4.0 R:6.4 T:6.0">⚡ 5.2/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:2.8 MoS:1.0 Cap:1.6 Div:0.8">⚖️ Fair Value (6.2/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-warning">HOLD</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Shiva Texyarn</td>
-                        <td>23.0</td>
-                        <td style="font-weight: 600; color: #38bdf8;">4.35%</td>
-                        <td>12.7%</td>
-                        <td>0.37</td>
-                        <td>39</td>
-                        <td>0.59</td>
-                        <td>0.58</td>
-                        <td>211</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.6 MoS:2.5 Cap:1.6 Div:0.5">⚖️ Fair Value (6.2/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">STRONG BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Bharti Hexacom</td>
-                        <td>43.9</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.28%</td>
-                        <td>21.4%</td>
-                        <td>1.11</td>
-                        <td>46</td>
-                        <td>0.95</td>
-                        <td>0.93</td>
-                        <td>81,055</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:8.4 L:10.0 R:10.0 T:8.4">⚡ 9.2/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:0.5 MoS:2.1 Cap:2.5 Div:0.8">⚖️ Fair Value (5.9/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Krsnaa Diagnost.</td>
-                        <td>18.2</td>
-                        <td style="font-weight: 600; color: #38bdf8;">5.49%</td>
-                        <td>12.7%</td>
-                        <td>0.48</td>
-                        <td>17</td>
-                        <td>1.07</td>
-                        <td>1.04</td>
-                        <td>1,866</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:6.4 L:7.2 R:8.4 T:10.0">⚡ 8.0/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:2.2 MoS:1.5 Cap:1.6 Div:0.5">⚖️ Fair Value (5.8/10)</span></td>
-                        <td><span class="badge badge-success">📈 Accelerating</span></td>
-                        <td><span class="badge badge-warning">HOLD</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Dynamic Industri</td>
-                        <td>18.8</td>
-                        <td style="font-weight: 600; color: #38bdf8;">5.32%</td>
-                        <td>5.92%</td>
-                        <td>0.91</td>
-                        <td>20</td>
-                        <td>0.94</td>
-                        <td>0.90</td>
-                        <td>33.2</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:8.4 L:4.0 R:8.4 T:10.0">⚡ 7.7/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:2.2 MoS:2.1 Cap:0.6 Div:0.8">⚖️ Fair Value (5.7/10)</span></td>
-                        <td><span class="badge badge-success">📈 Accelerating</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">SKP Bearing</td>
-                        <td>17.6</td>
-                        <td style="font-weight: 600; color: #38bdf8;">5.68%</td>
-                        <td>22.4%</td>
-                        <td>0.69</td>
-                        <td>4</td>
-                        <td>4.40</td>
-                        <td>3.75</td>
-                        <td>269</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:4.0 R:6.4 T:6.0">⚡ 4.6/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:2.2 MoS:0.5 Cap:2.1 Div:0.8">⚖️ Fair Value (5.6/10)</span></td>
-                        <td><span class="badge badge-danger">⚠️ Stagnant</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">AWL Agri Busine.</td>
-                        <td>22.6</td>
-                        <td style="font-weight: 600; color: #38bdf8;">4.42%</td>
-                        <td>17.7%</td>
-                        <td>0.52</td>
-                        <td>18</td>
-                        <td>1.26</td>
-                        <td>1.22</td>
-                        <td>24,975</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:6.4 L:10.0 R:8.4 T:10.0">⚡ 8.7/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.6 MoS:1.5 Cap:1.6 Div:0.8">⚖️ Fair Value (5.5/10)</span></td>
-                        <td><span class="badge badge-success">📈 Accelerating</span></td>
-                        <td><span class="badge badge-warning">HOLD</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Vilas Transcore</td>
-                        <td>23.2</td>
-                        <td style="font-weight: 600; color: #38bdf8;">4.31%</td>
-                        <td>16.1%</td>
-                        <td>0.00</td>
-                        <td>26</td>
-                        <td>0.89</td>
-                        <td>0.89</td>
-                        <td>916</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:8.4 L:5.6 R:8.4 T:10.0">⚡ 8.1/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.6 MoS:2.1 Cap:1.6 Div:0.2">⚖️ Fair Value (5.5/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">L&T Technology</td>
-                        <td>29.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.40%</td>
-                        <td>26.8%</td>
-                        <td>1.67</td>
-                        <td>4</td>
-                        <td>7.35</td>
-                        <td>5.19</td>
-                        <td>36,881</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:2.0 L:10.0 R:6.4 T:6.0">⚡ 6.1/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:0.5 Cap:2.5 Div:1.2">⚖️ Fair Value (5.2/10)</span></td>
-                        <td><span class="badge badge-danger">⚠️ Stagnant</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">B & A Packaging</td>
-                        <td>12.3</td>
-                        <td style="font-weight: 600; color: #38bdf8;">8.13%</td>
-                        <td>11.0%</td>
-                        <td>0.52</td>
-                        <td>-6</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>95.7</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:4.0 R:2.0 T:6.0">⚡ 3.2/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:2.8 MoS:0.2 Cap:1.1 Div:0.8">⚖️ Fair Value (4.9/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Rajputana Bio.</td>
-                        <td>30.7</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.26%</td>
-                        <td>13.4%</td>
-                        <td>0.00</td>
-                        <td>42</td>
-                        <td>0.73</td>
-                        <td>0.73</td>
-                        <td>151</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:8.4 L:4.0 R:8.4 T:8.4">⚡ 7.3/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:2.1 Cap:1.6 Div:0.2">⚖️ Fair Value (4.9/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">C K K Retail</td>
-                        <td>26.3</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.80%</td>
-                        <td>17.1%</td>
-                        <td>0.00</td>
-                        <td>31</td>
-                        <td>0.85</td>
-                        <td>0.85</td>
-                        <td>284</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:8.4 L:4.0 R:8.4 T:8.4">⚡ 7.3/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:2.1 Cap:1.6 Div:0.2">⚖️ Fair Value (4.9/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">E to E Transportation</td>
-                        <td>26.3</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.80%</td>
-                        <td>15.4%</td>
-                        <td>0.00</td>
-                        <td>32</td>
-                        <td>0.82</td>
-                        <td>0.82</td>
-                        <td>460</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:8.4 L:4.0 R:8.4 T:8.4">⚡ 7.3/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:2.1 Cap:1.6 Div:0.2">⚖️ Fair Value (4.9/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">JSW Dulux</td>
-                        <td>37.6</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.66%</td>
-                        <td>23.0%</td>
-                        <td>1.58</td>
-                        <td>2</td>
-                        <td>18.80</td>
-                        <td>10.50</td>
-                        <td>14,424</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:8.8 R:6.4 T:6.0">⚡ 5.8/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:0.5 Cap:2.1 Div:1.2">⚖️ Fair Value (4.8/10)</span></td>
-                        <td><span class="badge badge-danger">⚠️ Stagnant</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Ahluwalia Contr.</td>
-                        <td>25.0</td>
-                        <td style="font-weight: 600; color: #38bdf8;">4.00%</td>
-                        <td>20.4%</td>
-                        <td>0.07</td>
-                        <td>11</td>
-                        <td>2.27</td>
-                        <td>2.26</td>
-                        <td>5,609</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:8.8 R:6.4 T:6.0">⚡ 5.8/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.6 MoS:0.5 Cap:2.1 Div:0.5">⚖️ Fair Value (4.7/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Dodla Dairy</td>
-                        <td>35.2</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.84%</td>
-                        <td>15.1%</td>
-                        <td>0.45</td>
-                        <td>32</td>
-                        <td>1.10</td>
-                        <td>1.08</td>
-                        <td>6,693</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:6.4 L:8.8 R:8.4 T:8.4">⚡ 8.0/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:1.5 Cap:1.6 Div:0.5">⚖️ Fair Value (4.6/10)</span></td>
-                        <td><span class="badge badge-success">📈 Accelerating</span></td>
-                        <td><span class="badge badge-warning">HOLD</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Heidelberg Cem.</td>
-                        <td>29.5</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.39%</td>
-                        <td>14.7%</td>
-                        <td>4.42</td>
-                        <td>12</td>
-                        <td>2.46</td>
-                        <td>1.80</td>
-                        <td>3,586</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:7.2 R:6.4 T:6.0">⚡ 5.4/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:0.5 Cap:1.6 Div:1.5">⚖️ Fair Value (4.6/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Revathi Equip</td>
-                        <td>16.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">6.10%</td>
-                        <td>14.4%</td>
-                        <td>0.00</td>
-                        <td>1</td>
-                        <td>16.40</td>
-                        <td>16.40</td>
-                        <td>224</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:4.0 R:6.4 T:6.0">⚡ 4.6/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:2.2 MoS:0.5 Cap:1.6 Div:0.2">⚖️ Fair Value (4.5/10)</span></td>
-                        <td><span class="badge badge-danger">⚠️ Stagnant</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Hind.Tin Works</td>
-                        <td>12.1</td>
-                        <td style="font-weight: 600; color: #38bdf8;">8.26%</td>
-                        <td>7.27%</td>
-                        <td>0.73</td>
-                        <td>-20</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>113</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:4.0 R:2.0 T:6.0">⚡ 3.2/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:2.8 MoS:0.2 Cap:0.6 Div:0.8">⚠️ Value Trap (4.4/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">ICRA</td>
-                        <td>39.2</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.55%</td>
-                        <td>20.4%</td>
-                        <td>1.33</td>
-                        <td>10</td>
-                        <td>3.92</td>
-                        <td>3.46</td>
-                        <td>5,082</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:8.8 R:6.4 T:6.0">⚡ 5.8/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.5 Cap:2.1 Div:0.8">⚠️ Value Trap (4.4/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Vidhi Specialty</td>
-                        <td>28.9</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.46%</td>
-                        <td>18.8%</td>
-                        <td>0.97</td>
-                        <td>9</td>
-                        <td>3.21</td>
-                        <td>2.90</td>
-                        <td>1,548</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:7.2 R:6.4 T:6.0">⚡ 5.4/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.5 Cap:2.1 Div:0.8">⚠️ Value Trap (4.4/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Puravankara</td>
-                        <td>33.1</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.02%</td>
-                        <td>10.3%</td>
-                        <td>0.00</td>
-                        <td>38</td>
-                        <td>0.87</td>
-                        <td>0.87</td>
-                        <td>5,175</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:8.4 L:8.8 R:8.4 T:8.4">⚡ 8.5/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:2.1 Cap:1.1 Div:0.2">⚠️ Value Trap (4.4/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-success">BUY</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Semac Construct</td>
-                        <td>13.1</td>
-                        <td style="font-weight: 600; color: #38bdf8;">7.63%</td>
-                        <td>11.9%</td>
-                        <td>0.00</td>
-                        <td>-20</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>102</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:4.0 R:2.0 T:6.0">⚡ 3.2/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:2.8 MoS:0.2 Cap:1.1 Div:0.2">⚠️ Value Trap (4.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Excel Industries</td>
-                        <td>18.5</td>
-                        <td style="font-weight: 600; color: #38bdf8;">5.41%</td>
-                        <td>8.07%</td>
-                        <td>1.36</td>
-                        <td>-2</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>1,274</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:7.2 R:2.0 T:6.0">⚡ 4.0/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:2.2 MoS:0.2 Cap:1.1 Div:0.8">⚠️ Value Trap (4.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">KFin Technolog.</td>
-                        <td>45.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.20%</td>
-                        <td>30.6%</td>
-                        <td>1.28</td>
-                        <td>22</td>
-                        <td>2.06</td>
-                        <td>1.95</td>
-                        <td>16,246</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:2.0 L:8.8 R:8.4 T:6.0">⚡ 6.3/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.5 Cap:2.5 Div:0.8">⚠️ Value Trap (4.3/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Poddar Pigments</td>
-                        <td>18.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">5.43%</td>
-                        <td>5.79%</td>
-                        <td>1.51</td>
-                        <td>-19</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>280</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:4.0 R:2.0 T:6.0">⚡ 3.2/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:2.2 MoS:0.2 Cap:0.6 Div:1.2">⚠️ Value Trap (4.2/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">CESC</td>
-                        <td>25.8</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.88%</td>
-                        <td>9.41%</td>
-                        <td>3.58</td>
-                        <td>2</td>
-                        <td>12.90</td>
-                        <td>4.62</td>
-                        <td>22,247</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:2.0 L:10.0 R:6.4 T:6.0">⚡ 6.1/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.5 Cap:1.1 Div:1.5">⚠️ Value Trap (4.1/10)</span></td>
-                        <td><span class="badge badge-danger">⚠️ Stagnant</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Holmarc Opto</td>
-                        <td>26.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.79%</td>
-                        <td>18.1%</td>
-                        <td>0.37</td>
-                        <td>11</td>
-                        <td>2.40</td>
-                        <td>2.32</td>
-                        <td>108</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:4.0 R:6.4 T:6.0">⚡ 4.6/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.5 Cap:2.1 Div:0.5">⚠️ Value Trap (4.1/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Chemcon Special.</td>
-                        <td>24.8</td>
-                        <td style="font-weight: 600; color: #38bdf8;">4.03%</td>
-                        <td>6.42%</td>
-                        <td>3.40</td>
-                        <td>-24</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>700</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:5.6 R:2.0 T:6.0">⚡ 3.6/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.6 MoS:0.2 Cap:0.6 Div:1.5">⚠️ Value Trap (3.9/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Supreme Inds.</td>
-                        <td>48.0</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.08%</td>
-                        <td>22.6%</td>
-                        <td>1.01</td>
-                        <td>6</td>
-                        <td>8.00</td>
-                        <td>6.85</td>
-                        <td>45,208</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:2.0 L:10.0 R:6.4 T:6.0">⚡ 6.1/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.5 Cap:2.1 Div:0.8">⚠️ Value Trap (3.9/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Seshasayee Paper</td>
-                        <td>17.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">5.75%</td>
-                        <td>5.09%</td>
-                        <td>0.86</td>
-                        <td>-44</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>1,463</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:7.2 R:2.0 T:6.0">⚡ 4.0/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:2.2 MoS:0.2 Cap:0.6 Div:0.8">⚠️ Value Trap (3.8/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Honda India</td>
-                        <td>29.8</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.36%</td>
-                        <td>11.5%</td>
-                        <td>5.88</td>
-                        <td>-9</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>2,180</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:7.2 R:2.0 T:6.0">⚡ 4.0/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.2 Cap:1.1 Div:1.5">⚠️ Value Trap (3.8/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Blue Dart Expres</td>
-                        <td>38.5</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.60%</td>
-                        <td>18.4%</td>
-                        <td>0.49</td>
-                        <td>-8</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>12,200</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:8.8 R:2.0 T:6.0">⚡ 4.4/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.2 Cap:2.1 Div:0.5">⚠️ Value Trap (3.8/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">MANGALAM SEEDS</td>
-                        <td>17.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">5.75%</td>
-                        <td>10.2%</td>
-                        <td>0.00</td>
-                        <td>-9</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>149</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:4.0 R:2.0 T:6.0">⚡ 3.2/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:2.2 MoS:0.2 Cap:1.1 Div:0.2">⚠️ Value Trap (3.7/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Apollo Finvest</td>
-                        <td>16.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">6.10%</td>
-                        <td>11.6%</td>
-                        <td>0.00</td>
-                        <td>-17</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>131</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:4.0 R:2.0 T:6.0">⚡ 3.2/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:2.2 MoS:0.2 Cap:1.1 Div:0.2">⚠️ Value Trap (3.7/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">ZR2 Bioenergy</td>
-                        <td>208</td>
-                        <td style="font-weight: 600; color: #38bdf8;">0.48%</td>
-                        <td>0.70%</td>
-                        <td>0.08</td>
-                        <td>312</td>
-                        <td>0.67</td>
-                        <td>0.67</td>
-                        <td>191</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:8.4 L:4.0 R:8.4 T:3.2">⚡ 6.0/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:2.1 Cap:0.6 Div:0.5">⚠️ Value Trap (3.7/10)</span></td>
-                        <td><span class="badge badge-success">🚀 Inflection</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Ceenik Exports</td>
-                        <td></td>
-                        <td style="font-weight: 600; color: #38bdf8;">N/A</td>
-                        <td>-18.8%</td>
-                        <td>5.15</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>97.5</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:4.0 R:4.0 T:4.0">⚡ 4.0/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:0.6 Div:1.5">⚠️ Value Trap (3.6/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-neutral">NEUTRAL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Cochin Shipyard</td>
-                        <td>66.6</td>
-                        <td style="font-weight: 600; color: #38bdf8;">1.50%</td>
-                        <td>14.3%</td>
-                        <td>0.50</td>
-                        <td>31</td>
-                        <td>2.15</td>
-                        <td>2.11</td>
-                        <td>39,370</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:2.0 L:10.0 R:8.4 T:6.0">⚡ 6.6/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.5 Cap:1.6 Div:0.8">⚠️ Value Trap (3.4/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Blackbuck</td>
-                        <td>60.0</td>
-                        <td style="font-weight: 600; color: #38bdf8;">1.67%</td>
-                        <td>13.1%</td>
-                        <td>0.00</td>
-                        <td>37</td>
-                        <td>1.62</td>
-                        <td>1.62</td>
-                        <td>10,404</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:4.4 L:8.8 R:8.4 T:6.0">⚡ 6.9/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:1.6 Div:0.2">⚠️ Value Trap (3.3/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-warning">HOLD</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Digitide Solutio</td>
-                        <td>39.2</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.55%</td>
-                        <td>11.2%</td>
-                        <td>0.00</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>1,492</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:7.2 R:4.0 T:6.0">⚡ 5.3/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:1.0 Cap:1.1 Div:0.2">⚠️ Value Trap (3.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-neutral">NEUTRAL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Kotak Mah. Bank</td>
-                        <td>26.2</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.82%</td>
-                        <td>6.28%</td>
-                        <td>0.17</td>
-                        <td>9</td>
-                        <td>2.91</td>
-                        <td>2.86</td>
-                        <td>3,89,091</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:2.0 L:10.0 R:6.4 T:6.0">⚡ 6.1/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.5 Cap:1.1 Div:0.5">⚠️ Value Trap (3.1/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Balkrishna Inds</td>
-                        <td>33.4</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.99%</td>
-                        <td>11.0%</td>
-                        <td>0.68</td>
-                        <td>-1</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>45,692</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:10.0 R:2.0 T:6.0">⚡ 4.7/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.2 Cap:1.1 Div:0.8">⚠️ Value Trap (3.1/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">ICICI Pru Life</td>
-                        <td>43.8</td>
-                        <td style="font-weight: 600; color: #38bdf8;">2.28%</td>
-                        <td>8.38%</td>
-                        <td>0.32</td>
-                        <td>25</td>
-                        <td>1.75</td>
-                        <td>1.73</td>
-                        <td>73,868</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:4.4 L:10.0 R:8.4 T:6.0">⚡ 7.2/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:1.1 Div:0.5">⚠️ Value Trap (3.1/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-warning">HOLD</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Praveg</td>
-                        <td></td>
-                        <td style="font-weight: 600; color: #38bdf8;">N/A</td>
-                        <td>-0.08%</td>
-                        <td>0.37</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>705</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:5.6 R:4.0 T:4.0">⚡ 4.4/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:0.6 Div:0.5">⚠️ Value Trap (2.6/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-neutral">NEUTRAL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Tega Inds.</td>
-                        <td>78.8</td>
-                        <td style="font-weight: 600; color: #38bdf8;">1.27%</td>
-                        <td>9.00%</td>
-                        <td>0.12</td>
-                        <td>11</td>
-                        <td>7.16</td>
-                        <td>7.09</td>
-                        <td>12,800</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:8.8 R:6.4 T:6.0">⚡ 5.8/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.5 Cap:1.1 Div:0.5">⚠️ Value Trap (2.6/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Keynote Finan.</td>
-                        <td>62.8</td>
-                        <td style="font-weight: 600; color: #38bdf8;">1.59%</td>
-                        <td>-1.88%</td>
-                        <td>0.37</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>149</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:4.0 R:4.0 T:6.0">⚡ 4.5/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:0.6 Div:0.5">⚠️ Value Trap (2.6/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-neutral">NEUTRAL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">GRP</td>
-                        <td>91.0</td>
-                        <td style="font-weight: 600; color: #38bdf8;">1.10%</td>
-                        <td>8.26%</td>
-                        <td>0.17</td>
-                        <td>3</td>
-                        <td>30.33</td>
-                        <td>28.71</td>
-                        <td>1,072</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:7.2 R:6.4 T:6.0">⚡ 5.4/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.5 Cap:1.1 Div:0.5">⚠️ Value Trap (2.6/10)</span></td>
-                        <td><span class="badge badge-danger">⚠️ Stagnant</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Bombay Oxygen</td>
-                        <td>279</td>
-                        <td style="font-weight: 600; color: #38bdf8;">0.36%</td>
-                        <td>-0.81%</td>
-                        <td>0.13</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>293</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:4.0 R:4.0 T:3.2">⚡ 3.8/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:0.6 Div:0.5">⚠️ Value Trap (2.6/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">The Ravalgaon</td>
-                        <td></td>
-                        <td style="font-weight: 600; color: #38bdf8;">N/A</td>
-                        <td>-16.7%</td>
-                        <td>0.00</td>
-                        <td>-10</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>33.6</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:4.0 R:2.0 T:4.0">⚡ 3.5/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:0.6 Div:0.2">⚠️ Value Trap (2.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-neutral">NEUTRAL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Artson</td>
-                        <td></td>
-                        <td style="font-weight: 600; color: #38bdf8;">N/A</td>
-                        <td>-14.6%</td>
-                        <td>0.00</td>
-                        <td>15</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>598</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:5.6 R:6.4 T:4.0">⚡ 5.0/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:0.6 Div:0.2">⚠️ Value Trap (2.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-neutral">NEUTRAL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Tusaldah</td>
-                        <td></td>
-                        <td style="font-weight: 600; color: #38bdf8;">N/A</td>
-                        <td>-29.0%</td>
-                        <td>0.00</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>34.6</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:4.0 R:4.0 T:4.0">⚡ 4.0/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:0.6 Div:0.2">⚠️ Value Trap (2.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-neutral">NEUTRAL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Naturite Agro</td>
-                        <td></td>
-                        <td style="font-weight: 600; color: #38bdf8;">N/A</td>
-                        <td>2.08%</td>
-                        <td>0.00</td>
-                        <td>-10</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>104</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:4.0 R:2.0 T:4.0">⚡ 3.5/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:0.6 Div:0.2">⚠️ Value Trap (2.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-neutral">NEUTRAL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Ruparel Food</td>
-                        <td></td>
-                        <td style="font-weight: 600; color: #38bdf8;">N/A</td>
-                        <td>-3.34%</td>
-                        <td>0.00</td>
-                        <td>5</td>
-                        <td>N/A</td>
-                        <td>N/A</td>
-                        <td>43.2</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:4.0 L:4.0 R:6.4 T:4.0">⚡ 4.6/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:1.0 Cap:0.6 Div:0.2">⚠️ Value Trap (2.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔍 Discovery</span></td>
-                        <td><span class="badge badge-neutral">NEUTRAL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">KNR Construct.</td>
-                        <td>33.2</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.01%</td>
-                        <td>4.59%</td>
-                        <td>0.19</td>
-                        <td>-33</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>3,724</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:7.2 R:2.0 T:6.0">⚡ 4.0/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.2 Cap:0.6 Div:0.5">⚠️ Value Trap (2.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Forbes & Co</td>
-                        <td>28.6</td>
-                        <td style="font-weight: 600; color: #38bdf8;">3.50%</td>
-                        <td>6.90%</td>
-                        <td>0.00</td>
-                        <td>11</td>
-                        <td>2.60</td>
-                        <td>2.60</td>
-                        <td>395</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:4.0 R:6.4 T:6.0">⚡ 4.6/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:1.0 MoS:0.5 Cap:0.6 Div:0.2">⚠️ Value Trap (2.3/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Salona Cotspin</td>
-                        <td>59.7</td>
-                        <td style="font-weight: 600; color: #38bdf8;">1.68%</td>
-                        <td>8.33%</td>
-                        <td>0.39</td>
-                        <td>-55</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>137</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:4.0 R:2.0 T:6.0">⚡ 3.2/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.2 Cap:1.1 Div:0.5">⚠️ Value Trap (2.3/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Chola Financial</td>
-                        <td>413</td>
-                        <td style="font-weight: 600; color: #38bdf8;">0.24%</td>
-                        <td>6.25%</td>
-                        <td>0.08</td>
-                        <td>7</td>
-                        <td>59.00</td>
-                        <td>58.33</td>
-                        <td>29,992</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:2.0 L:10.0 R:6.4 T:3.2">⚡ 5.4/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.5 Cap:0.6 Div:0.5">⚠️ Value Trap (2.1/10)</span></td>
-                        <td><span class="badge badge-warning">🛡️ Mature</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Kiran Vyapar</td>
-                        <td>51.1</td>
-                        <td style="font-weight: 600; color: #38bdf8;">1.96%</td>
-                        <td>2.70%</td>
-                        <td>0.50</td>
-                        <td>-22</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>549</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:5.6 R:2.0 T:6.0">⚡ 3.6/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.2 Cap:0.6 Div:0.8">⚠️ Value Trap (2.1/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Bhudevi Infra</td>
-                        <td>210</td>
-                        <td style="font-weight: 600; color: #38bdf8;">0.48%</td>
-                        <td>1.12%</td>
-                        <td>0.00</td>
-                        <td>-28</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>84.1</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:4.0 R:2.0 T:3.2">⚡ 2.5/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.2 Cap:1.1 Div:0.2">⚠️ Value Trap (2.0/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Voltas</td>
-                        <td>102</td>
-                        <td style="font-weight: 600; color: #38bdf8;">0.98%</td>
-                        <td>5.82%</td>
-                        <td>0.30</td>
-                        <td>-12</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>43,693</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:10.0 R:2.0 T:3.2">⚡ 4.0/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.2 Cap:0.6 Div:0.5">⚠️ Value Trap (1.8/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 500;">Lak. Electrical</td>
-                        <td>174</td>
-                        <td style="font-weight: 600; color: #38bdf8;">0.57%</td>
-                        <td>0.82%</td>
-                        <td>0.37</td>
-                        <td>-61</td>
-                        <td>Negative Growth</td>
-                        <td>Negative Growth+Yield</td>
-                        <td>202</td>
-                        <td><span class="badge badge-danger" title="Breakdown: V:0.8 L:4.0 R:2.0 T:3.2">⚡ 2.5/10</span></td>
-                        <td><span class="badge badge-danger" title="Breakdown: EY:0.5 MoS:0.2 Cap:0.6 Div:0.5">⚠️ Value Trap (1.8/10)</span></td>
-                        <td><span class="badge badge-danger">🔻 Declining</span></td>
-                        <td><span class="badge badge-danger">SELL</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -1577,7 +552,7 @@
             }
         }
         
-        let currentSortCol = 10;
+        let currentSortCol = 9;
         let currentSortDir = 'desc';
 
         const recPriority = {
@@ -1599,7 +574,7 @@
             let scoreMatch = clean.match(/(\d+(?:\.\d+)?)\s*\/\s*10/);
             if (scoreMatch) return parseFloat(scoreMatch[1]);
             
-            let num = parseFloat(clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').replace(/\/10/g, '').strip ? clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').trim() : clean);
+            let num = parseFloat(clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').replace(/\/10/g, '').strip ? clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟🌟⚖️⚠️]/g, '').trim() : clean);
             return isNaN(num) ? clean.toLowerCase() : num;
         }
 

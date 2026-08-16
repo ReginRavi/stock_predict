@@ -178,33 +178,30 @@ def main():
                             deep_value_count += 1
                     except ValueError:
                         pass
-                
-                avg_pe = f"{sum(valid_pes) / len(valid_pes):.2f}" if valid_pes else "N/A"
-                avg_vlrt = f"{sum(vlrt_scores) / len(vlrt_scores):.1f}/10" if vlrt_scores else "N/A"
-                avg_avi = f"{sum(avi_scores) / len(avi_scores):.1f}/10" if avi_scores else "N/A"
-                
-                # Find top pick by max AVI Score & min PEG Ratio
-                from get_pe_ratios import compute_avi_score
-                def get_avi_sort_key(r):
-                    score_str = r.get("AVI Score", "").strip()
+
+                # Sort rows by VLRT Score High to Low by default
+                from get_pe_ratios import compute_vlrt_score
+                def get_vlrt_sort_key(r):
+                    val_str = r.get("VLRT Score", "").strip()
                     try:
-                        return float(score_str)
+                        return float(val_str)
                     except (ValueError, TypeError):
-                        res = compute_avi_score(
-                            r.get("Stock P/E", ""),
-                            r.get("Profit Growth 3Y (%)", ""),
+                        res = compute_vlrt_score(
                             r.get("PEG Ratio 3Y", ""),
+                            r.get("PEGY Ratio 3Y", ""),
+                            r.get("Market Cap (Cr)", ""),
+                            r.get("Profit Growth 3Y (%)", ""),
                             r.get("Dividend Yield (%)", ""),
-                            r.get("ROCE (%)", "N/A"),
-                            r.get("ROE (%)", "N/A")
+                            r.get("Stock P/E", "")
                         )
                         return res["score"]
 
-                rows = sorted(rows, key=get_avi_sort_key, reverse=True)
-                top_pick = rows[0].get("Company Name", "N/A") if rows else "N/A"
+                rows = sorted(rows, key=get_vlrt_sort_key, reverse=True)
 
-                # Build rows HTML
+                # Build rows HTML (Filter for STRONG BUY only)
                 table_rows_html = []
+                strong_buy_rows = []
+                
                 for r in rows:
                     company = r.get("Company Name", "")
                     pe = r.get("Stock P/E", "")
@@ -216,11 +213,51 @@ def main():
                     pegy = r.get("PEGY Ratio 3Y", "")
                     mcap = r.get("Market Cap (Cr)", "")
                     
+                    # Determine recommendation and badge
+                    rec_str = "HOLD"
+                    badge_class = "badge-warning"
+                    
+                    try:
+                        peg_f = float(peg.strip())
+                        pegy_f = float(pegy.strip())
+                        if peg_f < 0.6 and pegy_f < 0.6:
+                            rec_str = "STRONG BUY"
+                            badge_class = "badge-success"
+                        elif peg_f < 1.0:
+                            rec_str = "BUY"
+                            badge_class = "badge-success"
+                        elif peg_f >= 1.0 and peg_f <= 2.0:
+                            rec_str = "HOLD"
+                            badge_class = "badge-warning"
+                        else:
+                            rec_str = "SELL"
+                            badge_class = "badge-danger"
+                    except ValueError:
+                        if "Negative" in peg or "Negative" in pegy:
+                            rec_str = "SELL"
+                            badge_class = "badge-danger"
+                        else:
+                            rec_str = "NEUTRAL"
+                            badge_class = "badge-neutral"
+                    
+                    try:
+                        pe_f = float(pe.replace(",", "").strip())
+                        if pe_f > 100:
+                            rec_str = "SELL"
+                            badge_class = "badge-danger"
+                    except ValueError:
+                        pass
+
+                    # Filter: Only display STRONG BUY stocks
+                    if rec_str != "STRONG BUY":
+                        continue
+                    
+                    strong_buy_rows.append(r)
+                    
                     # Compute VLRT
                     vlrt_score_str = r.get("VLRT Score", "")
                     vlrt_breakdown = r.get("VLRT Breakdown", "")
                     if not vlrt_score_str or vlrt_score_str == "N/A":
-                        from get_pe_ratios import compute_vlrt_score
                         v_res = compute_vlrt_score(peg, pegy, mcap, growth, div_yield, pe)
                         vlrt_score_val = v_res["score"]
                         vlrt_badge_cls = v_res["badge_class"]
@@ -268,41 +305,6 @@ def main():
                             scurve_cls = "badge-warning"
                         else:
                             scurve_cls = "badge-danger"
-
-                    # Determine recommendation and badge
-                    rec_str = "HOLD"
-                    badge_class = "badge-warning"
-                    
-                    try:
-                        peg_f = float(peg.strip())
-                        pegy_f = float(pegy.strip())
-                        if peg_f < 0.6 and pegy_f < 0.6:
-                            rec_str = "STRONG BUY"
-                            badge_class = "badge-success"
-                        elif peg_f < 1.0:
-                            rec_str = "BUY"
-                            badge_class = "badge-success"
-                        elif peg_f >= 1.0 and peg_f <= 2.0:
-                            rec_str = "HOLD"
-                            badge_class = "badge-warning"
-                        else:
-                            rec_str = "SELL"
-                            badge_class = "badge-danger"
-                    except ValueError:
-                        if "Negative" in peg or "Negative" in pegy:
-                            rec_str = "SELL"
-                            badge_class = "badge-danger"
-                        else:
-                            rec_str = "NEUTRAL"
-                            badge_class = "badge-neutral"
-                    
-                    try:
-                        pe_f = float(pe.replace(",", "").strip())
-                        if pe_f > 100:
-                            rec_str = "SELL"
-                            badge_class = "badge-danger"
-                    except ValueError:
-                        pass
                     
                     row_html = f"""                    <tr>
                         <td style="font-weight: 500;">{company}</td>
@@ -322,6 +324,29 @@ def main():
                     table_rows_html.append(row_html)
                     
                 table_rows_str = "\n".join(table_rows_html)
+
+                # Compute stats on STRONG BUY subset
+                sb_pes = []
+                sb_vlrt = []
+                sb_avi = []
+                for r in strong_buy_rows:
+                    try:
+                        sb_pes.append(float(r.get("Stock P/E", "").replace(",", "").strip()))
+                    except ValueError:
+                        pass
+                    try:
+                        sb_vlrt.append(float(r.get("VLRT Score", "").strip()))
+                    except ValueError:
+                        pass
+                    try:
+                        sb_avi.append(float(r.get("AVI Score", "").strip()))
+                    except ValueError:
+                        pass
+
+                avg_pe = f"{sum(sb_pes) / len(sb_pes):.2f}" if sb_pes else "N/A"
+                avg_vlrt = f"{sum(sb_vlrt) / len(sb_vlrt):.1f}/10" if sb_vlrt else "N/A"
+                avg_avi = f"{sum(sb_avi) / len(sb_avi):.1f}/10" if sb_avi else "N/A"
+                top_pick = strong_buy_rows[0].get("Company Name", "N/A") if strong_buy_rows else "N/A"
                 
                 # HTML Template
                 html_template = f"""<!DOCTYPE html>
@@ -329,7 +354,7 @@ def main():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Screener & Applied Value Investing Dashboard</title>
+    <title>Strong Buy Stock Screener & Applied Value Investing Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -379,7 +404,7 @@ def main():
             font-family: 'Outfit', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }}
@@ -577,45 +602,41 @@ def main():
     <div class="container">
         <header>
             <div>
-                <h1>Applied Value Investing Screener</h1>
-                <p style="color: var(--text-muted); margin-top: 0.25rem;">Bearish Crossover Screener • Quant VLRT • Graham & Greenblatt Value Metrics</p>
+                <h1>Strong Buy Screener & Applied Value</h1>
+                <p style="color: var(--text-muted); margin-top: 0.25rem;">Filtered for Strong Buy Recommendations • Quant VLRT & Applied Value Metrics</p>
             </div>
             <div class="timestamp">Last Updated: {date.today().isoformat()}</div>
         </header>
         
         <div class="stats-grid">
             <div class="card">
-                <div class="card-title">Total Stocks Analyzed</div>
-                <div class="card-value">{len(rows)}</div>
+                <div class="card-title">Strong Buy Picks</div>
+                <div class="card-value" style="color: var(--success);">{len(strong_buy_rows)}</div>
             </div>
             <div class="card">
-                <div class="card-title">Top Value Pick</div>
+                <div class="card-title">Top VLRT Pick</div>
                 <div class="card-value" style="color: var(--success);">{top_pick}</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Avg VLRT Score</div>
+                <div class="card-value" style="color: var(--primary);">{avg_vlrt}</div>
             </div>
             <div class="card">
                 <div class="card-title">Avg AVI Score</div>
                 <div class="card-value" style="color: #ec4899;">{avg_avi}</div>
             </div>
             <div class="card">
-                <div class="card-title">Deep / Quality Value Picks</div>
-                <div class="card-value" style="color: var(--success);">{deep_value_count}</div>
-            </div>
-            <div class="card">
                 <div class="card-title">Average P/E Ratio</div>
                 <div class="card-value">{avg_pe}</div>
-            </div>
-            <div class="card">
-                <div class="card-title">Average VLRT Score</div>
-                <div class="card-value" style="color: var(--primary);">{avg_vlrt}</div>
             </div>
         </div>
         
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search by company name or ticker..." onkeyup="filterTable()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search strong buy company name or ticker..." onkeyup="filterTable()">
             <select id="sortSelect" class="sort-select" onchange="handleSortSelect(this.value)">
-                <option value="avi-desc" selected>Sort By: AVI Score (High to Low)</option>
+                <option value="vlrt-desc" selected>Sort By: VLRT Score (High to Low)</option>
+                <option value="avi-desc">AVI Score (High to Low)</option>
                 <option value="ey-desc">Earnings Yield (High to Low)</option>
-                <option value="vlrt-desc">VLRT Score (High to Low)</option>
                 <option value="name-asc">Company Name (A-Z)</option>
                 <option value="pe-asc">Stock P/E (Low to High)</option>
                 <option value="pe-desc">Stock P/E (High to Low)</option>
@@ -624,7 +645,6 @@ def main():
                 <option value="peg-asc">PEG Ratio 3Y (Low to High)</option>
                 <option value="pegy-asc">PEGY Ratio 3Y (Low to High)</option>
                 <option value="mcap-desc">Market Cap (High to Low)</option>
-                <option value="rec-desc">Recommendation (Strong Buy First)</option>
             </select>
         </div>
         
@@ -641,8 +661,8 @@ def main():
                         <th onclick="sortTable(6)">PEG 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(7)">PEGY 3Y <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(8)">Market Cap <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(9)">VLRT Score <span class="sort-icon">↕</span></th>
-                        <th onclick="sortTable(10)" class="sorted-desc">AVI Classification <span class="sort-icon">▼</span></th>
+                        <th onclick="sortTable(9)" class="sorted-desc">VLRT Score <span class="sort-icon">▼</span></th>
+                        <th onclick="sortTable(10)">AVI Classification <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(11)">S-Curve Stage <span class="sort-icon">↕</span></th>
                         <th onclick="sortTable(12)">Recommendation <span class="sort-icon">↕</span></th>
                     </tr>
@@ -674,7 +694,7 @@ def main():
             }}
         }}
         
-        let currentSortCol = 10;
+        let currentSortCol = 9;
         let currentSortDir = 'desc';
 
         const recPriority = {{
@@ -696,7 +716,7 @@ def main():
             let scoreMatch = clean.match(/(\d+(?:\.\d+)?)\s*\/\s*10/);
             if (scoreMatch) return parseFloat(scoreMatch[1]);
             
-            let num = parseFloat(clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').replace(/\/10/g, '').strip ? clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').trim() : clean);
+            let num = parseFloat(clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').replace(/\/10/g, '').strip ? clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟🌟⚖️⚠️]/g, '').trim() : clean);
             return isNaN(num) ? clean.toLowerCase() : num;
         }}
 
