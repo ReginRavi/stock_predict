@@ -17,20 +17,20 @@ Generated automatically by the stock analysis pipeline with Quant VLRT, Applied 
 | DECCANCE |  | N/A | 3.31 | 0.09 | -29 | N/A | N/A | 806 | 3.9/10 | 2.6/10 | ⚠️ Value Trap | 🔍 Discovery |
 | NAHARCAP | 12.8 | 7.81% | 4.11 | 0.58 | 1 | 12.80 | 8.10 | 438 | 4.6/10 | 4.7/10 | ⚖️ Fair Value | ⚠️ Stagnant |
 | ISTLTD | 17.7 | 5.65% | 14.9 | 0.00 | 68 | 0.26 | 0.26 | 774 | 8.5/10 | 6.5/10 | 🌟 Quality Value | 🚀 Inflection |
-| MHLXMIRU | 7.94 | 12.59% | 32.4 | 0.00 | 26 | 0.31 | 0.31 | 184 | 8.1/10 | 8.7/10 | 💎 Deep Value | 🚀 Inflection |
+| MHLXMIRU | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
 | FORGEAUTO | 10.2 | 9.80% | 19.2 | 0.00 | 30 | 0.34 | 0.34 | 110 | 8.1/10 | 7.6/10 | 🌟 Quality Value | 🚀 Inflection |
 | BENGALASM | 60.8 | 1.64% | 11.7 | 0.79 | 5 | 12.16 | 10.50 | 7,211 | 5.8/10 | 2.9/10 | ⚠️ Value Trap | 🛡️ Mature |
-| RUCHIRA | 9.72 | 10.29% | 11.1 | 2.32 | -13 | Negative Growth | Negative Growth+Yield | 324 | 3.2/10 | 6.0/10 | ⚖️ Fair Value | 🔻 Declining |
+| RUCHIRA | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
 | GUJCONT | 9.75 | 10.26% | 16.3 | 0.92 | -13 | Negative Growth | Negative Growth+Yield | 92.4 | 3.2/10 | 6.1/10 | ⚖️ Fair Value | 🔻 Declining |
 | PUSHPA | 10.3 | 9.71% | 30.4 | 0.00 | 49 | 0.21 | 0.21 | 276 | 8.1/10 | 8.0/10 | 💎 Deep Value | 🚀 Inflection |
-| BALMLAWRIE | 12.3 | 8.13% | 21.9 | 4.78 | 17 | 0.72 | 0.56 | 3,041 | 8.5/10 | 8.5/10 | 💎 Deep Value | 📈 Accelerating |
+| BALMLAWRIE | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
 | TRADEUNO | 11.1 | 9.01% | 39.8 | 0.00 | 223 | 0.05 | 0.05 | 202 | 8.1/10 | 8.0/10 | 💎 Deep Value | 🚀 Inflection |
 | JMFINANCIL | 22.1 | 4.52% | 17.6 | 2.49 | 39 | 0.57 | 0.53 | 12,464 | 9.7/10 | 6.9/10 | 🌟 Quality Value | 🚀 Inflection |
-| SHRJAGP | 11.8 | 8.47% | 15.3 | 0.16 | 9 | 1.31 | 1.29 | 561 | 7.1/10 | 6.4/10 | ⚖️ Fair Value | 🛡️ Mature |
+| SHRJAGP | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
 | GMBREW | 12.8 | 7.81% | 18.0 | 0.96 | 10 | 1.28 | 1.17 | 2,151 | 7.5/10 | 7.2/10 | 🌟 Quality Value | 🛡️ Mature |
 | NCC | 15.4 | 6.49% | 15.2 | 1.46 | 4 | 3.85 | 2.82 | 9,485 | 5.8/10 | 5.1/10 | ⚖️ Fair Value | ⚠️ Stagnant |
-| GROBTEA | 13.7 | 7.30% | 7.35 | 0.21 | 120 | 0.11 | 0.11 | 111 | 8.1/10 | 6.4/10 | ⚖️ Fair Value | 🚀 Inflection |
-| SURAJ | 11.4 | 8.77% | 13.1 | 0.00 | 27 | 0.42 | 0.42 | 841 | 8.5/10 | 7.1/10 | 🌟 Quality Value | 🚀 Inflection |
+| GROBTEA | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
+| SURAJ | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
 | RULKA | 13.9 | 7.19% | 12.4 | 0.00 | 6 | 2.32 | 2.32 | 45.8 | 4.6/10 | 5.1/10 | ⚖️ Fair Value | 🛡️ Mature |
 | VIVIANA | 14.3 | 6.99% | 50.7 | 0.00 | 155 | 0.09 | 0.09 | 786 | 8.5/10 | 8.0/10 | 💎 Deep Value | 🚀 Inflection |
 | ACLD | 14.8 | 6.76% | 21.4 | 0.00 | 313 | 0.05 | 0.05 | 313 | 8.1/10 | 7.6/10 | 🌟 Quality Value | 🚀 Inflection |
@@ -56,19 +56,19 @@ Generated automatically by the stock analysis pipeline with Quant VLRT, Applied 
 | PLATIND | 25.3 | 3.95% | 17.1 | 0.00 | 14 | 1.81 | 1.81 | 1,279 | 6.0/10 | 3.8/10 | ⚠️ Value Trap | 🛡️ Mature |
 | KARNIKA | 24.1 | 4.15% | 28.3 | 0.08 | 48 | 0.50 | 0.50 | 745 | 8.5/10 | 7.1/10 | 🌟 Quality Value | 🚀 Inflection |
 | CKKRETAIL | 26.8 | 3.73% | 17.1 | 0.00 | 31 | 0.86 | 0.86 | 290 | 7.3/10 | 4.9/10 | ⚖️ Fair Value | 🚀 Inflection |
-| SBICARD | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
-| NUVOCO | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
+| SBICARD | 28.2 | 3.55% | 10.1 | 0.37 | -1 | Negative Growth | Negative Growth+Yield | 64,237 | 4.7/10 | 3.3/10 | ⚠️ Value Trap | 🔻 Declining |
+| NUVOCO | 44.3 | 2.26% | 6.32 | 0.00 | -7 | Negative Growth | Negative Growth+Yield | 12,325 | 4.4/10 | 1.5/10 | ⚠️ Value Trap | 🔻 Declining |
 | HEIDELBERG | 30.0 | 3.33% | 14.7 | 4.36 | 12 | 2.50 | 1.83 | 3,641 | 5.4/10 | 4.6/10 | ⚖️ Fair Value | 🛡️ Mature |
-| NATPEROXID | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
-| JSWDULUX | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
+| NATPEROXID | 37.1 | 2.70% | 1.07 | 2.80 | 260 | 0.14 | 0.14 | 400 | 8.1/10 | 5.3/10 | ⚖️ Fair Value | 🚀 Inflection |
+| JSWDULUX | 37.9 | 2.64% | 23.0 | 1.57 | 2 | 18.95 | 10.62 | 14,516 | 5.8/10 | 4.8/10 | ⚖️ Fair Value | ⚠️ Stagnant |
 | JUBLPHARMA | 479 | 0.21% | 1.80 | 0.53 | 13 | 36.85 | 35.40 | 15,151 | 5.1/10 | 2.4/10 | ⚠️ Value Trap | 🛡️ Mature |
-| GANGESSECU | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
-| VHLTD | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
+| GANGESSECU | 27.4 | 3.65% | 0.99 | 0.00 | -24 | Negative Growth | Negative Growth+Yield | 118 | 3.2/10 | 2.0/10 | ⚠️ Value Trap | 🔻 Declining |
+| VHLTD | 42.1 | 2.38% | 7.27 | 0.00 | 56 | 0.75 | 0.75 | 937 | 7.7/10 | 3.4/10 | ⚠️ Value Trap | 🚀 Inflection |
 | MARBLE | 80.7 | 1.24% | 11.3 | 0.00 | 77 | 1.05 | 1.05 | 308 | 6.2/10 | 3.3/10 | ⚠️ Value Trap | 📈 Accelerating |
-| SUPREMEIND | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
-| PRSMJOHNSN | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
+| SUPREMEIND | 48.9 | 2.04% | 22.6 | 1.00 | 6 | 8.15 | 6.99 | 46,033 | 6.1/10 | 3.9/10 | ⚠️ Value Trap | 🛡️ Mature |
+| PRSMJOHNSN | 55.8 | 1.79% | 7.11 | 0.00 | 29 | 1.92 | 1.92 | 5,647 | 6.9/10 | 2.3/10 | ⚠️ Value Trap | 🛡️ Mature |
 | TRF | 40.4 | 2.48% | 9.78 | 0.00 | -60 | Negative Growth | Negative Growth+Yield | 259 | 3.2/10 | 2.0/10 | ⚠️ Value Trap | 🔻 Declining |
-| HERCULES | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
-| COCHINSHIP | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
-| MAMATA | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | 4.0/10 | 3.0/10 | ⚠️ Value Trap | 🔍 Discovery |
+| HERCULES | 50.2 | 1.99% | 1.05 | 2.03 | -33 | Negative Growth | Negative Growth+Yield | 394 | 3.2/10 | 2.5/10 | ⚠️ Value Trap | 🔻 Declining |
+| COCHINSHIP | 67.0 | 1.49% | 14.3 | 0.50 | 31 | 2.16 | 2.13 | 39,607 | 6.6/10 | 3.4/10 | ⚠️ Value Trap | 🛡️ Mature |
+| MAMATA | 105 | 0.95% | 9.74 | 0.12 | 5 | 21.00 | 20.51 | 1,015 | 4.7/10 | 2.6/10 | ⚠️ Value Trap | 🛡️ Mature |
 | TEAMGTY | 187 | 0.53% | 2.89 | 0.00 | -9 | Negative Growth | Negative Growth+Yield | 203 | 2.5/10 | 1.5/10 | ⚠️ Value Trap | 🔻 Declining |
