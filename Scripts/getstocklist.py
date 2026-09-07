@@ -37,28 +37,33 @@ def fetch_stock_names(url: str, session: Optional[requests.Session] = None) -> L
             break
 
         soup = BeautifulSoup(response.text, "html.parser")
+        target_cols = {"name", "company", "company name"}
         name_header = next(
-            (th for th in soup.find_all("th") if th.get_text(strip=True) == "Name"),
+            (th for th in soup.find_all("th") if th.get_text(strip=True).lower() in target_cols),
             None,
         )
         if not name_header:
             if page == 1:
-                raise RuntimeError("Could not find the 'Name' column header in the page.")
+                raise RuntimeError("Could not find the 'Name' or 'Company' column header in the page.")
             break
 
         header_row = name_header.find_parent("tr")
         headers = [th.get_text(strip=True) for th in header_row.find_all("th")]
-        try:
-            name_index = headers.index("Name")
-        except ValueError as exc:
+        name_index = -1
+        for idx, h in enumerate(headers):
+            if h.strip().lower() in target_cols:
+                name_index = idx
+                break
+
+        if name_index == -1:
             if page == 1:
-                raise RuntimeError("'Name' column not present in header row.") from exc
+                raise RuntimeError("Stock name/company column not present in header row.")
             break
 
         table = name_header.find_parent("table")
         if not table:
             if page == 1:
-                raise RuntimeError("Unable to locate the table containing the 'Name' column.")
+                raise RuntimeError("Unable to locate the table containing the stock names column.")
             break
 
         body = table.find("tbody") or table
@@ -69,8 +74,10 @@ def fetch_stock_names(url: str, session: Optional[requests.Session] = None) -> L
             cells = row.find_all(["td", "th"])
             if len(cells) <= name_index:
                 continue
-            cell_text = cells[name_index].get_text(strip=True)
-            if cell_text and cell_text != "Name":
+            cell = cells[name_index]
+            a_tag = cell.find("a")
+            cell_text = a_tag.get_text(strip=True) if a_tag else cell.get_text(strip=True)
+            if cell_text and cell_text.lower() not in target_cols:
                 page_names.append(cell_text)
 
         if not page_names:

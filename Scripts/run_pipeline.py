@@ -713,10 +713,10 @@ def main():
                 return recPriority[clean.toUpperCase()] !== undefined ? recPriority[clean.toUpperCase()] : -1;
             }}
             // Match score / percentage pattern
-            let scoreMatch = clean.match(/(\d+(?:\.\d+)?)\s*\/\s*10/);
+            let scoreMatch = clean.match(/(\\d+(?:\\.\\d+)?)\\s*[/]\\s*10/);
             if (scoreMatch) return parseFloat(scoreMatch[1]);
             
-            let num = parseFloat(clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').replace(/\/10/g, '').strip ? clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟🌟⚖️⚠️]/g, '').trim() : clean);
+            let num = parseFloat(clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').replace(/[/]10/g, '').strip ? clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟🌟⚖️⚠️]/g, '').trim() : clean);
             return isNaN(num) ? clean.toLowerCase() : num;
         }}
 

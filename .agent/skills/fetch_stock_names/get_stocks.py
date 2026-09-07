@@ -23,8 +23,9 @@ def fetch_stock_names(url: str):
         return []
 
     soup = BeautifulSoup(response.text, "html.parser")
+    target_cols = {"name", "company", "company name"}
     name_header = next(
-        (th for th in soup.find_all("th") if th.get_text(strip=True) == "Name"),
+        (th for th in soup.find_all("th") if th.get_text(strip=True).lower() in target_cols),
         None,
     )
     if not name_header:
@@ -32,9 +33,13 @@ def fetch_stock_names(url: str):
 
     header_row = name_header.find_parent("tr")
     headers = [th.get_text(strip=True) for th in header_row.find_all("th")]
-    try:
-        name_index = headers.index("Name")
-    except ValueError:
+    name_index = -1
+    for idx, h in enumerate(headers):
+        if h.strip().lower() in target_cols:
+            name_index = idx
+            break
+
+    if name_index == -1:
         return []
 
     table = name_header.find_parent("table")
@@ -49,8 +54,10 @@ def fetch_stock_names(url: str):
         cells = row.find_all(["td", "th"])
         if len(cells) <= name_index:
             continue
-        cell_text = cells[name_index].get_text(strip=True)
-        if cell_text:
+        cell = cells[name_index]
+        a_tag = cell.find("a")
+        cell_text = a_tag.get_text(strip=True) if a_tag else cell.get_text(strip=True)
+        if cell_text and cell_text.lower() not in target_cols:
             names.append(cell_text)
 
     return names
