@@ -1,0 +1,44 @@
+Company Name,Screener Slug,Company Full Name,Stock P/E,Earnings Yield (%),ROCE (%),ROE (%),Market Cap (Cr),Dividend Yield (%),Profit Growth 3Y (%),Profit Growth 5Y (%),PEG Ratio 3Y,PEG Ratio 5Y,PEGY Ratio 3Y,PEGY Ratio 5Y,VLRT Score,VLRT Breakdown,S-Curve Stage,AVI Score,AVI Breakdown,AVI Category
+PG Foils,526747,PG Foils Ltd,,N/A,0.87,-2.47,254,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.0,V:4.0 L:4.0 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Cochin Malabar,508571,Cochin Malabar Estates & Industries Ltd,,N/A,-11.7,N/A,25.3,0.00,9,5,N/A,N/A,N/A,N/A,4.6,V:4.0 L:4.0 R:6.4 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Diamines & Chem.,DIAMINESQ,Diamines & Chemicals Ltd,,N/A,-7.66,-7.18,250,0.40,N/A,N/A,N/A,N/A,N/A,N/A,4.0,V:4.0 L:4.0 R:4.0 T:4.0,🔍 Discovery,2.6,EY:0.5 MoS:1.0 Cap:0.6 Div:0.5,⚠️ Value Trap
+Jindal Photo,JINDALPHOT,Jindal Photo Ltd,97.9,1.02%,1.80,0.63,"1,121",0.00,-71,23,Negative Growth,4.26,Negative Growth+Yield,4.26,4.0,V:0.8 L:7.2 R:2.0 T:6.0,🔻 Declining,1.5,EY:0.5 MoS:0.2 Cap:0.6 Div:0.2,⚠️ Value Trap
+Shoppers Stop,SHOPERSTOP,Shoppers Stop Ltd,,N/A,6.63,-8.85,"4,389",0.00,N/A,14,N/A,N/A,N/A,N/A,4.8,V:4.0 L:7.2 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Quick Heal Tech,QUICKHEAL,Quick Heal Technologies Ltd,,N/A,-5.85,-3.70,864,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.4,V:4.0 L:5.6 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Chaman Metallics,CMNL,Chaman Metallics Ltd,,N/A,5.37,-1.81,271,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.0,V:4.0 L:4.0 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Quest Flow,543982,Quest Flow Controls Ltd,186,0.54%,4.77,1.36,192,0.00,-39,54,Negative Growth,3.44,Negative Growth+Yield,3.44,2.5,V:0.8 L:4.0 R:2.0 T:3.2,🔻 Declining,1.5,EY:0.5 MoS:0.2 Cap:0.6 Div:0.2,⚠️ Value Trap
+Neelamalai Agro,NEAGI,Neelamalai Agro Industries Ltd,75.8,1.32%,5.24,3.66,207,0.60,-11,-16,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,2.1,EY:0.5 MoS:0.2 Cap:0.6 Div:0.8,⚠️ Value Trap
+Dhunseri Invest.,DHUNINV,Dhunseri Investments Ltd,,N/A,-3.05,-2.44,594,0.31,N/A,N/A,N/A,N/A,N/A,N/A,4.4,V:4.0 L:5.6 R:4.0 T:4.0,🔍 Discovery,2.6,EY:0.5 MoS:1.0 Cap:0.6 Div:0.5,⚠️ Value Trap
+Savy Infra,SAVY,Savy Infra and Logistics Ltd,6.68,14.97%,42.8,39.9,281,0.00,398,N/A,0.02,N/A,0.02,N/A,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,8.7,EY:3.5 MoS:2.5 Cap:2.5 Div:0.2,💎 Deep Value
+Haryana Capfin,532855,Haryana Capfin Ltd,8.47,11.81%,3.71,3.09,75.9,0.00,84,63,0.10,0.13,0.10,0.13,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,6.8,EY:3.5 MoS:2.5 Cap:0.6 Div:0.2,🌟 Quality Value
+Expleo Solutions,EXPLEOSOL,Expleo Solutions Ltd,10.9,9.17%,23.0,17.6,"1,341",12.8,-4,19,Negative Growth,0.57,1.24,0.34,4.0,V:0.8 L:7.2 R:2.0 T:6.0,🔻 Declining,6.6,EY:2.8 MoS:0.2 Cap:2.1 Div:1.5,🌟 Quality Value
+Systango Tech,SYSTANGO,Systango Technologies Ltd,11.1,9.01%,31.5,25.9,332,3.10,33,41,0.34,0.27,0.31,0.25,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection,9.3,EY:2.8 MoS:2.5 Cap:2.5 Div:1.5,💎 Deep Value
+Monte Carlo Fas.,MONTECARLO,Monte Carlo Fashions Ltd,11.0,9.09%,14.0,12.8,"1,145",3.62,-6,11,Negative Growth,1.00,Negative Growth+Yield,0.75,4.0,V:0.8 L:7.2 R:2.0 T:6.0,🔻 Declining,6.1,EY:2.8 MoS:0.2 Cap:1.6 Div:1.5,⚖️ Fair Value
+Robust Hotels,RHL,Robust Hotels Ltd,11.4,8.77%,5.71,3.46,305,0.00,-24,23,Negative Growth,0.50,Negative Growth+Yield,0.50,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,3.8,EY:2.8 MoS:0.2 Cap:0.6 Div:0.2,⚠️ Value Trap
+Alpex Solar,ALPEXSOLAR,Alpex Solar Ltd,11.5,8.70%,43.8,52.4,"2,315",0.00,279,138,0.04,0.08,0.04,0.08,8.9,V:10.0 L:7.2 R:8.4 T:10.0,🚀 Inflection,8.0,EY:2.8 MoS:2.5 Cap:2.5 Div:0.2,💎 Deep Value
+Sh. Jagdamba Pol,SHRJAGP,Shri Jagdamba Polymers Ltd,11.6,8.62%,15.3,11.6,551,0.16,6,-2,1.93,Negative Growth,1.88,Negative Growth+Yield,5.6,V:4.4 L:5.6 R:6.4 T:6.0,🛡️ Mature,5.9,EY:2.8 MoS:1.0 Cap:1.6 Div:0.5,⚖️ Fair Value
+Guj Pipavav Port,GPPL,Gujarat Pipavav Port Ltd,14.6,6.85%,30.2,22.3,"7,774",6.45,14,17,1.04,0.86,0.71,0.62,7.9,V:6.4 L:8.8 R:6.4 T:10.0,🛡️ Mature,8.3,EY:2.8 MoS:1.5 Cap:2.5 Div:1.5,💎 Deep Value
+Aelea Commoditi.,544213,Aelea Commodities Ltd,14.6,6.85%,21.4,23.6,310,0.00,313,26,0.05,0.56,0.05,0.56,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,7.6,EY:2.8 MoS:2.5 Cap:2.1 Div:0.2,🌟 Quality Value
+Gujarat Intrux,517372,Gujarat Intrux Ltd,14.8,6.76%,21.2,15.5,156,5.51,21,22,0.70,0.67,0.56,0.54,7.7,V:8.4 L:4.0 R:8.4 T:10.0,📈 Accelerating,8.5,EY:2.8 MoS:2.1 Cap:2.1 Div:1.5,💎 Deep Value
+Ultramarine Pig.,ULTRAMAR,Ultramarine & Pigments Ltd,14.9,6.71%,10.1,7.64,"1,216",1.44,1,5,14.90,2.98,6.11,2.31,5.4,V:2.0 L:7.2 R:6.4 T:6.0,⚠️ Stagnant,5.2,EY:2.8 MoS:0.5 Cap:1.1 Div:0.8,⚖️ Fair Value
+Silverstorm Parks,544840,Silverstorm Parks and Resorts Ltd,30.2,3.31%,11.1,9.87,283,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.5,V:4.0 L:4.0 R:4.0 T:6.0,🔍 Discovery,3.3,EY:1.0 MoS:1.0 Cap:1.1 Div:0.2,⚠️ Value Trap
+Arex Industries,526851,Arex Industries Ltd,15.5,6.45%,7.70,5.39,46.4,1.94,32,28,0.48,0.55,0.46,0.52,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection,6.5,EY:2.2 MoS:2.5 Cap:0.6 Div:1.2,🌟 Quality Value
+Rel. Chemotex,RELCHEMQ,Reliance Chemotex Industries Ltd,15.9,6.29%,7.27,3.53,88.4,0.41,-27,-7,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,3.5,EY:2.2 MoS:0.2 Cap:0.6 Div:0.5,⚠️ Value Trap
+NESCO,NESCO,NESCO Ltd,18.4,5.43%,18.5,14.8,"7,660",0.64,11,19,1.67,0.97,1.58,0.94,6.4,V:4.4 L:8.8 R:6.4 T:6.0,🛡️ Mature,6.1,EY:2.2 MoS:1.0 Cap:2.1 Div:0.8,⚖️ Fair Value
+Jay Ushin,513252,Jay Ushin Ltd,18.5,5.41%,12.0,12.7,333,0.46,9,54,2.06,0.34,1.96,0.34,4.6,V:2.0 L:4.0 R:6.4 T:6.0,🛡️ Mature,4.8,EY:2.2 MoS:0.5 Cap:1.6 Div:0.5,⚖️ Fair Value
+Jaro Institute,JARO,Jaro Institute of Technol. Mgt. and Research Ltd,18.5,5.41%,22.1,16.5,"1,046",1.06,56,72,0.33,0.26,0.32,0.25,9.3,V:10.0 L:7.2 R:10.0 T:10.0,🚀 Inflection,7.6,EY:2.2 MoS:2.5 Cap:2.1 Div:0.8,🌟 Quality Value
+Aryaman Capital,538716,Aryaman Capital Markets Ltd,20.3,4.93%,32.0,30.0,499,0.00,165,157,0.12,0.13,0.12,0.13,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,6.8,EY:1.6 MoS:2.5 Cap:2.5 Div:0.2,🌟 Quality Value
+Source Natural,531398,Source Natural Foods & Herbal Supplements Ltd,20.6,4.85%,17.6,14.1,72.1,0.00,17,0,1.21,Zero Growth,1.21,Zero Growth+Yield,7.2,V:6.4 L:4.0 R:8.4 T:10.0,📈 Accelerating,4.9,EY:1.6 MoS:1.5 Cap:1.6 Div:0.2,⚖️ Fair Value
+Cantabil Retail,CANTABIL,Cantabil Retail India Ltd,20.7,4.83%,19.4,22.1,"2,020",0.62,13,58,1.59,0.36,1.52,0.35,6.0,V:4.4 L:7.2 R:6.4 T:6.0,🛡️ Mature,5.5,EY:1.6 MoS:1.0 Cap:2.1 Div:0.8,⚖️ Fair Value
+Grand Continent,GCHOTELS,Grand Continent Hotels Ltd,26.3,3.80%,10.4,8.92,263,0.00,76,45,0.35,0.58,0.35,0.58,7.7,V:10.0 L:4.0 R:8.4 T:8.4,🚀 Inflection,4.8,EY:1.0 MoS:2.5 Cap:1.1 Div:0.2,⚖️ Fair Value
+Axtel Industries,AXTEL,Axtel Industries Ltd,22.2,4.50%,30.0,20.5,693,2.79,15,4,1.48,5.55,1.25,3.27,7.1,V:6.4 L:5.6 R:6.4 T:10.0,📈 Accelerating,6.8,EY:1.6 MoS:1.5 Cap:2.5 Div:1.2,🌟 Quality Value
+Sundaram Finance,SUNDARMFIN,Sundaram Finance Ltd,26.3,3.80%,9.72,15.9,"52,120",0.85,20,19,1.31,1.38,1.26,1.32,8.3,V:6.4 L:10.0 R:8.4 T:8.4,📈 Accelerating,4.9,EY:1.0 MoS:1.5 Cap:1.6 Div:0.8,⚖️ Fair Value
+Bright Brothers,BRIGHTBR,Bright Brothers Ltd,17.2,5.81%,12.8,9.56,143,1.01,57,6,0.30,2.87,0.30,2.45,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection,7.1,EY:2.2 MoS:2.5 Cap:1.6 Div:0.8,🌟 Quality Value
+Vibhor Steel,VSTL,Vibhor Steel Tubes Ltd,26.3,3.80%,7.92,5.05,221,0.00,-23,28,Negative Growth,0.94,Negative Growth+Yield,0.94,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,2.0,EY:1.0 MoS:0.2 Cap:0.6 Div:0.2,⚠️ Value Trap
+C K K Retail,CKKRETAIL,C K K Retail Mart Ltd,27.0,3.70%,17.1,13.5,291,0.00,31,124,0.87,0.22,0.87,0.22,7.3,V:8.4 L:4.0 R:8.4 T:8.4,🚀 Inflection,4.9,EY:1.0 MoS:2.1 Cap:1.6 Div:0.2,⚖️ Fair Value
+Alphalogic Indu,543937,Alphalogic Industries Ltd,29.3,3.41%,28.6,21.3,158,0.00,35,132,0.84,0.22,0.84,0.22,7.3,V:8.4 L:4.0 R:8.4 T:8.4,🚀 Inflection,5.8,EY:1.0 MoS:2.1 Cap:2.5 Div:0.2,⚖️ Fair Value
+Wonderla Holiday,WONDERLA,Wonderla Holidays Ltd,30.9,3.24%,6.20,4.60,"3,268",0.39,-17,29,Negative Growth,1.07,Negative Growth+Yield,1.05,4.0,V:0.8 L:7.2 R:2.0 T:6.0,🔻 Declining,2.3,EY:1.0 MoS:0.2 Cap:0.6 Div:0.5,⚠️ Value Trap
+JSW Dulux,JSWDULUX,JSW Dulux Ltd,37.2,2.69%,23.0,19.3,"14,268",1.60,2,11,18.60,3.38,10.33,2.95,5.8,V:2.0 L:8.8 R:6.4 T:6.0,⚠️ Stagnant,4.8,EY:1.0 MoS:0.5 Cap:2.1 Div:1.2,⚖️ Fair Value
+Viceroy Hotels,VHLTD,Viceroy Hotels Ltd,42.2,2.37%,7.27,7.13,939,0.00,56,25,0.75,1.69,0.75,1.69,7.7,V:8.4 L:5.6 R:8.4 T:8.4,🚀 Inflection,3.4,EY:0.5 MoS:2.1 Cap:0.6 Div:0.2,⚠️ Value Trap
+Premco Global,PREMCO,Premco Global Ltd,11.7,8.55%,12.8,12.5,129,2.04,4,26,2.92,0.45,1.94,0.42,4.6,V:2.0 L:4.0 R:6.4 T:6.0,⚠️ Stagnant,6.1,EY:2.8 MoS:0.5 Cap:1.6 Div:1.2,⚖️ Fair Value
+SKP Bearing,SKP,SKP Bearing Industries Ltd,17.9,5.59%,22.4,21.2,275,0.67,4,N/A,4.47,N/A,3.83,N/A,4.6,V:2.0 L:4.0 R:6.4 T:6.0,⚠️ Stagnant,5.6,EY:2.2 MoS:0.5 Cap:2.1 Div:0.8,⚖️ Fair Value
