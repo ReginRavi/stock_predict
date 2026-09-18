@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strong Buy Stock Screener & Applied Value Investing Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -20,13 +23,13 @@
             --danger: #ef4444;
             --border: #334155;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
@@ -34,12 +37,12 @@
             padding: 2rem 1.5rem;
             line-height: 1.5;
         }
-        
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         header {
             margin-bottom: 2.5rem;
             display: flex;
@@ -48,7 +51,7 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
-        
+
         h1 {
             font-family: 'Outfit', sans-serif;
             font-size: 2.5rem;
@@ -57,7 +60,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .timestamp {
             color: var(--text-muted);
             font-size: 0.9rem;
@@ -66,14 +69,14 @@
             border-radius: 50px;
             border: 1px solid var(--border);
         }
-        
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.25rem;
             margin-bottom: 2.5rem;
         }
-        
+
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -82,12 +85,12 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
-        
+
         .card:hover {
             transform: translateY(-2px);
             border-color: var(--primary);
         }
-        
+
         .card-title {
             color: var(--text-muted);
             font-size: 0.8rem;
@@ -95,20 +98,20 @@
             letter-spacing: 0.05em;
             margin-bottom: 0.4rem;
         }
-        
+
         .card-value {
             font-size: 1.7rem;
             font-weight: 700;
             font-family: 'Outfit', sans-serif;
         }
-        
+
         .search-container {
             margin-bottom: 1.5rem;
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
         }
-        
+
         .search-input {
             flex: 1;
             min-width: 250px;
@@ -121,12 +124,12 @@
             outline: none;
             transition: border-color 0.2s ease;
         }
-        
+
         .search-input:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px var(--primary-glow);
         }
-        
+
         .sort-select {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -138,12 +141,12 @@
             cursor: pointer;
             transition: border-color 0.2s ease;
         }
-        
+
         .sort-select:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px var(--primary-glow);
         }
-        
+
         .table-container {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -152,18 +155,19 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             margin-bottom: 2.5rem;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
         }
-        
-        th, td {
+
+        th,
+        td {
             padding: 0.9rem 1.1rem;
             border-bottom: 1px solid var(--border);
         }
-        
+
         th {
             background-color: rgba(15, 23, 42, 0.4);
             color: var(--text-muted);
@@ -176,7 +180,7 @@
             white-space: nowrap;
             transition: color 0.2s ease, background-color 0.2s ease;
         }
-        
+
         th:hover {
             color: var(--text-main);
             background-color: rgba(59, 130, 246, 0.1);
@@ -190,19 +194,20 @@
             transition: opacity 0.2s ease;
         }
 
-        th.sorted-asc .sort-icon, th.sorted-desc .sort-icon {
+        th.sorted-asc .sort-icon,
+        th.sorted-desc .sort-icon {
             opacity: 1;
             color: var(--primary);
         }
-        
+
         tr:last-child td {
             border-bottom: none;
         }
-        
+
         tr:hover td {
             background-color: rgba(255, 255, 255, 0.02);
         }
-        
+
         .badge {
             display: inline-flex;
             align-items: center;
@@ -213,50 +218,55 @@
             letter-spacing: 0.02em;
             white-space: nowrap;
         }
-        
+
         .badge-success {
             background: rgba(16, 185, 129, 0.15);
             color: var(--success);
         }
-        
+
         .badge-warning {
             background: rgba(245, 158, 11, 0.15);
             color: var(--warning);
         }
-        
+
         .badge-danger {
             background: rgba(239, 68, 68, 0.15);
             color: var(--danger);
         }
-        
+
         .badge-neutral {
             background: rgba(148, 163, 184, 0.15);
             color: var(--text-muted);
         }
-        
+
         @media (max-width: 768px) {
             body {
                 padding: 1rem;
             }
+
             h1 {
                 font-size: 2rem;
             }
-            th, td {
+
+            th,
+            td {
                 padding: 0.75rem 1rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
             <div>
                 <h1>Strong Buy Screener & Applied Value</h1>
-                <p style="color: var(--text-muted); margin-top: 0.25rem;">Filtered for Strong Buy Recommendations • Quant VLRT & Applied Value Metrics</p>
+                <p style="color: var(--text-muted); margin-top: 0.25rem;">Filtered for Strong Buy Recommendations •
+                    Quant VLRT & Applied Value Metrics</p>
             </div>
             <div class="timestamp">Last Updated: 2026-09-16</div>
         </header>
-        
+
         <div class="stats-grid">
             <div class="card">
                 <div class="card-title">Strong Buy Picks</div>
@@ -279,9 +289,10 @@
                 <div class="card-value">15.13</div>
             </div>
         </div>
-        
+
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search strong buy company name or ticker..." onkeyup="filterTable()">
+            <input type="text" id="searchInput" class="search-input"
+                placeholder="Search strong buy company name or ticker..." onkeyup="filterTable()">
             <select id="sortSelect" class="sort-select" onchange="handleSortSelect(this.value)">
                 <option value="vlrt-desc" selected>Sort By: VLRT Score (High to Low)</option>
                 <option value="avi-desc">AVI Score (High to Low)</option>
@@ -296,7 +307,7 @@
                 <option value="mcap-desc">Market Cap (High to Low)</option>
             </select>
         </div>
-        
+
         <div class="table-container">
             <table id="stockTable">
                 <thead>
@@ -327,8 +338,10 @@
                         <td>0.04</td>
                         <td>0.04</td>
                         <td>2,282</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:7.2 R:8.4 T:10.0">⚡ 8.9/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:2.5 Div:0.2">💎 Deep Value (8.0/10)</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:7.2 R:8.4 T:10.0">⚡
+                                8.9/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:2.5 Div:0.2">💎 Deep
+                                Value (8.0/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
@@ -342,8 +355,10 @@
                         <td>0.07</td>
                         <td>0.07</td>
                         <td>18.6</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:10.0 T:10.0">⚡ 8.5/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:2.5 Div:0.8">💎 Deep Value (9.3/10)</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:10.0 T:10.0">⚡
+                                8.5/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:2.5 Div:0.8">💎 Deep
+                                Value (9.3/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
@@ -357,8 +372,10 @@
                         <td>0.51</td>
                         <td>0.49</td>
                         <td>336</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:10.0 T:10.0">⚡ 8.5/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.2 MoS:2.5 Cap:1.6 Div:0.8">🌟 Quality Value (7.1/10)</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:10.0 T:10.0">⚡
+                                8.5/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:2.2 MoS:2.5 Cap:1.6 Div:0.8">🌟
+                                Quality Value (7.1/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
@@ -372,8 +389,10 @@
                         <td>0.26</td>
                         <td>0.26</td>
                         <td>4,755</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:7.2 R:8.4 T:8.4">⚡ 8.5/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:2.5 Cap:1.1 Div:0.2">⚖️ Fair Value (4.8/10)</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:7.2 R:8.4 T:8.4">⚡
+                                8.5/10</span></td>
+                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:2.5 Cap:1.1 Div:0.2">⚖️ Fair
+                                Value (4.8/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
@@ -387,8 +406,10 @@
                         <td>0.02</td>
                         <td>0.02</td>
                         <td>281</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:2.5 Div:0.2">💎 Deep Value (8.7/10)</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡
+                                8.1/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:3.5 MoS:2.5 Cap:2.5 Div:0.2">💎 Deep
+                                Value (8.7/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
@@ -402,8 +423,10 @@
                         <td>0.15</td>
                         <td>0.15</td>
                         <td>139</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:2.5 Div:0.2">💎 Deep Value (8.0/10)</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡
+                                8.1/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:2.5 Div:0.2">💎 Deep
+                                Value (8.0/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
@@ -417,8 +440,10 @@
                         <td>0.05</td>
                         <td>0.05</td>
                         <td>309</td>
-                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡ 8.1/10</span></td>
-                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:2.1 Div:0.2">🌟 Quality Value (7.6/10)</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: V:10.0 L:4.0 R:8.4 T:10.0">⚡
+                                8.1/10</span></td>
+                        <td><span class="badge badge-success" title="Breakdown: EY:2.8 MoS:2.5 Cap:2.1 Div:0.2">🌟
+                                Quality Value (7.6/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
@@ -432,8 +457,10 @@
                         <td>0.36</td>
                         <td>0.36</td>
                         <td>271</td>
-                        <td><span class="badge badge-warning" title="Breakdown: V:10.0 L:4.0 R:8.4 T:8.4">⚡ 7.7/10</span></td>
-                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:2.5 Cap:1.1 Div:0.2">⚖️ Fair Value (4.8/10)</span></td>
+                        <td><span class="badge badge-warning" title="Breakdown: V:10.0 L:4.0 R:8.4 T:8.4">⚡
+                                7.7/10</span></td>
+                        <td><span class="badge badge-warning" title="Breakdown: EY:1.0 MoS:2.5 Cap:1.1 Div:0.2">⚖️ Fair
+                                Value (4.8/10)</span></td>
                         <td><span class="badge badge-success">🚀 Inflection</span></td>
                         <td><span class="badge badge-success">STRONG BUY</span></td>
                     </tr>
@@ -441,14 +468,14 @@
             </table>
         </div>
     </div>
-    
+
     <script>
         function filterTable() {
             const input = document.getElementById("searchInput");
             const filter = input.value.toUpperCase();
             const table = document.getElementById("stockTable");
             const tr = table.getElementsByTagName("tr");
-            
+
             for (let i = 1; i < tr.length; i++) {
                 const td = tr[i].getElementsByTagName("td")[0];
                 if (td) {
@@ -461,7 +488,7 @@
                 }
             }
         }
-        
+
         let currentSortCol = 9;
         let currentSortDir = 'desc';
 
@@ -483,7 +510,7 @@
             // Match score / percentage pattern
             let scoreMatch = clean.match(/(\d+(?:\.\d+)?)\s*[/]\s*10/);
             if (scoreMatch) return parseFloat(scoreMatch[1]);
-            
+
             let num = parseFloat(clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟⚖️⚠️]/g, '').replace(/[/]10/g, '').strip ? clean.replace(/,/g, '').replace(/%/g, '').replace(/[⚡💎🌟🌟⚖️⚠️]/g, '').trim() : clean);
             return isNaN(num) ? clean.toLowerCase() : num;
         }
@@ -529,8 +556,8 @@
                 if (typeof aVal === 'number' && typeof bVal === 'number') {
                     return currentSortDir === 'asc' ? aVal - bVal : bVal - aVal;
                 }
-                return currentSortDir === 'asc' 
-                    ? String(aVal).localeCompare(String(bVal)) 
+                return currentSortDir === 'asc'
+                    ? String(aVal).localeCompare(String(bVal))
                     : String(bVal).localeCompare(String(aVal));
             });
 
@@ -563,4 +590,5 @@
         }
     </script>
 </body>
+
 </html>
