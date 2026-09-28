@@ -1,0 +1,55 @@
+Company Name,Screener Slug,Company Full Name,Stock P/E,Earnings Yield (%),ROCE (%),ROE (%),Market Cap (Cr),Dividend Yield (%),Profit Growth 3Y (%),Profit Growth 5Y (%),PEG Ratio 3Y,PEG Ratio 5Y,PEGY Ratio 3Y,PEGY Ratio 5Y,VLRT Score,VLRT Breakdown,S-Curve Stage,AVI Score,AVI Breakdown,AVI Category
+BGR Energy Sys.,BGRENERGY,BGR Energy Systems Ltd,,N/A,-22.3,N/A,"1,944",0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.8,V:4.0 L:7.2 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Repro India,REPRO,Repro India Ltd,,N/A,0.38,-5.17,467,0.00,N/A,9,N/A,N/A,N/A,N/A,4.0,V:4.0 L:4.0 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+BirlaNu Ltd,BIRLANU,BirlaNu Ltd,24.5,4.08%,3.04,0.03,"1,085",1.04,-86,-71,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,4.0,V:0.8 L:7.2 R:2.0 T:6.0,🔻 Declining,3.2,EY:1.6 MoS:0.2 Cap:0.6 Div:0.8,⚠️ Value Trap
+Max India Ltd,MAXIND,Max India Ltd,,N/A,-1.01,-1.01,886,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.4,V:4.0 L:5.6 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Kinetic Engg.,KINETICENG,Kinetic Engineering Ltd,,N/A,2.15,-1.30,656,0.00,N/A,12,N/A,N/A,N/A,N/A,4.4,V:4.0 L:5.6 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Chaman Metallics,CMNL,Chaman Metallics Ltd,,N/A,5.37,-1.81,279,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.0,V:4.0 L:4.0 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Sh. Bajrang All.,SHBAJRG,Shri Bajrang Alliance Ltd,10.3,9.71%,8.91,16.5,154,0.00,38,47,0.27,0.22,0.27,0.22,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,7.1,EY:2.8 MoS:2.5 Cap:1.6 Div:0.2,🌟 Quality Value
+LIC Housing Fin.,LICHSGFIN,LIC Housing Finance Ltd,5.40,18.52%,8.58,14.4,"30,917",1.77,25,15,0.22,0.36,0.20,0.32,9.6,V:10.0 L:10.0 R:8.4 T:10.0,🚀 Inflection,8.8,EY:3.5 MoS:2.5 Cap:1.6 Div:1.2,💎 Deep Value
+Neelamalai Agro,NEAGI,Neelamalai Agro Industries Ltd,77.5,1.29%,5.24,3.66,212,0.59,-11,-16,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,2.1,EY:0.5 MoS:0.2 Cap:0.6 Div:0.8,⚠️ Value Trap
+S Chand & Compan,SCHAND,S Chand & Company Ltd,49.1,2.04%,3.08,1.91,511,2.77,25,45,1.96,1.09,1.77,1.03,6.1,V:4.4 L:5.6 R:8.4 T:6.0,🛡️ Mature,3.3,EY:0.5 MoS:1.0 Cap:0.6 Div:1.2,⚠️ Value Trap
+Expleo Solutions,EXPLEOSOL,Expleo Solutions Ltd,11.0,9.09%,23.0,17.6,"1,350",12.6,-4,19,Negative Growth,0.58,1.28,0.35,4.0,V:0.8 L:7.2 R:2.0 T:6.0,🔻 Declining,6.6,EY:2.8 MoS:0.2 Cap:2.1 Div:1.5,🌟 Quality Value
+Thakkers Develp.,THAKDEV,Thakkers Developers Ltd,12.5,8.00%,1.45,0.64,128,0.00,-62,-39,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,3.8,EY:2.8 MoS:0.2 Cap:0.6 Div:0.2,⚠️ Value Trap
+Ruchira Papers,RUCHIRA,Ruchira Papers Ltd,9.53,10.49%,11.1,9.18,317,2.34,-13,55,Negative Growth,0.17,Negative Growth+Yield,0.17,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,6.0,EY:3.5 MoS:0.2 Cap:1.1 Div:1.2,⚖️ Fair Value
+Vraj Iron,VRAJ,Vraj Iron & Steel Ltd,13.0,7.69%,10.2,7.39,414,0.00,-17,25,Negative Growth,0.52,Negative Growth+Yield,0.52,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,4.3,EY:2.8 MoS:0.2 Cap:1.1 Div:0.2,⚠️ Value Trap
+E Factor Experie,EFACTOR,E Factor Experiences Ltd,12.7,7.87%,24.8,21.4,234,0.67,38,91,0.33,0.14,0.33,0.14,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection,8.2,EY:2.8 MoS:2.5 Cap:2.1 Div:0.8,💎 Deep Value
+Energy-Mission,EMMIL,Energy-Mission Machineries (India) Ltd,13.0,7.69%,15.4,12.3,145,0.00,12,64,1.08,0.20,1.08,0.20,6.7,V:6.4 L:4.0 R:6.4 T:10.0,🛡️ Mature,6.1,EY:2.8 MoS:1.5 Cap:1.6 Div:0.2,⚖️ Fair Value
+G M Breweries,GMBREW,G M Breweries Ltd,13.1,7.63%,18.0,12.5,"2,209",0.93,10,11,1.31,1.19,1.20,1.10,7.5,V:6.4 L:7.2 R:6.4 T:10.0,🛡️ Mature,7.2,EY:2.8 MoS:1.5 Cap:2.1 Div:0.8,🌟 Quality Value
+Clay Craft India,CLAYCRAFT,Clay Craft India Ltd,13.3,7.52%,20.0,17.5,358,0.00,11,26,1.21,0.51,1.21,0.51,6.7,V:6.4 L:4.0 R:6.4 T:10.0,🛡️ Mature,6.6,EY:2.8 MoS:1.5 Cap:2.1 Div:0.2,🌟 Quality Value
+GPT Infraproject,GPTINFRA,GPT Infraprojects Ltd,15.2,6.58%,21.5,17.6,"1,458",2.37,41,36,0.37,0.42,0.35,0.40,9.3,V:10.0 L:7.2 R:10.0 T:10.0,🚀 Inflection,8.0,EY:2.2 MoS:2.5 Cap:2.1 Div:1.2,💎 Deep Value
+Arex Industries,526851,Arex Industries Ltd,15.2,6.58%,7.70,5.39,45.7,1.97,32,28,0.47,0.54,0.45,0.51,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection,6.5,EY:2.2 MoS:2.5 Cap:0.6 Div:1.2,🌟 Quality Value
+Pramodini Medicare,PRAMODINI,Pramodini Medicare Ltd,15.2,6.58%,41.9,39.2,265,0.00,42,N/A,0.36,N/A,0.36,N/A,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,7.4,EY:2.2 MoS:2.5 Cap:2.5 Div:0.2,🌟 Quality Value
+Rulka,RULKA,Rulka Electricals Ltd,16.0,6.25%,12.4,9.20,52.7,0.00,6,44,2.67,0.36,2.67,0.36,4.6,V:2.0 L:4.0 R:6.4 T:6.0,🛡️ Mature,4.5,EY:2.2 MoS:0.5 Cap:1.6 Div:0.2,⚖️ Fair Value
+Shubhshree Bio.,SHUBHSHREE,Shubhshree Biofuels Energy Ltd,21.2,4.72%,28.0,24.8,181,0.00,52,236,0.41,0.09,0.41,0.09,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,6.8,EY:1.6 MoS:2.5 Cap:2.5 Div:0.2,🌟 Quality Value
+Hindustan Hardy,505893,Hindustan Hardy Ltd,17.7,5.65%,27.8,25.0,117,0.36,30,21,0.59,0.84,0.58,0.83,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,7.7,EY:2.2 MoS:2.5 Cap:2.5 Div:0.5,🌟 Quality Value
+Gallard Steel,544616,Gallard Steel Ltd,23.9,4.18%,20.8,19.2,161,0.00,81,132,0.30,0.18,0.30,0.18,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,6.4,EY:1.6 MoS:2.5 Cap:2.1 Div:0.2,⚖️ Fair Value
+NESCO,NESCO,NESCO Ltd,18.4,5.43%,18.5,14.8,"7,659",0.64,11,19,1.67,0.97,1.58,0.94,6.4,V:4.4 L:8.8 R:6.4 T:6.0,🛡️ Mature,6.1,EY:2.2 MoS:1.0 Cap:2.1 Div:0.8,⚖️ Fair Value
+Jindal Stain.,JSL,Jindal Stainless Ltd,23.0,4.35%,18.0,15.1,"61,506",0.54,10,48,2.30,0.48,2.18,0.47,6.1,V:2.0 L:10.0 R:6.4 T:6.0,🛡️ Mature,5.0,EY:1.6 MoS:0.5 Cap:2.1 Div:0.8,⚖️ Fair Value
+Beekay Steel Ind,BEEKAY,Beekay Steel Industries Ltd,18.1,5.52%,4.33,1.55,819,0.23,-46,-27,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.6,V:0.8 L:5.6 R:2.0 T:6.0,🔻 Declining,3.5,EY:2.2 MoS:0.2 Cap:0.6 Div:0.5,⚠️ Value Trap
+Ecoplast,526703,Ecoplast Ltd,18.9,5.29%,14.4,10.6,227,0.00,60,119,0.32,0.16,0.32,0.16,8.1,V:10.0 L:4.0 R:8.4 T:10.0,🚀 Inflection,6.5,EY:2.2 MoS:2.5 Cap:1.6 Div:0.2,🌟 Quality Value
+Creative Graphic,CGRAPHICS,Creative Graphics Solutions India Ltd,26.8,3.73%,14.1,12.6,358,0.00,16,42,1.68,0.64,1.68,0.64,5.7,V:4.4 L:4.0 R:8.4 T:6.0,🛡️ Mature,3.8,EY:1.0 MoS:1.0 Cap:1.6 Div:0.2,⚠️ Value Trap
+Aryaman Capital,538716,Aryaman Capital Markets Ltd,20.7,4.83%,32.0,30.0,509,0.00,165,157,0.13,0.13,0.13,0.13,8.5,V:10.0 L:5.6 R:8.4 T:10.0,🚀 Inflection,6.8,EY:1.6 MoS:2.5 Cap:2.5 Div:0.2,🌟 Quality Value
+Bedmutha Indus.,BEDMUTHA,Bedmutha Industries Ltd,20.3,4.93%,14.0,4.73,351,0.00,-17,-49,Negative Growth,Negative Growth,Negative Growth+Yield,Negative Growth+Yield,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,3.6,EY:1.6 MoS:0.2 Cap:1.6 Div:0.2,⚠️ Value Trap
+Shetron,SHETRON,Shetron Ltd,21.5,4.65%,12.6,6.22,92.0,0.98,-14,31,Negative Growth,0.69,Negative Growth+Yield,0.67,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,4.2,EY:1.6 MoS:0.2 Cap:1.6 Div:0.8,⚠️ Value Trap
+Control Print,CONTROLPR,Control Print Ltd,13.4,7.46%,22.6,15.8,960,1.67,13,19,1.03,0.71,0.91,0.65,7.1,V:6.4 L:5.6 R:6.4 T:10.0,🛡️ Mature,7.6,EY:2.8 MoS:1.5 Cap:2.1 Div:1.2,🌟 Quality Value
+Bright Brothers,BRIGHTBR,Bright Brothers Ltd,17.1,5.85%,12.8,9.56,142,1.01,57,6,0.30,2.85,0.29,2.44,8.5,V:10.0 L:4.0 R:10.0 T:10.0,🚀 Inflection,7.1,EY:2.2 MoS:2.5 Cap:1.6 Div:0.8,🌟 Quality Value
+TruAlt Bioenergy,TRUALT,TruAlt Bioenergy Ltd,27.5,3.64%,9.89,7.02,"3,927",0.00,31,N/A,0.89,N/A,0.89,N/A,8.1,V:8.4 L:7.2 R:8.4 T:8.4,🚀 Inflection,4.4,EY:1.0 MoS:2.1 Cap:1.1 Div:0.2,⚠️ Value Trap
+Aryaman Fin.Serv,ARYAMAN,Aryaman Financial Services Ltd,101,0.99%,17.2,12.9,763,0.00,54,64,1.87,1.58,1.87,1.58,5.4,V:4.4 L:5.6 R:8.4 T:3.2,🛡️ Mature,3.3,EY:0.5 MoS:1.0 Cap:1.6 Div:0.2,⚠️ Value Trap
+Juniper Hotels,JUNIPER,Juniper Hotels Ltd,25.4,3.94%,8.16,6.33,"4,777",0.00,99,23,0.26,1.10,0.26,1.10,8.5,V:10.0 L:7.2 R:8.4 T:8.4,🚀 Inflection,4.8,EY:1.0 MoS:2.5 Cap:1.1 Div:0.2,⚖️ Fair Value
+Enkei Wheels,ENKEIWHEL,Enkei Wheels India Ltd,27.5,3.64%,7.66,4.13,701,0.00,35,18,0.79,1.53,0.79,1.53,7.7,V:8.4 L:5.6 R:8.4 T:8.4,🚀 Inflection,3.9,EY:1.0 MoS:2.1 Cap:0.6 Div:0.2,⚠️ Value Trap
+Prithvi Exchange,PRITHVISOF,Prithvi Exchange (India) Ltd,27.5,3.64%,8.98,6.45,84.8,1.95,-10,30,Negative Growth,0.92,Negative Growth+Yield,0.86,3.2,V:0.8 L:4.0 R:2.0 T:6.0,🔻 Declining,3.5,EY:1.0 MoS:0.2 Cap:1.1 Div:1.2,⚠️ Value Trap
+Nitin Castings,508875,Nitin Castings Ltd,28.1,3.56%,15.5,12.7,229,0.67,31,28,0.91,1.00,0.89,0.98,7.7,V:8.4 L:4.0 R:10.0 T:8.4,🚀 Inflection,5.5,EY:1.0 MoS:2.1 Cap:1.6 Div:0.8,⚖️ Fair Value
+Dr Reddy's Labs,DRREDDY,Dr Reddys Laboratories Ltd,153,0.65%,12.1,10.2,"1,01,762",0.66,5,11,30.60,13.91,27.03,13.12,5.4,V:2.0 L:10.0 R:6.4 T:3.2,🛡️ Mature,3.4,EY:0.5 MoS:0.5 Cap:1.6 Div:0.8,⚠️ Value Trap
+Disa India,DISAQ,Disa India Ltd,32.0,3.12%,27.1,20.0,"1,729",1.67,26,19,1.23,1.68,1.16,1.55,8.0,V:6.4 L:7.2 R:10.0 T:8.4,📈 Accelerating,6.2,EY:1.0 MoS:1.5 Cap:2.5 Div:1.2,⚖️ Fair Value
+Forbes & Co,FORBESGOK,Forbes & Company Ltd,29.5,3.39%,6.90,3.48,408,0.00,11,15,2.68,1.97,2.68,1.97,4.6,V:2.0 L:4.0 R:6.4 T:6.0,🛡️ Mature,2.3,EY:1.0 MoS:0.5 Cap:0.6 Div:0.2,⚠️ Value Trap
+Abbott India,ABBOTINDIA,Abbott India Ltd,35.2,2.84%,44.8,34.4,"56,863",1.96,18,17,1.96,2.07,1.76,1.86,7.2,V:4.4 L:10.0 R:8.4 T:6.0,🛡️ Mature,5.7,EY:1.0 MoS:1.0 Cap:2.5 Div:1.2,⚖️ Fair Value
+Supreme Inds.,SUPREMEIND,Supreme Industries Ltd,47.3,2.11%,22.6,17.1,"44,532",1.03,6,2,7.88,23.65,6.73,15.61,6.1,V:2.0 L:10.0 R:6.4 T:6.0,🛡️ Mature,3.9,EY:0.5 MoS:0.5 Cap:2.1 Div:0.8,⚠️ Value Trap
+Viceroy Hotels,VHLTD,Viceroy Hotels Ltd,44.4,2.25%,7.27,7.13,987,0.00,56,25,0.79,1.78,0.79,1.78,7.7,V:8.4 L:5.6 R:8.4 T:8.4,🚀 Inflection,3.4,EY:0.5 MoS:2.1 Cap:0.6 Div:0.2,⚠️ Value Trap
+Premco Global,PREMCO,Premco Global Ltd,11.8,8.47%,12.8,12.5,130,2.02,4,26,2.95,0.45,1.96,0.42,4.6,V:2.0 L:4.0 R:6.4 T:6.0,⚠️ Stagnant,6.1,EY:2.8 MoS:0.5 Cap:1.6 Div:1.2,⚖️ Fair Value
+Go Digit General,GODIGIT,Go Digit General Insurance Ltd,49.4,2.02%,13.1,12.2,"24,316",0.00,148,45,0.33,1.10,0.33,1.10,9.2,V:10.0 L:10.0 R:8.4 T:8.4,🚀 Inflection,4.8,EY:0.5 MoS:2.5 Cap:1.6 Div:0.2,⚖️ Fair Value
+Prism Johnson,PRSMJOHNSN,Prism Johnson Ltd,57.3,1.75%,7.11,0.52,"5,802",0.00,29,-48,1.98,Negative Growth,1.98,Negative Growth+Yield,6.9,V:4.4 L:8.8 R:8.4 T:6.0,🛡️ Mature,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+Blue Star,BLUESTARCO,Blue Star Ltd,89.8,1.11%,17.4,14.0,"32,289",0.54,19,59,4.73,1.52,4.60,1.51,6.6,V:2.0 L:10.0 R:8.4 T:6.0,🛡️ Mature,3.4,EY:0.5 MoS:0.5 Cap:1.6 Div:0.8,⚠️ Value Trap
+Jubilant Food.,JUBLFOOD,Jubilant Foodworks Ltd,122,0.82%,12.0,10.8,"31,415",0.25,-14,1,Negative Growth,122.00,Negative Growth+Yield,97.60,4.0,V:0.8 L:10.0 R:2.0 T:3.2,🔻 Declining,2.8,EY:0.5 MoS:0.2 Cap:1.6 Div:0.5,⚠️ Value Trap
+B & A,BNALTD,B & A Ltd,,N/A,-0.44,-11.0,121,0.00,N/A,N/A,N/A,N/A,N/A,N/A,4.0,V:4.0 L:4.0 R:4.0 T:4.0,🔍 Discovery,2.3,EY:0.5 MoS:1.0 Cap:0.6 Div:0.2,⚠️ Value Trap
+SKP Bearing,SKP,SKP Bearing Industries Ltd,17.6,5.68%,22.4,21.2,270,0.68,4,N/A,4.40,N/A,3.76,N/A,4.6,V:2.0 L:4.0 R:6.4 T:6.0,⚠️ Stagnant,5.6,EY:2.2 MoS:0.5 Cap:2.1 Div:0.8,⚖️ Fair Value
