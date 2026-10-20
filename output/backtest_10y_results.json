@@ -3,36 +3,36 @@
     "strategy_name": "Deep Value (P/B 0.3x-0.8x & D/E < 1.0)",
     "period": "2016 - 2026 (10 Years)",
     "initial_capital": 100000.0,
-    "final_capital_strategy": 384991.12,
+    "final_capital_strategy": 1019788.9,
     "final_capital_nifty": 294614.97,
-    "final_capital_trap": 922174.88,
-    "strategy_total_return_pct": 284.99,
+    "final_capital_trap": 894733.29,
+    "strategy_total_return_pct": 919.79,
     "nifty_total_return_pct": 194.61,
-    "trap_total_return_pct": 822.17,
-    "strategy_cagr_pct": 14.43,
+    "trap_total_return_pct": 794.73,
+    "strategy_cagr_pct": 26.14,
     "nifty_cagr_pct": 11.41,
-    "trap_cagr_pct": 24.88,
-    "alpha_cagr_pct": 3.02,
-    "strategy_volatility_pct": 43.46,
+    "trap_cagr_pct": 24.5,
+    "alpha_cagr_pct": 14.73,
+    "strategy_volatility_pct": 39.45,
     "nifty_volatility_pct": 16.48,
-    "strategy_sharpe": 0.19,
+    "strategy_sharpe": 0.51,
     "nifty_sharpe": 0.33,
-    "strategy_sortino": 0.47,
-    "strategy_max_drawdown_pct": -60.05,
+    "strategy_sortino": 1.9,
+    "strategy_max_drawdown_pct": -25.54,
     "nifty_max_drawdown_pct": -15.91,
-    "win_rate_pct": 50.0,
-    "winning_years": "5 / 10 years"
+    "win_rate_pct": 60.0,
+    "winning_years": "6 / 10 years"
   },
   "annual_breakdown": [
     {
       "period": "FY2016-17",
       "year": 2016,
-      "picks_count": 7,
-      "trap_count": 8,
-      "strategy_return": 49.62,
-      "trap_return": 34.92,
+      "picks_count": 14,
+      "trap_count": 12,
+      "strategy_return": 38.99,
+      "trap_return": 38.34,
       "nifty_return": 19.32,
-      "alpha": 30.3,
+      "alpha": 19.68,
       "outperformed": true,
       "sample_picks": [
         "SAIL",
@@ -97,18 +97,74 @@
           "pb": 0.33,
           "de": 0.0,
           "return": 14.42
+        },
+        {
+          "symbol": "BHARATFORG",
+          "name": "Bharat Forge Ltd",
+          "sector": "Auto Ancillary",
+          "pb": 0.56,
+          "de": 0.99,
+          "return": 44.28
+        },
+        {
+          "symbol": "GNFC",
+          "name": "Gujarat Narmada Valley Fert",
+          "sector": "Fertilizers",
+          "pb": 0.5,
+          "de": 0.93,
+          "return": 188.71
+        },
+        {
+          "symbol": "WIPRO",
+          "name": "Wipro Ltd",
+          "sector": "IT",
+          "pb": 0.8,
+          "de": 0.27,
+          "return": -9.21
+        },
+        {
+          "symbol": "TECHM",
+          "name": "Tech Mahindra Ltd",
+          "sector": "IT",
+          "pb": 0.48,
+          "de": 0.07,
+          "return": -10.24
+        },
+        {
+          "symbol": "HCLTECH",
+          "name": "HCL Technologies Ltd",
+          "sector": "IT",
+          "pb": 0.64,
+          "de": 0.04,
+          "return": 14.2
+        },
+        {
+          "symbol": "INFY",
+          "name": "Infosys Ltd",
+          "sector": "IT",
+          "pb": 0.58,
+          "de": 0.0,
+          "return": -21.46
+        },
+        {
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services",
+          "sector": "IT",
+          "pb": 0.68,
+          "de": 0.0,
+          "return": -7.69
         }
       ]
     },
     {
       "period": "FY2017-18",
       "year": 2017,
-      "picks_count": 8,
-      "trap_count": 12,
-      "strategy_return": -8.74,
-      "trap_return": 14.53,
+      "picks_count": 15,
+      "trap_count": 14,
+      "strategy_return": 11.46,
+      "trap_return": 15.73,
       "nifty_return": 15.08,
-      "alpha": -23.81,
+      "alpha": -3.61,
       "outperformed": false,
       "sample_picks": [
         "NMDC",
@@ -181,18 +237,74 @@
           "pb": 0.35,
           "de": 0.07,
           "return": -24.55
+        },
+        {
+          "symbol": "BHARATFORG",
+          "name": "Bharat Forge Ltd",
+          "sector": "Auto Ancillary",
+          "pb": 0.67,
+          "de": 0.76,
+          "return": 33.11
+        },
+        {
+          "symbol": "TATACHEM",
+          "name": "Tata Chemicals Ltd",
+          "sector": "Chemicals",
+          "pb": 0.73,
+          "de": 0.89,
+          "return": 22.1
+        },
+        {
+          "symbol": "WIPRO",
+          "name": "Wipro Ltd",
+          "sector": "IT",
+          "pb": 0.64,
+          "de": 0.28,
+          "return": 11.72
+        },
+        {
+          "symbol": "TECHM",
+          "name": "Tech Mahindra Ltd",
+          "sector": "IT",
+          "pb": 0.38,
+          "de": 0.08,
+          "return": 62.2
+        },
+        {
+          "symbol": "HCLTECH",
+          "name": "HCL Technologies Ltd",
+          "sector": "IT",
+          "pb": 0.61,
+          "de": 0.02,
+          "return": 23.37
+        },
+        {
+          "symbol": "INFY",
+          "name": "Infosys Ltd",
+          "sector": "IT",
+          "pb": 0.41,
+          "de": 0.0,
+          "return": 33.58
+        },
+        {
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services",
+          "sector": "IT",
+          "pb": 0.51,
+          "de": 0.0,
+          "return": 55.77
         }
       ]
     },
     {
       "period": "FY2018-19",
       "year": 2018,
-      "picks_count": 7,
-      "trap_count": 12,
-      "strategy_return": -15.84,
-      "trap_return": -3.43,
+      "picks_count": 16,
+      "trap_count": 13,
+      "strategy_return": -2.17,
+      "trap_return": -5.06,
       "nifty_return": 9.39,
-      "alpha": -25.23,
+      "alpha": -11.56,
       "outperformed": false,
       "sample_picks": [
         "HINDALCO",
@@ -257,24 +369,97 @@
           "pb": 0.3,
           "de": 0.2,
           "return": -14.45
+        },
+        {
+          "symbol": "BHARATFORG",
+          "name": "Bharat Forge Ltd",
+          "sector": "Auto Ancillary",
+          "pb": 0.79,
+          "de": 0.7,
+          "return": -39.12
+        },
+        {
+          "symbol": "TATACHEM",
+          "name": "Tata Chemicals Ltd",
+          "sector": "Chemicals",
+          "pb": 0.64,
+          "de": 0.55,
+          "return": -19.14
+        },
+        {
+          "symbol": "DLF",
+          "name": "DLF Ltd",
+          "sector": "Real Estate",
+          "pb": 0.45,
+          "de": 0.5,
+          "return": -20.06
+        },
+        {
+          "symbol": "LUPIN",
+          "name": "Lupin Ltd",
+          "sector": "Pharma",
+          "pb": 0.55,
+          "de": 0.53,
+          "return": 10.25
+        },
+        {
+          "symbol": "WIPRO",
+          "name": "Wipro Ltd",
+          "sector": "IT",
+          "pb": 0.78,
+          "de": 0.29,
+          "return": 42.49
+        },
+        {
+          "symbol": "TECHM",
+          "name": "Tech Mahindra Ltd",
+          "sector": "IT",
+          "pb": 0.54,
+          "de": 0.13,
+          "return": 29.19
+        },
+        {
+          "symbol": "HCLTECH",
+          "name": "HCL Technologies Ltd",
+          "sector": "IT",
+          "pb": 0.68,
+          "de": 0.02,
+          "return": 16.9
+        },
+        {
+          "symbol": "INFY",
+          "name": "Infosys Ltd",
+          "sector": "IT",
+          "pb": 0.58,
+          "de": 0.0,
+          "return": 27.15
+        },
+        {
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services",
+          "sector": "IT",
+          "pb": 0.81,
+          "de": 0.0,
+          "return": 28.46
         }
       ]
     },
     {
       "period": "FY2019-20",
       "year": 2019,
-      "picks_count": 4,
-      "trap_count": 9,
-      "strategy_return": -47.99,
-      "trap_return": -27.31,
+      "picks_count": 11,
+      "trap_count": 10,
+      "strategy_return": -23.88,
+      "trap_return": -28.82,
       "nifty_return": -15.91,
-      "alpha": -32.09,
+      "alpha": -7.98,
       "outperformed": false,
       "sample_picks": [
         "HINDALCO",
         "ONGC",
         "OIL",
-        "NBCC"
+        "NBCC",
+        "BHARATFORG"
       ],
       "all_picks": [
         {
@@ -308,24 +493,81 @@
           "pb": 0.8,
           "de": 0.0,
           "return": -65.86
+        },
+        {
+          "symbol": "BHARATFORG",
+          "name": "Bharat Forge Ltd",
+          "sector": "Auto Ancillary",
+          "pb": 0.42,
+          "de": 0.75,
+          "return": -32.47
+        },
+        {
+          "symbol": "TATACHEM",
+          "name": "Tata Chemicals Ltd",
+          "sector": "Chemicals",
+          "pb": 0.46,
+          "de": 0.5,
+          "return": 16.37
+        },
+        {
+          "symbol": "DLF",
+          "name": "DLF Ltd",
+          "sector": "Real Estate",
+          "pb": 0.38,
+          "de": 0.51,
+          "return": -13.14
+        },
+        {
+          "symbol": "LUPIN",
+          "name": "Lupin Ltd",
+          "sector": "Pharma",
+          "pb": 0.6,
+          "de": 0.62,
+          "return": -4.16
+        },
+        {
+          "symbol": "TECHM",
+          "name": "Tech Mahindra Ltd",
+          "sector": "IT",
+          "pb": 0.64,
+          "de": 0.1,
+          "return": -32.42
+        },
+        {
+          "symbol": "HCLTECH",
+          "name": "HCL Technologies Ltd",
+          "sector": "IT",
+          "pb": 0.7,
+          "de": 0.1,
+          "return": -5.46
+        },
+        {
+          "symbol": "INFY",
+          "name": "Infosys Ltd",
+          "sector": "IT",
+          "pb": 0.74,
+          "de": 0.0,
+          "return": 0.54
         }
       ]
     },
     {
       "period": "FY2020-21",
       "year": 2020,
-      "picks_count": 4,
-      "trap_count": 10,
-      "strategy_return": 23.2,
-      "trap_return": 35.77,
+      "picks_count": 12,
+      "trap_count": 11,
+      "strategy_return": 79.46,
+      "trap_return": 38.96,
       "nifty_return": 48.39,
-      "alpha": -25.19,
-      "outperformed": false,
+      "alpha": 31.07,
+      "outperformed": true,
       "sample_picks": [
         "ONGC",
         "GAIL",
         "COALINDIA",
-        "PNB"
+        "PNB",
+        "TATACHEM"
       ],
       "all_picks": [
         {
@@ -359,18 +601,82 @@
           "pb": 0.69,
           "de": 0.98,
           "return": 7.89
+        },
+        {
+          "symbol": "TATACHEM",
+          "name": "Tata Chemicals Ltd",
+          "sector": "Chemicals",
+          "pb": 0.52,
+          "de": 0.6,
+          "return": 190.48
+        },
+        {
+          "symbol": "GNFC",
+          "name": "Gujarat Narmada Valley Fert",
+          "sector": "Fertilizers",
+          "pb": 0.44,
+          "de": 0.16,
+          "return": 164.63
+        },
+        {
+          "symbol": "DLF",
+          "name": "DLF Ltd",
+          "sector": "Real Estate",
+          "pb": 0.32,
+          "de": 0.24,
+          "return": 69.27
+        },
+        {
+          "symbol": "LUPIN",
+          "name": "Lupin Ltd",
+          "sector": "Pharma",
+          "pb": 0.63,
+          "de": 0.5,
+          "return": 28.87
+        },
+        {
+          "symbol": "WIPRO",
+          "name": "Wipro Ltd",
+          "sector": "IT",
+          "pb": 0.63,
+          "de": 0.18,
+          "return": 158.63
+        },
+        {
+          "symbol": "TECHM",
+          "name": "Tech Mahindra Ltd",
+          "sector": "IT",
+          "pb": 0.4,
+          "de": 0.17,
+          "return": 84.12
+        },
+        {
+          "symbol": "HCLTECH",
+          "name": "HCL Technologies Ltd",
+          "sector": "IT",
+          "pb": 0.53,
+          "de": 0.16,
+          "return": 70.75
+        },
+        {
+          "symbol": "INFY",
+          "name": "Infosys Ltd",
+          "sector": "IT",
+          "pb": 0.74,
+          "de": 0.07,
+          "return": 93.92
         }
       ]
     },
     {
       "period": "FY2021-22",
       "year": 2021,
-      "picks_count": 16,
-      "trap_count": 11,
-      "strategy_return": 36.1,
-      "trap_return": 48.01,
+      "picks_count": 21,
+      "trap_count": 12,
+      "strategy_return": 31.67,
+      "trap_return": 45.99,
       "nifty_return": 16.66,
-      "alpha": 19.44,
+      "alpha": 15.0,
       "outperformed": true,
       "sample_picks": [
         "SAIL",
@@ -507,18 +813,58 @@
           "pb": 0.4,
           "de": 0.8,
           "return": 12.87
+        },
+        {
+          "symbol": "BHARATFORG",
+          "name": "Bharat Forge Ltd",
+          "sector": "Auto Ancillary",
+          "pb": 0.55,
+          "de": 0.97,
+          "return": 11.65
+        },
+        {
+          "symbol": "DLF",
+          "name": "DLF Ltd",
+          "sector": "Real Estate",
+          "pb": 0.52,
+          "de": 0.19,
+          "return": 49.59
+        },
+        {
+          "symbol": "LUPIN",
+          "name": "Lupin Ltd",
+          "sector": "Pharma",
+          "pb": 0.73,
+          "de": 0.35,
+          "return": -30.25
+        },
+        {
+          "symbol": "TECHM",
+          "name": "Tech Mahindra Ltd",
+          "sector": "IT",
+          "pb": 0.65,
+          "de": 0.12,
+          "return": 32.94
+        },
+        {
+          "symbol": "HCLTECH",
+          "name": "HCL Technologies Ltd",
+          "sector": "IT",
+          "pb": 0.78,
+          "de": 0.11,
+          "return": 23.42
         }
       ]
     },
     {
       "period": "FY2022-23",
       "year": 2022,
-      "picks_count": 21,
-      "trap_count": 8,
-      "strategy_return": 19.84,
-      "trap_return": 27.83,
+      "picks_count": 27,
+      "trap_count": 9,
+      "strategy_return": 17.13,
+      "trap_return": 28.7,
       "nifty_return": 6.32,
-      "alpha": 13.52,
+      "alpha": 10.81,
       "outperformed": true,
       "sample_picks": [
         "TATASTEEL",
@@ -695,18 +1041,66 @@
           "pb": 0.41,
           "de": 0.72,
           "return": 109.2
+        },
+        {
+          "symbol": "EXIDEIND",
+          "name": "Exide Industries Ltd",
+          "sector": "Auto Ancillary",
+          "pb": 0.54,
+          "de": 0.05,
+          "return": 27.12
+        },
+        {
+          "symbol": "BHARATFORG",
+          "name": "Bharat Forge Ltd",
+          "sector": "Auto Ancillary",
+          "pb": 0.51,
+          "de": 0.91,
+          "return": 19.11
+        },
+        {
+          "symbol": "DLF",
+          "name": "DLF Ltd",
+          "sector": "Real Estate",
+          "pb": 0.76,
+          "de": 0.12,
+          "return": 16.33
+        },
+        {
+          "symbol": "LUPIN",
+          "name": "Lupin Ltd",
+          "sector": "Pharma",
+          "pb": 0.58,
+          "de": 0.34,
+          "return": -3.86
+        },
+        {
+          "symbol": "AUROPHARMA",
+          "name": "Aurobindo Pharma Ltd",
+          "sector": "Pharma",
+          "pb": 0.7,
+          "de": 0.12,
+          "return": -2.49
+        },
+        {
+          "symbol": "TECHM",
+          "name": "Tech Mahindra Ltd",
+          "sector": "IT",
+          "pb": 0.8,
+          "de": 0.1,
+          "return": -10.38
         }
       ]
     },
     {
       "period": "FY2023-24",
       "year": 2023,
-      "picks_count": 18,
-      "trap_count": 10,
-      "strategy_return": 119.47,
-      "trap_return": 128.53,
+      "picks_count": 22,
+      "trap_count": 12,
+      "strategy_return": 115.44,
+      "trap_return": 118.71,
       "nifty_return": 24.8,
-      "alpha": 94.67,
+      "alpha": 90.64,
       "outperformed": true,
       "sample_picks": [
         "TATASTEEL",
@@ -859,6 +1253,38 @@
           "pb": 0.77,
           "de": 0.54,
           "return": 108.96
+        },
+        {
+          "symbol": "EXIDEIND",
+          "name": "Exide Industries Ltd",
+          "sector": "Auto Ancillary",
+          "pb": 0.66,
+          "de": 0.05,
+          "return": 142.8
+        },
+        {
+          "symbol": "LUPIN",
+          "name": "Lupin Ltd",
+          "sector": "Pharma",
+          "pb": 0.55,
+          "de": 0.36,
+          "return": 133.46
+        },
+        {
+          "symbol": "AUROPHARMA",
+          "name": "Aurobindo Pharma Ltd",
+          "sector": "Pharma",
+          "pb": 0.62,
+          "de": 0.2,
+          "return": 88.15
+        },
+        {
+          "symbol": "TECHM",
+          "name": "Tech Mahindra Ltd",
+          "sector": "IT",
+          "pb": 0.69,
+          "de": 0.1,
+          "return": 24.74
         }
       ]
     },
@@ -925,12 +1351,12 @@
     {
       "period": "FY25-26 (YTD)",
       "year": 2025,
-      "picks_count": 9,
+      "picks_count": 10,
       "trap_count": 2,
-      "strategy_return": 47.1,
+      "strategy_return": 49.31,
       "trap_return": 35.28,
       "nifty_return": -5.54,
-      "alpha": 52.65,
+      "alpha": 54.86,
       "outperformed": true,
       "sample_picks": [
         "SAIL",
@@ -1011,6 +1437,14 @@
           "pb": 0.84,
           "de": 0.85,
           "return": 29.65
+        },
+        {
+          "symbol": "BHARATFORG",
+          "name": "Bharat Forge Ltd",
+          "sector": "Auto Ancillary",
+          "pb": 0.6,
+          "de": 0.72,
+          "return": 69.21
         }
       ]
     }
@@ -1024,62 +1458,62 @@
     },
     {
       "date": "2017-05-02",
-      "value_strategy": 149620.0,
-      "value_trap": 134923.75,
+      "value_strategy": 138995.0,
+      "value_trap": 138342.5,
       "nifty_50": 119317.44
     },
     {
       "date": "2018-05-02",
-      "value_strategy": 136546.95,
-      "value_trap": 154532.67,
+      "value_strategy": 154928.46,
+      "value_trap": 160102.79,
       "nifty_50": 137307.04
     },
     {
       "date": "2019-05-02",
-      "value_strategy": 114919.87,
-      "value_trap": 149225.76,
+      "value_strategy": 151563.61,
+      "value_trap": 152002.82,
       "nifty_50": 150203.69
     },
     {
       "date": "2020-05-02",
-      "value_strategy": 59766.95,
-      "value_trap": 108470.55,
+      "value_strategy": 115366.08,
+      "value_trap": 108189.53,
       "nifty_50": 126313.44
     },
     {
       "date": "2021-05-02",
-      "value_strategy": 73632.88,
-      "value_trap": 147269.38,
+      "value_strategy": 207031.17,
+      "value_trap": 150342.13,
       "nifty_50": 187436.42
     },
     {
       "date": "2022-05-02",
-      "value_strategy": 100215.27,
-      "value_trap": 217970.73,
+      "value_strategy": 272588.08,
+      "value_trap": 219486.98,
       "nifty_50": 218669.21
     },
     {
       "date": "2023-05-02",
-      "value_strategy": 120093.69,
-      "value_trap": 278637.43,
+      "value_strategy": 319269.29,
+      "value_trap": 282487.06,
       "nifty_50": 232486.33
     },
     {
       "date": "2024-05-02",
-      "value_strategy": 263570.28,
-      "value_trap": 636761.75,
+      "value_strategy": 687825.06,
+      "value_trap": 617813.33,
       "nifty_50": 290142.07
     },
     {
       "date": "2025-05-02",
-      "value_strategy": 261714.75,
-      "value_trap": 681653.46,
+      "value_strategy": 682982.77,
+      "value_trap": 661369.17,
       "nifty_50": 311901.25
     },
     {
       "date": "2026-10-15",
-      "value_strategy": 384991.12,
-      "value_trap": 922174.88,
+      "value_strategy": 1019788.9,
+      "value_trap": 894733.29,
       "nifty_50": 294614.97
     }
   ],
@@ -1091,6 +1525,22 @@
       "pb": 0.44,
       "de": 0.0,
       "return": 250.12
+    },
+    {
+      "symbol": "TATACHEM",
+      "name": "Tata Chemicals Ltd",
+      "sector": "Chemicals",
+      "pb": 0.52,
+      "de": 0.6,
+      "return": 190.48
+    },
+    {
+      "symbol": "GNFC",
+      "name": "Gujarat Narmada Valley Fert",
+      "sector": "Fertilizers",
+      "pb": 0.5,
+      "de": 0.93,
+      "return": 188.71
     },
     {
       "symbol": "BEML",
@@ -1107,33 +1557,9 @@
       "pb": 0.72,
       "de": 0.68,
       "return": 165.08
-    },
-    {
-      "symbol": "OIL",
-      "name": "Oil India Ltd",
-      "sector": "Oil & Gas",
-      "pb": 0.48,
-      "de": 0.49,
-      "return": 155.88
-    },
-    {
-      "symbol": "NMDC",
-      "name": "NMDC Ltd",
-      "sector": "Mining",
-      "pb": 0.53,
-      "de": 0.09,
-      "return": 146.92
     }
   ],
   "top_losers": [
-    {
-      "symbol": "BANKBARODA",
-      "name": "Bank of Baroda",
-      "sector": "Banking",
-      "pb": 0.45,
-      "de": 0.86,
-      "return": 68.91
-    },
     {
       "symbol": "JINDALSTEL",
       "name": "Jindal Steel & Power Ltd",
@@ -1149,6 +1575,14 @@
       "pb": 0.48,
       "de": 0.82,
       "return": 56.67
+    },
+    {
+      "symbol": "TCS",
+      "name": "Tata Consultancy Services",
+      "sector": "IT",
+      "pb": 0.51,
+      "de": 0.0,
+      "return": 55.77
     },
     {
       "symbol": "HINDALCO",

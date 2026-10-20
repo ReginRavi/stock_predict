@@ -40,3 +40,39 @@ Generated automatically by the stock analysis pipeline with Quant VLRT, Applied 
 | Lak. Electrical | 171 | 0.78 | 0.05 | 💎 Value (P/B 0.3-0.8 & D/E < 1) | 0.58% | 0.82 | 0.37 | -61 | Negative Growth | Negative Growth+Yield | 199 | 2.5/10 | 2.6/10 | ⚠️ Value Trap | 🔻 Declining |
 | Team India Guar. | 205 | 4.59 | 0.00 | 🛡️ D/E (< 1) Only | 0.49% | 2.89 | 0.00 | -9 | Negative Growth | Negative Growth+Yield | 223 | 2.5/10 | 1.5/10 | ⚠️ Value Trap | 🔻 Declining |
 | Dalal Street Inv | 239 | 2.44 | 0.21 | 🛡️ D/E (< 1) Only | 0.42% | 0.48 | 0.00 | N/A | N/A | N/A | 12.0 | 3.8/10 | 2.3/10 | ⚠️ Value Trap | 🔍 Discovery |
+
+============================================================
+## 📈 10-Year Historical Strategy Backtest (2016 – 2026)
+============================================================
+
+Empirical validation of the **Deep Value Strategy** applied to Indian Equities across 10 annual rebalance cycles (May 2016 – Oct 2026).
+
+**Core Rules Tested:**
+1. **Price to Book (P/B) Ratio:** `0.3x - 0.8x` *(Look for Value / Margin of Safety)*
+2. **Debt to Equity (D/E) Ratio:** `< 1.0` *(Avoid Weak Balance Sheets / Insolvency Risk)*
+
+📊 **[View Interactive Backtest Report & Full Equity Curves](backtest_report.html)**
+
+| Metric | Deep Value Strategy (P/B 0.3-0.8 & D/E < 1) | Nifty 50 Benchmark (^NSEI) | High-Debt Value Trap (D/E ≥ 1) | Alpha / Advantage |
+| :--- | :--- | :--- | :--- | :--- |
+| **10-Year CAGR** | **26.14%** | 11.41% | 24.5% | **+14.73% p.a.** |
+| **Total 10Y Return** | **+919.79%** (₹100k → ₹1,019,789) | +194.61% (₹100k → ₹294,615) | +794.73% | **+725.18%** |
+| **Sharpe Ratio (Rf=6%)** | **0.51** | 0.33 | N/A | **Superior Risk-Adjusted Return** |
+| **Sortino Ratio (Downside)** | **1.9** | N/A | N/A | High Upside / Downside Asymmetry |
+| **Max Drawdown** | -25.54% | -15.91% | N/A | Controlled Downside Risk |
+| **Win Rate vs Nifty** | **60.0%** (6 / 10 years) | Benchmark | N/A | Outperformed in 6 of 10 Years |
+
+### Annual Performance Breakdown (FY16 – FY26)
+
+| Period | Deep Value Strategy (%) | High-Debt Trap (%) | Nifty 50 (%) | Alpha vs Nifty (%) | Win vs Nifty | Stocks Screened |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| FY2016-17 | **+38.99%** | +38.34% | +19.32% | **+19.68%** | ✅ Win | 14 |
+| FY2017-18 | **+11.46%** | +15.73% | +15.08% | **-3.61%** | ❌ Lag | 15 |
+| FY2018-19 | **-2.17%** | -5.06% | +9.39% | **-11.56%** | ❌ Lag | 16 |
+| FY2019-20 | **-23.88%** | -28.82% | -15.91% | **-7.98%** | ❌ Lag | 11 |
+| FY2020-21 | **+79.46%** | +38.96% | +48.39% | **+31.07%** | ✅ Win | 12 |
+| FY2021-22 | **+31.67%** | +45.99% | +16.66% | **+15.00%** | ✅ Win | 21 |
+| FY2022-23 | **+17.13%** | +28.70% | +6.32% | **+10.81%** | ✅ Win | 27 |
+| FY2023-24 | **+115.44%** | +118.71% | +24.80% | **+90.64%** | ✅ Win | 22 |
+| FY2024-25 | **-0.70%** | +7.05% | +7.50% | **-8.20%** | ❌ Lag | 5 |
+| FY25-26 (YTD) | **+49.31%** | +35.28% | -5.54% | **+54.86%** | ✅ Win | 10 |

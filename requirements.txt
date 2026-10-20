@@ -11,3 +11,5 @@ python-dotenv
 transformers
 scikit-learn
 numpy
+requests
+beautifulsoup4

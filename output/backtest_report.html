@@ -160,9 +160,12 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>10-Year Backtest: Deep Value + Solvent Balance Sheet</h1>
-            <p style="color: var(--text-muted); margin-top: 0.3rem;">Simulated performance on Indian Equities across 2016 – 2026</p>
+        <header style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h1>10-Year Backtest: Deep Value + Solvent Balance Sheet</h1>
+                <p style="color: var(--text-muted); margin-top: 0.3rem;">Simulated performance on Indian Equities across 2016 – 2026</p>
+            </div>
+            <a href="../index.html" style="background: rgba(59, 130, 246, 0.2); border: 1px solid #3b82f6; color: #60a5fa; padding: 0.6rem 1.2rem; border-radius: 10px; text-decoration: none; font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease;">← Back to Stock Dashboard</a>
         </header>
 
         <div class="criteria-box">
@@ -196,8 +199,8 @@
             </div>
             <div class="card">
                 <div class="card-title">Strategy Final Value</div>
-                <div class="card-val" style="color: #10b981;">₹384,991</div>
-                <div style="color: #10b981; font-size: 0.85rem; font-weight: 600;">+284.99% Total Return</div>
+                <div class="card-val" style="color: #10b981;">₹1,019,789</div>
+                <div style="color: #10b981; font-size: 0.85rem; font-weight: 600;">+919.79% Total Return</div>
             </div>
             <div class="card">
                 <div class="card-title">Nifty 50 Final Value</div>
@@ -206,22 +209,22 @@
             </div>
             <div class="card">
                 <div class="card-title">Strategy CAGR</div>
-                <div class="card-val" style="color: #10b981;">14.43%</div>
-                <div style="color: #10b981; font-size: 0.85rem;">Alpha: +3.02% vs Nifty</div>
+                <div class="card-val" style="color: #10b981;">26.14%</div>
+                <div style="color: #10b981; font-size: 0.85rem;">Alpha: +14.73% vs Nifty</div>
             </div>
             <div class="card">
                 <div class="card-title">Sharpe Ratio</div>
-                <div class="card-val" style="color: #a78bfa;">0.19</div>
+                <div class="card-val" style="color: #a78bfa;">0.51</div>
                 <div style="color: #94a3b8; font-size: 0.85rem;">vs Nifty 0.33 (Rf: 6%)</div>
             </div>
             <div class="card">
                 <div class="card-title">Win Rate vs Nifty</div>
-                <div class="card-val" style="color: #f59e0b;">50.0%</div>
-                <div style="color: #94a3b8; font-size: 0.85rem;">5 / 10 years</div>
+                <div class="card-val" style="color: #f59e0b;">60.0%</div>
+                <div style="color: #94a3b8; font-size: 0.85rem;">6 / 10 years</div>
             </div>
             <div class="card">
                 <div class="card-title">Max Drawdown</div>
-                <div class="card-val" style="color: #ef4444;">-60.05%</div>
+                <div class="card-val" style="color: #ef4444;">-25.54%</div>
                 <div style="color: #94a3b8; font-size: 0.85rem;">vs Nifty -15.91%</div>
             </div>
         </div>
@@ -245,7 +248,7 @@
                 <div style="background: rgba(15, 23, 42, 0.7); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border);">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
                         <span>Deep Value (D/E &lt; 1.0) CAGR:</span>
-                        <strong style="color: #10b981;">14.43%</strong>
+                        <strong style="color: #10b981;">26.14%</strong>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
                         <span>Nifty 50 Benchmark CAGR:</span>
@@ -253,7 +256,7 @@
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
                         <span>Value Traps (D/E &ge; 1.0) CAGR:</span>
-                        <strong style="color: #ef4444;">24.88%</strong>
+                        <strong style="color: #ef4444;">24.5%</strong>
                     </div>
                     <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: #94a3b8;">
                         💡 <strong>Key Takeaway:</strong> Low P/B alone does not guarantee safety. When coupled with high debt (D/E &ge; 1.0), companies suffer insolvency or capital dilution. Enforcing <strong>D/E &lt; 1.0</strong> filters out value traps and drives alpha!
@@ -278,6 +281,28 @@
         
 
         <div class="winner-card">
+            <div style="font-weight: 700; font-size: 1.1rem; color: #f8fafc;">TATACHEM</div>
+            <div style="color: #94a3b8; font-size: 0.82rem;">Tata Chemicals Ltd • Chemicals</div>
+            <div style="display: flex; gap: 0.8rem; margin-top: 0.5rem; font-size: 0.85rem;">
+                <div>P/B: <strong style="color: #a78bfa;">0.52x</strong></div>
+                <div>D/E: <strong style="color: #38bdf8;">0.6</strong></div>
+            </div>
+            <div style="font-size: 1.4rem; font-weight: 800; color: #10b981; margin-top: 0.4rem;">+190.5%</div>
+        </div>
+        
+
+        <div class="winner-card">
+            <div style="font-weight: 700; font-size: 1.1rem; color: #f8fafc;">GNFC</div>
+            <div style="color: #94a3b8; font-size: 0.82rem;">Gujarat Narmada Valley Fert • Fertilizers</div>
+            <div style="display: flex; gap: 0.8rem; margin-top: 0.5rem; font-size: 0.85rem;">
+                <div>P/B: <strong style="color: #a78bfa;">0.5x</strong></div>
+                <div>D/E: <strong style="color: #38bdf8;">0.93</strong></div>
+            </div>
+            <div style="font-size: 1.4rem; font-weight: 800; color: #10b981; margin-top: 0.4rem;">+188.7%</div>
+        </div>
+        
+
+        <div class="winner-card">
             <div style="font-weight: 700; font-size: 1.1rem; color: #f8fafc;">BEML</div>
             <div style="color: #94a3b8; font-size: 0.82rem;">BEML Ltd • Capital Goods</div>
             <div style="display: flex; gap: 0.8rem; margin-top: 0.5rem; font-size: 0.85rem;">
@@ -296,28 +321,6 @@
                 <div>D/E: <strong style="color: #38bdf8;">0.68</strong></div>
             </div>
             <div style="font-size: 1.4rem; font-weight: 800; color: #10b981; margin-top: 0.4rem;">+165.1%</div>
-        </div>
-        
-
-        <div class="winner-card">
-            <div style="font-weight: 700; font-size: 1.1rem; color: #f8fafc;">OIL</div>
-            <div style="color: #94a3b8; font-size: 0.82rem;">Oil India Ltd • Oil & Gas</div>
-            <div style="display: flex; gap: 0.8rem; margin-top: 0.5rem; font-size: 0.85rem;">
-                <div>P/B: <strong style="color: #a78bfa;">0.48x</strong></div>
-                <div>D/E: <strong style="color: #38bdf8;">0.49</strong></div>
-            </div>
-            <div style="font-size: 1.4rem; font-weight: 800; color: #10b981; margin-top: 0.4rem;">+155.9%</div>
-        </div>
-        
-
-        <div class="winner-card">
-            <div style="font-weight: 700; font-size: 1.1rem; color: #f8fafc;">NMDC</div>
-            <div style="color: #94a3b8; font-size: 0.82rem;">NMDC Ltd • Mining</div>
-            <div style="display: flex; gap: 0.8rem; margin-top: 0.5rem; font-size: 0.85rem;">
-                <div>P/B: <strong style="color: #a78bfa;">0.53x</strong></div>
-                <div>D/E: <strong style="color: #38bdf8;">0.09</strong></div>
-            </div>
-            <div style="font-size: 1.4rem; font-weight: 800; color: #10b981; margin-top: 0.4rem;">+146.9%</div>
         </div>
         
             </div>
@@ -341,88 +344,88 @@
                     
         <tr>
             <td style="font-weight: 600;">FY2016-17</td>
-            <td style="font-weight: 600; color: #10b981;">+49.62%</td>
-            <td style="color: #ef4444;">+34.92%</td>
+            <td style="font-weight: 600; color: #10b981;">+38.99%</td>
+            <td style="color: #ef4444;">+38.34%</td>
             <td style="color: #38bdf8;">+19.32%</td>
-            <td><span class="badge badge-success">+30.30%</span></td>
-            <td>7 stocks</td>
+            <td><span class="badge badge-success">+19.68%</span></td>
+            <td>14 stocks</td>
             <td style="font-size: 0.85rem; color: #94a3b8;">SAIL, ONGC, OIL, IOC, GAIL</td>
         </tr>
         
 
         <tr>
             <td style="font-weight: 600;">FY2017-18</td>
-            <td style="font-weight: 600; color: #10b981;">-8.74%</td>
-            <td style="color: #ef4444;">+14.53%</td>
+            <td style="font-weight: 600; color: #10b981;">+11.46%</td>
+            <td style="color: #ef4444;">+15.73%</td>
             <td style="color: #38bdf8;">+15.08%</td>
-            <td><span class="badge badge-danger">-23.81%</span></td>
-            <td>8 stocks</td>
+            <td><span class="badge badge-danger">-3.61%</span></td>
+            <td>15 stocks</td>
             <td style="font-size: 0.85rem; color: #94a3b8;">NMDC, ONGC, OIL, NHPC, SJVN</td>
         </tr>
         
 
         <tr>
             <td style="font-weight: 600;">FY2018-19</td>
-            <td style="font-weight: 600; color: #10b981;">-15.84%</td>
-            <td style="color: #ef4444;">-3.43%</td>
+            <td style="font-weight: 600; color: #10b981;">-2.17%</td>
+            <td style="color: #ef4444;">-5.06%</td>
             <td style="color: #38bdf8;">+9.39%</td>
-            <td><span class="badge badge-danger">-25.23%</span></td>
-            <td>7 stocks</td>
+            <td><span class="badge badge-danger">-11.56%</span></td>
+            <td>16 stocks</td>
             <td style="font-size: 0.85rem; color: #94a3b8;">HINDALCO, VEDL, ONGC, OIL, NHPC</td>
         </tr>
         
 
         <tr>
             <td style="font-weight: 600;">FY2019-20</td>
-            <td style="font-weight: 600; color: #10b981;">-47.99%</td>
-            <td style="color: #ef4444;">-27.31%</td>
+            <td style="font-weight: 600; color: #10b981;">-23.88%</td>
+            <td style="color: #ef4444;">-28.82%</td>
             <td style="color: #38bdf8;">-15.91%</td>
-            <td><span class="badge badge-danger">-32.09%</span></td>
-            <td>4 stocks</td>
-            <td style="font-size: 0.85rem; color: #94a3b8;">HINDALCO, ONGC, OIL, NBCC</td>
+            <td><span class="badge badge-danger">-7.98%</span></td>
+            <td>11 stocks</td>
+            <td style="font-size: 0.85rem; color: #94a3b8;">HINDALCO, ONGC, OIL, NBCC, BHARATFORG</td>
         </tr>
         
 
         <tr>
             <td style="font-weight: 600;">FY2020-21</td>
-            <td style="font-weight: 600; color: #10b981;">+23.20%</td>
-            <td style="color: #ef4444;">+35.77%</td>
+            <td style="font-weight: 600; color: #10b981;">+79.46%</td>
+            <td style="color: #ef4444;">+38.96%</td>
             <td style="color: #38bdf8;">+48.39%</td>
-            <td><span class="badge badge-danger">-25.19%</span></td>
-            <td>4 stocks</td>
-            <td style="font-size: 0.85rem; color: #94a3b8;">ONGC, GAIL, COALINDIA, PNB</td>
+            <td><span class="badge badge-success">+31.07%</span></td>
+            <td>12 stocks</td>
+            <td style="font-size: 0.85rem; color: #94a3b8;">ONGC, GAIL, COALINDIA, PNB, TATACHEM</td>
         </tr>
         
 
         <tr>
             <td style="font-weight: 600;">FY2021-22</td>
-            <td style="font-weight: 600; color: #10b981;">+36.10%</td>
-            <td style="color: #ef4444;">+48.01%</td>
+            <td style="font-weight: 600; color: #10b981;">+31.67%</td>
+            <td style="color: #ef4444;">+45.99%</td>
             <td style="color: #38bdf8;">+16.66%</td>
-            <td><span class="badge badge-success">+19.44%</span></td>
-            <td>16 stocks</td>
+            <td><span class="badge badge-success">+15.00%</span></td>
+            <td>21 stocks</td>
             <td style="font-size: 0.85rem; color: #94a3b8;">SAIL, NMDC, VEDL, JINDALSTEL, ONGC</td>
         </tr>
         
 
         <tr>
             <td style="font-weight: 600;">FY2022-23</td>
-            <td style="font-weight: 600; color: #10b981;">+19.84%</td>
-            <td style="color: #ef4444;">+27.83%</td>
+            <td style="font-weight: 600; color: #10b981;">+17.13%</td>
+            <td style="color: #ef4444;">+28.70%</td>
             <td style="color: #38bdf8;">+6.32%</td>
-            <td><span class="badge badge-success">+13.52%</span></td>
-            <td>21 stocks</td>
+            <td><span class="badge badge-success">+10.81%</span></td>
+            <td>27 stocks</td>
             <td style="font-size: 0.85rem; color: #94a3b8;">TATASTEEL, SAIL, NMDC, NATIONALUM, HINDALCO</td>
         </tr>
         
 
         <tr>
             <td style="font-weight: 600;">FY2023-24</td>
-            <td style="font-weight: 600; color: #10b981;">+119.47%</td>
-            <td style="color: #ef4444;">+128.53%</td>
+            <td style="font-weight: 600; color: #10b981;">+115.44%</td>
+            <td style="color: #ef4444;">+118.71%</td>
             <td style="color: #38bdf8;">+24.80%</td>
-            <td><span class="badge badge-success">+94.67%</span></td>
-            <td>18 stocks</td>
+            <td><span class="badge badge-success">+90.64%</span></td>
+            <td>22 stocks</td>
             <td style="font-size: 0.85rem; color: #94a3b8;">TATASTEEL, SAIL, NMDC, NATIONALUM, HINDALCO</td>
         </tr>
         
@@ -440,11 +443,11 @@
 
         <tr>
             <td style="font-weight: 600;">FY25-26 (YTD)</td>
-            <td style="font-weight: 600; color: #10b981;">+47.10%</td>
+            <td style="font-weight: 600; color: #10b981;">+49.31%</td>
             <td style="color: #ef4444;">+35.28%</td>
             <td style="color: #38bdf8;">-5.54%</td>
-            <td><span class="badge badge-success">+52.65%</span></td>
-            <td>9 stocks</td>
+            <td><span class="badge badge-success">+54.86%</span></td>
+            <td>10 stocks</td>
             <td style="font-size: 0.85rem; color: #94a3b8;">SAIL, NMDC, NATIONALUM, HINDALCO, JINDALSTEL</td>
         </tr>
         
@@ -462,7 +465,7 @@
                 datasets: [
                     {
                         label: 'Deep Value Strategy (P/B 0.3-0.8 & D/E < 1)',
-                        data: [100000.0, 149620.0, 136546.95, 114919.87, 59766.95, 73632.88, 100215.27, 120093.69, 263570.28, 261714.75, 384991.12],
+                        data: [100000.0, 138995.0, 154928.46, 151563.61, 115366.08, 207031.17, 272588.08, 319269.29, 687825.06, 682982.77, 1019788.9],
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.1)',
                         fill: true,
@@ -479,7 +482,7 @@
                     },
                     {
                         label: 'Value Traps (P/B 0.3-0.8 & D/E >= 1)',
-                        data: [100000.0, 134923.75, 154532.67, 149225.76, 108470.55, 147269.38, 217970.73, 278637.43, 636761.75, 681653.46, 922174.88],
+                        data: [100000.0, 138342.5, 160102.79, 152002.82, 108189.53, 150342.13, 219486.98, 282487.06, 617813.33, 661369.17, 894733.29],
                         borderColor: '#ef4444',
                         backgroundColor: 'transparent',
                         borderWidth: 2
@@ -507,7 +510,7 @@
                 datasets: [
                     {
                         label: 'Deep Value Strategy (%)',
-                        data: [49.62, -8.74, -15.84, -47.99, 23.2, 36.1, 19.84, 119.47, -0.7, 47.1],
+                        data: [38.99, 11.46, -2.17, -23.88, 79.46, 31.67, 17.13, 115.44, -0.7, 49.31],
                         backgroundColor: '#10b981'
                     },
                     {

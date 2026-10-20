@@ -739,9 +739,12 @@ def generate_backtest_html(data: Dict[str, Any], html_path: Path):
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>10-Year Backtest: Deep Value + Solvent Balance Sheet</h1>
-            <p style="color: var(--text-muted); margin-top: 0.3rem;">Simulated performance on Indian Equities across 2016 – 2026</p>
+        <header style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h1>10-Year Backtest: Deep Value + Solvent Balance Sheet</h1>
+                <p style="color: var(--text-muted); margin-top: 0.3rem;">Simulated performance on Indian Equities across 2016 – 2026</p>
+            </div>
+            <a href="../index.html" style="background: rgba(59, 130, 246, 0.2); border: 1px solid #3b82f6; color: #60a5fa; padding: 0.6rem 1.2rem; border-radius: 10px; text-decoration: none; font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s ease;">← Back to Stock Dashboard</a>
         </header>
 
         <div class="criteria-box">

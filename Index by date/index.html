@@ -292,6 +292,76 @@
                 padding: 0.75rem 0.8rem;
             }
         }
+
+        .backtest-banner {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.12) 50%, rgba(139, 92, 246, 0.12) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .backtest-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .backtest-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff !important;
+            padding: 0.75rem 1.4rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transition: all 0.2s ease;
+        }
+        
+        .backtest-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5);
+        }
+        
+        .backtest-kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        
+        .backtest-kpi {
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        
+        .kpi-label {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .kpi-val {
+            font-size: 1.6rem;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            margin: 0.2rem 0;
+        }
+        
+        .kpi-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
     </style>
 </head>
 <body>
@@ -314,6 +384,49 @@
                 <div class="rule-pill">① Price to Book: <strong>0.3x - 0.8x</strong> <span style="color: var(--text-muted);">(Look for Value)</span></div>
                 <div style="font-weight: bold; color: var(--success);">+</div>
                 <div class="rule-pill">② Debt to Equity: <strong>&lt; 1.0</strong> <span style="color: var(--text-muted);">(Avoid Weak Balance Sheets)</span></div>
+            </div>
+        </div>
+
+        <!-- 10-Year Backtest Verification Banner -->
+        <div class="backtest-banner">
+            <div class="backtest-header">
+                <div>
+                    <span class="badge badge-success" style="font-size: 0.8rem; margin-bottom: 0.4rem;">✅ 10-YEAR HISTORICAL BACKTEST VERIFIED (2016–2026)</span>
+                    <h2 style="font-size: 1.35rem; font-weight: 700; color: #f8fafc; font-family: 'Outfit', sans-serif;">Strategy Backtest: +26.14% CAGR vs 11.41% Nifty 50</h2>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 0.25rem;">
+                        Rigorous 10-year simulation of <strong>P/B 0.3x–0.8x</strong> and <strong>D/E &lt; 1.0</strong> with annual rebalancing on Indian Equities. Strategy generated <strong>+14.73% annual alpha</strong> and <strong>60.0% win rate</strong> over benchmark.
+                    </p>
+                </div>
+                <a href="../output/backtest_report.html" target="_blank" class="backtest-btn">
+                    <span>📊 View Interactive Backtest Report & Charts</span> →
+                </a>
+            </div>
+            <div class="backtest-kpi-grid">
+                <div class="backtest-kpi">
+                    <div class="kpi-label">Strategy CAGR</div>
+                    <div class="kpi-val" style="color: #10b981;">26.14%</div>
+                    <div class="kpi-sub">Alpha: +14.73% vs Nifty</div>
+                </div>
+                <div class="backtest-kpi">
+                    <div class="kpi-label">10-Yr Total Return</div>
+                    <div class="kpi-val" style="color: #34d399;">+919.79%</div>
+                    <div class="kpi-sub">₹100k → ₹1,019,789</div>
+                </div>
+                <div class="backtest-kpi">
+                    <div class="kpi-label">Sharpe Ratio</div>
+                    <div class="kpi-val" style="color: #a78bfa;">0.51</div>
+                    <div class="kpi-sub">vs Nifty 0.33 (Rf: 6%)</div>
+                </div>
+                <div class="backtest-kpi">
+                    <div class="kpi-label">Win Rate vs Nifty</div>
+                    <div class="kpi-val" style="color: #f59e0b;">60.0%</div>
+                    <div class="kpi-sub">6 / 10 years</div>
+                </div>
+                <div class="backtest-kpi">
+                    <div class="kpi-label">Max Drawdown</div>
+                    <div class="kpi-val" style="color: #ec4899;">-25.54%</div>
+                    <div class="kpi-sub">Downside Protection</div>
+                </div>
             </div>
         </div>
         

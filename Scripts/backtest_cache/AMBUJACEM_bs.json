@@ -1,0 +1,62 @@
+{
+  "2014": {
+    "total_equity": 10070.0,
+    "borrowings": 34.0,
+    "de_ratio": 0.0
+  },
+  "2015": {
+    "total_equity": 10271.0,
+    "borrowings": 35.0,
+    "de_ratio": 0.0
+  },
+  "2016": {
+    "total_equity": 19821.0,
+    "borrowings": 29.0,
+    "de_ratio": 0.0
+  },
+  "2017": {
+    "total_equity": 20672.0,
+    "borrowings": 24.0,
+    "de_ratio": 0.0
+  },
+  "2018": {
+    "total_equity": 22370.0,
+    "borrowings": 40.0,
+    "de_ratio": 0.0
+  },
+  "2019": {
+    "total_equity": 24078.0,
+    "borrowings": 41.0,
+    "de_ratio": 0.0
+  },
+  "2020": {
+    "total_equity": 22757.0,
+    "borrowings": 471.0,
+    "de_ratio": 0.02
+  },
+  "2021": {
+    "total_equity": 25354.0,
+    "borrowings": 477.0,
+    "de_ratio": 0.02
+  },
+  "2023": {
+    "total_equity": 31698.0,
+    "borrowings": 523.0,
+    "de_ratio": 0.02
+  },
+  "2024": {
+    "total_equity": 41452.0,
+    "borrowings": 699.0,
+    "de_ratio": 0.02
+  },
+  "2025": {
+    "total_equity": 53579.0,
+    "borrowings": 788.0,
+    "de_ratio": 0.01
+  },
+  "2026": {
+    "total_equity": 59347.0,
+    "borrowings": 866.0,
+    "de_ratio": 0.01
+  }
+}
