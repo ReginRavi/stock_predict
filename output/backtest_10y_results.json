@@ -1,0 +1,1170 @@
+{
+  "summary": {
+    "strategy_name": "Deep Value (P/B 0.3x-0.8x & D/E < 1.0)",
+    "period": "2016 - 2026 (10 Years)",
+    "initial_capital": 100000.0,
+    "final_capital_strategy": 384991.12,
+    "final_capital_nifty": 294614.97,
+    "final_capital_trap": 922174.88,
+    "strategy_total_return_pct": 284.99,
+    "nifty_total_return_pct": 194.61,
+    "trap_total_return_pct": 822.17,
+    "strategy_cagr_pct": 14.43,
+    "nifty_cagr_pct": 11.41,
+    "trap_cagr_pct": 24.88,
+    "alpha_cagr_pct": 3.02,
+    "strategy_volatility_pct": 43.46,
+    "nifty_volatility_pct": 16.48,
+    "strategy_sharpe": 0.19,
+    "nifty_sharpe": 0.33,
+    "strategy_sortino": 0.47,
+    "strategy_max_drawdown_pct": -60.05,
+    "nifty_max_drawdown_pct": -15.91,
+    "win_rate_pct": 50.0,
+    "winning_years": "5 / 10 years"
+  },
+  "annual_breakdown": [
+    {
+      "period": "FY2016-17",
+      "year": 2016,
+      "picks_count": 7,
+      "trap_count": 8,
+      "strategy_return": 49.62,
+      "trap_return": 34.92,
+      "nifty_return": 19.32,
+      "alpha": 30.3,
+      "outperformed": true,
+      "sample_picks": [
+        "SAIL",
+        "ONGC",
+        "OIL",
+        "IOC",
+        "GAIL"
+      ],
+      "all_picks": [
+        {
+          "symbol": "SAIL",
+          "name": "Steel Authority of India Ltd",
+          "sector": "Metals",
+          "pb": 0.32,
+          "de": 0.88,
+          "return": 25.29
+        },
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.54,
+          "de": 0.23,
+          "return": 38.12
+        },
+        {
+          "symbol": "OIL",
+          "name": "Oil India Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.31,
+          "de": 0.39,
+          "return": 37.8
+        },
+        {
+          "symbol": "IOC",
+          "name": "Indian Oil Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.64,
+          "de": 0.65,
+          "return": 121.09
+        },
+        {
+          "symbol": "GAIL",
+          "name": "GAIL (India) Ltd",
+          "sector": "Utilities",
+          "pb": 0.7,
+          "de": 0.25,
+          "return": 59.78
+        },
+        {
+          "symbol": "NBCC",
+          "name": "NBCC (India) Ltd",
+          "sector": "Infra",
+          "pb": 0.85,
+          "de": 0.01,
+          "return": 50.84
+        },
+        {
+          "symbol": "CUMMINSIND",
+          "name": "Cummins India Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.33,
+          "de": 0.0,
+          "return": 14.42
+        }
+      ]
+    },
+    {
+      "period": "FY2017-18",
+      "year": 2017,
+      "picks_count": 8,
+      "trap_count": 12,
+      "strategy_return": -8.74,
+      "trap_return": 14.53,
+      "nifty_return": 15.08,
+      "alpha": -23.81,
+      "outperformed": false,
+      "sample_picks": [
+        "NMDC",
+        "ONGC",
+        "OIL",
+        "NHPC",
+        "SJVN"
+      ],
+      "all_picks": [
+        {
+          "symbol": "NMDC",
+          "name": "NMDC Ltd",
+          "sector": "Mining",
+          "pb": 0.31,
+          "de": 0.0,
+          "return": 2.68
+        },
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.75,
+          "de": 0.41,
+          "return": -3.26
+        },
+        {
+          "symbol": "OIL",
+          "name": "Oil India Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.37,
+          "de": 0.48,
+          "return": 6.35
+        },
+        {
+          "symbol": "NHPC",
+          "name": "NHPC Ltd",
+          "sector": "Power",
+          "pb": 0.36,
+          "de": 0.66,
+          "return": -7.49
+        },
+        {
+          "symbol": "SJVN",
+          "name": "SJVN Ltd",
+          "sector": "Power",
+          "pb": 0.34,
+          "de": 0.21,
+          "return": 1.51
+        },
+        {
+          "symbol": "BEL",
+          "name": "Bharat Electronics Ltd",
+          "sector": "Defense",
+          "pb": 0.34,
+          "de": 0.01,
+          "return": -20.43
+        },
+        {
+          "symbol": "BEML",
+          "name": "BEML Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.41,
+          "de": 0.2,
+          "return": -24.71
+        },
+        {
+          "symbol": "CUMMINSIND",
+          "name": "Cummins India Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.35,
+          "de": 0.07,
+          "return": -24.55
+        }
+      ]
+    },
+    {
+      "period": "FY2018-19",
+      "year": 2018,
+      "picks_count": 7,
+      "trap_count": 12,
+      "strategy_return": -15.84,
+      "trap_return": -3.43,
+      "nifty_return": 9.39,
+      "alpha": -25.23,
+      "outperformed": false,
+      "sample_picks": [
+        "HINDALCO",
+        "VEDL",
+        "ONGC",
+        "OIL",
+        "NHPC"
+      ],
+      "all_picks": [
+        {
+          "symbol": "HINDALCO",
+          "name": "Hindalco Industries Ltd",
+          "sector": "Metals",
+          "pb": 0.52,
+          "de": 0.95,
+          "return": -9.77
+        },
+        {
+          "symbol": "VEDL",
+          "name": "Vedanta Ltd",
+          "sector": "Metals & Mining",
+          "pb": 0.31,
+          "de": 0.92,
+          "return": -35.03
+        },
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.69,
+          "de": 0.52,
+          "return": -1.36
+        },
+        {
+          "symbol": "OIL",
+          "name": "Oil India Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.4,
+          "de": 0.42,
+          "return": -13.41
+        },
+        {
+          "symbol": "NHPC",
+          "name": "NHPC Ltd",
+          "sector": "Power",
+          "pb": 0.32,
+          "de": 0.62,
+          "return": -14.61
+        },
+        {
+          "symbol": "SJVN",
+          "name": "SJVN Ltd",
+          "sector": "Power",
+          "pb": 0.37,
+          "de": 0.21,
+          "return": -22.24
+        },
+        {
+          "symbol": "BEML",
+          "name": "BEML Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.3,
+          "de": 0.2,
+          "return": -14.45
+        }
+      ]
+    },
+    {
+      "period": "FY2019-20",
+      "year": 2019,
+      "picks_count": 4,
+      "trap_count": 9,
+      "strategy_return": -47.99,
+      "trap_return": -27.31,
+      "nifty_return": -15.91,
+      "alpha": -32.09,
+      "outperformed": false,
+      "sample_picks": [
+        "HINDALCO",
+        "ONGC",
+        "OIL",
+        "NBCC"
+      ],
+      "all_picks": [
+        {
+          "symbol": "HINDALCO",
+          "name": "Hindalco Industries Ltd",
+          "sector": "Metals",
+          "pb": 0.45,
+          "de": 0.91,
+          "return": -35.96
+        },
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.64,
+          "de": 0.5,
+          "return": -48.87
+        },
+        {
+          "symbol": "OIL",
+          "name": "Oil India Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.34,
+          "de": 0.52,
+          "return": -41.28
+        },
+        {
+          "symbol": "NBCC",
+          "name": "NBCC (India) Ltd",
+          "sector": "Infra",
+          "pb": 0.8,
+          "de": 0.0,
+          "return": -65.86
+        }
+      ]
+    },
+    {
+      "period": "FY2020-21",
+      "year": 2020,
+      "picks_count": 4,
+      "trap_count": 10,
+      "strategy_return": 23.2,
+      "trap_return": 35.77,
+      "nifty_return": 48.39,
+      "alpha": -25.19,
+      "outperformed": false,
+      "sample_picks": [
+        "ONGC",
+        "GAIL",
+        "COALINDIA",
+        "PNB"
+      ],
+      "all_picks": [
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.35,
+          "de": 0.63,
+          "return": 37.68
+        },
+        {
+          "symbol": "GAIL",
+          "name": "GAIL (India) Ltd",
+          "sector": "Utilities",
+          "pb": 0.55,
+          "de": 0.14,
+          "return": 48.8
+        },
+        {
+          "symbol": "COALINDIA",
+          "name": "Coal India Ltd",
+          "sector": "Mining",
+          "pb": 0.69,
+          "de": 0.2,
+          "return": -1.57
+        },
+        {
+          "symbol": "PNB",
+          "name": "Punjab National Bank",
+          "sector": "Banking",
+          "pb": 0.69,
+          "de": 0.98,
+          "return": 7.89
+        }
+      ]
+    },
+    {
+      "period": "FY2021-22",
+      "year": 2021,
+      "picks_count": 16,
+      "trap_count": 11,
+      "strategy_return": 36.1,
+      "trap_return": 48.01,
+      "nifty_return": 16.66,
+      "alpha": 19.44,
+      "outperformed": true,
+      "sample_picks": [
+        "SAIL",
+        "NMDC",
+        "VEDL",
+        "JINDALSTEL",
+        "ONGC"
+      ],
+      "all_picks": [
+        {
+          "symbol": "SAIL",
+          "name": "Steel Authority of India Ltd",
+          "sector": "Metals",
+          "pb": 0.74,
+          "de": 0.83,
+          "return": -12.82
+        },
+        {
+          "symbol": "NMDC",
+          "name": "NMDC Ltd",
+          "sector": "Mining",
+          "pb": 0.37,
+          "de": 0.07,
+          "return": 17.58
+        },
+        {
+          "symbol": "VEDL",
+          "name": "Vedanta Ltd",
+          "sector": "Metals & Mining",
+          "pb": 0.36,
+          "de": 0.93,
+          "return": 81.33
+        },
+        {
+          "symbol": "JINDALSTEL",
+          "name": "Jindal Steel & Power Ltd",
+          "sector": "Metals",
+          "pb": 0.57,
+          "de": 0.94,
+          "return": 20.96
+        },
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.44,
+          "de": 0.6,
+          "return": 53.86
+        },
+        {
+          "symbol": "OIL",
+          "name": "Oil India Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.32,
+          "de": 0.83,
+          "return": 89.39
+        },
+        {
+          "symbol": "GAIL",
+          "name": "GAIL (India) Ltd",
+          "sector": "Utilities",
+          "pb": 0.76,
+          "de": 0.15,
+          "return": 22.46
+        },
+        {
+          "symbol": "COALINDIA",
+          "name": "Coal India Ltd",
+          "sector": "Mining",
+          "pb": 0.59,
+          "de": 0.16,
+          "return": 57.89
+        },
+        {
+          "symbol": "NHPC",
+          "name": "NHPC Ltd",
+          "sector": "Power",
+          "pb": 0.31,
+          "de": 0.71,
+          "return": 46.05
+        },
+        {
+          "symbol": "SJVN",
+          "name": "SJVN Ltd",
+          "sector": "Power",
+          "pb": 0.3,
+          "de": 0.17,
+          "return": 19.73
+        },
+        {
+          "symbol": "BEML",
+          "name": "BEML Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.35,
+          "de": 0.34,
+          "return": 40.49
+        },
+        {
+          "symbol": "NBCC",
+          "name": "NBCC (India) Ltd",
+          "sector": "Infra",
+          "pb": 0.51,
+          "de": 0.0,
+          "return": -7.24
+        },
+        {
+          "symbol": "BANKBARODA",
+          "name": "Bank of Baroda",
+          "sector": "Banking",
+          "pb": 0.45,
+          "de": 0.86,
+          "return": 68.91
+        },
+        {
+          "symbol": "PNB",
+          "name": "Punjab National Bank",
+          "sector": "Banking",
+          "pb": 0.51,
+          "de": 0.57,
+          "return": 0.57
+        },
+        {
+          "symbol": "CANBK",
+          "name": "Canara Bank",
+          "sector": "Banking",
+          "pb": 0.37,
+          "de": 0.8,
+          "return": 65.59
+        },
+        {
+          "symbol": "UNIONBANK",
+          "name": "Union Bank of India",
+          "sector": "Banking",
+          "pb": 0.4,
+          "de": 0.8,
+          "return": 12.87
+        }
+      ]
+    },
+    {
+      "period": "FY2022-23",
+      "year": 2022,
+      "picks_count": 21,
+      "trap_count": 8,
+      "strategy_return": 19.84,
+      "trap_return": 27.83,
+      "nifty_return": 6.32,
+      "alpha": 13.52,
+      "outperformed": true,
+      "sample_picks": [
+        "TATASTEEL",
+        "SAIL",
+        "NMDC",
+        "NATIONALUM",
+        "HINDALCO"
+      ],
+      "all_picks": [
+        {
+          "symbol": "TATASTEEL",
+          "name": "Tata Steel Ltd",
+          "sector": "Metals",
+          "pb": 0.48,
+          "de": 0.66,
+          "return": -10.24
+        },
+        {
+          "symbol": "SAIL",
+          "name": "Steel Authority of India Ltd",
+          "sector": "Metals",
+          "pb": 0.54,
+          "de": 0.32,
+          "return": -8.92
+        },
+        {
+          "symbol": "NMDC",
+          "name": "NMDC Ltd",
+          "sector": "Mining",
+          "pb": 0.73,
+          "de": 0.1,
+          "return": -7.92
+        },
+        {
+          "symbol": "NATIONALUM",
+          "name": "National Aluminium Co Ltd",
+          "sector": "Metals",
+          "pb": 0.38,
+          "de": 0.01,
+          "return": -16.93
+        },
+        {
+          "symbol": "HINDALCO",
+          "name": "Hindalco Industries Ltd",
+          "sector": "Metals",
+          "pb": 0.79,
+          "de": 0.82,
+          "return": -7.05
+        },
+        {
+          "symbol": "VEDL",
+          "name": "Vedanta Ltd",
+          "sector": "Metals & Mining",
+          "pb": 0.63,
+          "de": 0.82,
+          "return": -4.05
+        },
+        {
+          "symbol": "JINDALSTEL",
+          "name": "Jindal Steel & Power Ltd",
+          "sector": "Metals",
+          "pb": 0.62,
+          "de": 0.38,
+          "return": 11.76
+        },
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.58,
+          "de": 0.47,
+          "return": 15.93
+        },
+        {
+          "symbol": "OIL",
+          "name": "Oil India Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.47,
+          "de": 0.55,
+          "return": 28.31
+        },
+        {
+          "symbol": "IOC",
+          "name": "Indian Oil Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.78,
+          "de": 0.99,
+          "return": 0.63
+        },
+        {
+          "symbol": "GAIL",
+          "name": "GAIL (India) Ltd",
+          "sector": "Utilities",
+          "pb": 0.77,
+          "de": 0.14,
+          "return": 7.74
+        },
+        {
+          "symbol": "COALINDIA",
+          "name": "Coal India Ltd",
+          "sector": "Mining",
+          "pb": 0.79,
+          "de": 0.08,
+          "return": 39.12
+        },
+        {
+          "symbol": "NHPC",
+          "name": "NHPC Ltd",
+          "sector": "Power",
+          "pb": 0.42,
+          "de": 0.75,
+          "return": 39.73
+        },
+        {
+          "symbol": "SJVN",
+          "name": "SJVN Ltd",
+          "sector": "Power",
+          "pb": 0.35,
+          "de": 0.52,
+          "return": 30.28
+        },
+        {
+          "symbol": "BEL",
+          "name": "Bharat Electronics Ltd",
+          "sector": "Defense",
+          "pb": 0.34,
+          "de": 0.0,
+          "return": 33.81
+        },
+        {
+          "symbol": "BEML",
+          "name": "BEML Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.46,
+          "de": 0.35,
+          "return": -9.52
+        },
+        {
+          "symbol": "NBCC",
+          "name": "NBCC (India) Ltd",
+          "sector": "Infra",
+          "pb": 0.44,
+          "de": 0.0,
+          "return": 9.1
+        },
+        {
+          "symbol": "CUMMINSIND",
+          "name": "Cummins India Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.31,
+          "de": 0.08,
+          "return": 57.73
+        },
+        {
+          "symbol": "PNB",
+          "name": "Punjab National Bank",
+          "sector": "Banking",
+          "pb": 0.49,
+          "de": 0.61,
+          "return": 53.81
+        },
+        {
+          "symbol": "CANBK",
+          "name": "Canara Bank",
+          "sector": "Banking",
+          "pb": 0.55,
+          "de": 0.66,
+          "return": 44.03
+        },
+        {
+          "symbol": "UNIONBANK",
+          "name": "Union Bank of India",
+          "sector": "Banking",
+          "pb": 0.41,
+          "de": 0.72,
+          "return": 109.2
+        }
+      ]
+    },
+    {
+      "period": "FY2023-24",
+      "year": 2023,
+      "picks_count": 18,
+      "trap_count": 10,
+      "strategy_return": 119.47,
+      "trap_return": 128.53,
+      "nifty_return": 24.8,
+      "alpha": 94.67,
+      "outperformed": true,
+      "sample_picks": [
+        "TATASTEEL",
+        "SAIL",
+        "NMDC",
+        "NATIONALUM",
+        "HINDALCO"
+      ],
+      "all_picks": [
+        {
+          "symbol": "TATASTEEL",
+          "name": "Tata Steel Ltd",
+          "sector": "Metals",
+          "pb": 0.48,
+          "de": 0.82,
+          "return": 56.67
+        },
+        {
+          "symbol": "SAIL",
+          "name": "Steel Authority of India Ltd",
+          "sector": "Metals",
+          "pb": 0.49,
+          "de": 0.56,
+          "return": 98.13
+        },
+        {
+          "symbol": "NMDC",
+          "name": "NMDC Ltd",
+          "sector": "Mining",
+          "pb": 0.53,
+          "de": 0.09,
+          "return": 146.92
+        },
+        {
+          "symbol": "NATIONALUM",
+          "name": "National Aluminium Co Ltd",
+          "sector": "Metals",
+          "pb": 0.3,
+          "de": 0.01,
+          "return": 132.22
+        },
+        {
+          "symbol": "HINDALCO",
+          "name": "Hindalco Industries Ltd",
+          "sector": "Metals",
+          "pb": 0.61,
+          "de": 0.64,
+          "return": 44.71
+        },
+        {
+          "symbol": "JINDALSTEL",
+          "name": "Jindal Steel & Power Ltd",
+          "sector": "Metals",
+          "pb": 0.63,
+          "de": 0.34,
+          "return": 59.39
+        },
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.62,
+          "de": 0.51,
+          "return": 80.43
+        },
+        {
+          "symbol": "OIL",
+          "name": "Oil India Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.48,
+          "de": 0.49,
+          "return": 155.88
+        },
+        {
+          "symbol": "GAIL",
+          "name": "GAIL (India) Ltd",
+          "sector": "Utilities",
+          "pb": 0.82,
+          "de": 0.27,
+          "return": 95.25
+        },
+        {
+          "symbol": "COALINDIA",
+          "name": "Coal India Ltd",
+          "sector": "Mining",
+          "pb": 0.78,
+          "de": 0.07,
+          "return": 106.95
+        },
+        {
+          "symbol": "NHPC",
+          "name": "NHPC Ltd",
+          "sector": "Power",
+          "pb": 0.56,
+          "de": 0.8,
+          "return": 125.63
+        },
+        {
+          "symbol": "BEL",
+          "name": "Bharat Electronics Ltd",
+          "sector": "Defense",
+          "pb": 0.41,
+          "de": 0.0,
+          "return": 127.77
+        },
+        {
+          "symbol": "BEML",
+          "name": "BEML Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.41,
+          "de": 0.16,
+          "return": 182.81
+        },
+        {
+          "symbol": "NBCC",
+          "name": "NBCC (India) Ltd",
+          "sector": "Infra",
+          "pb": 0.44,
+          "de": 0.0,
+          "return": 250.12
+        },
+        {
+          "symbol": "CUMMINSIND",
+          "name": "Cummins India Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.43,
+          "de": 0.07,
+          "return": 109.33
+        },
+        {
+          "symbol": "PNB",
+          "name": "Punjab National Bank",
+          "sector": "Banking",
+          "pb": 0.72,
+          "de": 0.68,
+          "return": 165.08
+        },
+        {
+          "symbol": "CANBK",
+          "name": "Canara Bank",
+          "sector": "Banking",
+          "pb": 0.7,
+          "de": 0.74,
+          "return": 104.22
+        },
+        {
+          "symbol": "UNIONBANK",
+          "name": "Union Bank of India",
+          "sector": "Banking",
+          "pb": 0.77,
+          "de": 0.54,
+          "return": 108.96
+        }
+      ]
+    },
+    {
+      "period": "FY2024-25",
+      "year": 2024,
+      "picks_count": 5,
+      "trap_count": 1,
+      "strategy_return": -0.7,
+      "trap_return": 7.05,
+      "nifty_return": 7.5,
+      "alpha": -8.2,
+      "outperformed": false,
+      "sample_picks": [
+        "TATASTEEL",
+        "NATIONALUM",
+        "HINDALCO",
+        "BEL",
+        "CUMMINSIND"
+      ],
+      "all_picks": [
+        {
+          "symbol": "TATASTEEL",
+          "name": "Tata Steel Ltd",
+          "sector": "Metals",
+          "pb": 0.84,
+          "de": 0.95,
+          "return": -13.8
+        },
+        {
+          "symbol": "NATIONALUM",
+          "name": "National Aluminium Co Ltd",
+          "sector": "Metals",
+          "pb": 0.64,
+          "de": 0.01,
+          "return": -10.54
+        },
+        {
+          "symbol": "HINDALCO",
+          "name": "Hindalco Industries Ltd",
+          "sector": "Metals",
+          "pb": 0.78,
+          "de": 0.53,
+          "return": -1.14
+        },
+        {
+          "symbol": "BEL",
+          "name": "Bharat Electronics Ltd",
+          "sector": "Defense",
+          "pb": 0.79,
+          "de": 0.0,
+          "return": 33.64
+        },
+        {
+          "symbol": "CUMMINSIND",
+          "name": "Cummins India Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.78,
+          "de": 0.02,
+          "return": -11.68
+        }
+      ]
+    },
+    {
+      "period": "FY25-26 (YTD)",
+      "year": 2025,
+      "picks_count": 9,
+      "trap_count": 2,
+      "strategy_return": 47.1,
+      "trap_return": 35.28,
+      "nifty_return": -5.54,
+      "alpha": 52.65,
+      "outperformed": true,
+      "sample_picks": [
+        "SAIL",
+        "NMDC",
+        "NATIONALUM",
+        "HINDALCO",
+        "JINDALSTEL"
+      ],
+      "all_picks": [
+        {
+          "symbol": "SAIL",
+          "name": "Steel Authority of India Ltd",
+          "sector": "Metals",
+          "pb": 0.62,
+          "de": 0.63,
+          "return": 54.48
+        },
+        {
+          "symbol": "NMDC",
+          "name": "NMDC Ltd",
+          "sector": "Mining",
+          "pb": 0.79,
+          "de": 0.14,
+          "return": 15.03
+        },
+        {
+          "symbol": "NATIONALUM",
+          "name": "National Aluminium Co Ltd",
+          "sector": "Metals",
+          "pb": 0.46,
+          "de": 0.01,
+          "return": 109.7
+        },
+        {
+          "symbol": "HINDALCO",
+          "name": "Hindalco Industries Ltd",
+          "sector": "Metals",
+          "pb": 0.67,
+          "de": 0.53,
+          "return": 43.55
+        },
+        {
+          "symbol": "JINDALSTEL",
+          "name": "Jindal Steel & Power Ltd",
+          "sector": "Metals",
+          "pb": 0.79,
+          "de": 0.39,
+          "return": 14.93
+        },
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp Ltd",
+          "sector": "Oil & Gas",
+          "pb": 0.83,
+          "de": 0.55,
+          "return": -2.03
+        },
+        {
+          "symbol": "BHEL",
+          "name": "Bharat Heavy Electricals Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.69,
+          "de": 0.36,
+          "return": 94.18
+        },
+        {
+          "symbol": "CUMMINSIND",
+          "name": "Cummins India Ltd",
+          "sector": "Capital Goods",
+          "pb": 0.61,
+          "de": 0.0,
+          "return": 64.44
+        },
+        {
+          "symbol": "CANBK",
+          "name": "Canara Bank",
+          "sector": "Banking",
+          "pb": 0.84,
+          "de": 0.85,
+          "return": 29.65
+        }
+      ]
+    }
+  ],
+  "equity_curve": [
+    {
+      "date": "2016-05-02",
+      "value_strategy": 100000.0,
+      "value_trap": 100000.0,
+      "nifty_50": 100000.0
+    },
+    {
+      "date": "2017-05-02",
+      "value_strategy": 149620.0,
+      "value_trap": 134923.75,
+      "nifty_50": 119317.44
+    },
+    {
+      "date": "2018-05-02",
+      "value_strategy": 136546.95,
+      "value_trap": 154532.67,
+      "nifty_50": 137307.04
+    },
+    {
+      "date": "2019-05-02",
+      "value_strategy": 114919.87,
+      "value_trap": 149225.76,
+      "nifty_50": 150203.69
+    },
+    {
+      "date": "2020-05-02",
+      "value_strategy": 59766.95,
+      "value_trap": 108470.55,
+      "nifty_50": 126313.44
+    },
+    {
+      "date": "2021-05-02",
+      "value_strategy": 73632.88,
+      "value_trap": 147269.38,
+      "nifty_50": 187436.42
+    },
+    {
+      "date": "2022-05-02",
+      "value_strategy": 100215.27,
+      "value_trap": 217970.73,
+      "nifty_50": 218669.21
+    },
+    {
+      "date": "2023-05-02",
+      "value_strategy": 120093.69,
+      "value_trap": 278637.43,
+      "nifty_50": 232486.33
+    },
+    {
+      "date": "2024-05-02",
+      "value_strategy": 263570.28,
+      "value_trap": 636761.75,
+      "nifty_50": 290142.07
+    },
+    {
+      "date": "2025-05-02",
+      "value_strategy": 261714.75,
+      "value_trap": 681653.46,
+      "nifty_50": 311901.25
+    },
+    {
+      "date": "2026-10-15",
+      "value_strategy": 384991.12,
+      "value_trap": 922174.88,
+      "nifty_50": 294614.97
+    }
+  ],
+  "top_winners": [
+    {
+      "symbol": "NBCC",
+      "name": "NBCC (India) Ltd",
+      "sector": "Infra",
+      "pb": 0.44,
+      "de": 0.0,
+      "return": 250.12
+    },
+    {
+      "symbol": "BEML",
+      "name": "BEML Ltd",
+      "sector": "Capital Goods",
+      "pb": 0.41,
+      "de": 0.16,
+      "return": 182.81
+    },
+    {
+      "symbol": "PNB",
+      "name": "Punjab National Bank",
+      "sector": "Banking",
+      "pb": 0.72,
+      "de": 0.68,
+      "return": 165.08
+    },
+    {
+      "symbol": "OIL",
+      "name": "Oil India Ltd",
+      "sector": "Oil & Gas",
+      "pb": 0.48,
+      "de": 0.49,
+      "return": 155.88
+    },
+    {
+      "symbol": "NMDC",
+      "name": "NMDC Ltd",
+      "sector": "Mining",
+      "pb": 0.53,
+      "de": 0.09,
+      "return": 146.92
+    }
+  ],
+  "top_losers": [
+    {
+      "symbol": "BANKBARODA",
+      "name": "Bank of Baroda",
+      "sector": "Banking",
+      "pb": 0.45,
+      "de": 0.86,
+      "return": 68.91
+    },
+    {
+      "symbol": "JINDALSTEL",
+      "name": "Jindal Steel & Power Ltd",
+      "sector": "Metals",
+      "pb": 0.63,
+      "de": 0.34,
+      "return": 59.39
+    },
+    {
+      "symbol": "TATASTEEL",
+      "name": "Tata Steel Ltd",
+      "sector": "Metals",
+      "pb": 0.48,
+      "de": 0.82,
+      "return": 56.67
+    },
+    {
+      "symbol": "HINDALCO",
+      "name": "Hindalco Industries Ltd",
+      "sector": "Metals",
+      "pb": 0.61,
+      "de": 0.64,
+      "return": 44.71
+    },
+    {
+      "symbol": "SJVN",
+      "name": "SJVN Ltd",
+      "sector": "Power",
+      "pb": 0.35,
+      "de": 0.52,
+      "return": 30.28
+    }
+  ]
+}

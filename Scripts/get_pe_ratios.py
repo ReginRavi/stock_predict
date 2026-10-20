@@ -211,13 +211,71 @@ def compute_vlrt_score(peg_str: str, pegy_str: str, mcap_str: str, growth_str: s
         "breakdown": f"V:{round(v_score*4,1)} L:{round(l_score*4,1)} R:{round(r_score*4,1)} T:{round(t_score*4,1)}"
     }
 
-def compute_avi_score(pe_str: str, growth_str: str, peg_str: str, div_str: str, roce_str: str = "N/A", roe_str: str = "N/A") -> dict:
+def evaluate_deep_value_criteria(pb_str: str, de_str: str) -> dict:
+    """
+    Evaluates Deep Value criteria from screenshot:
+    1. Price to Book Ratio: 0.3x - 0.8x (Look for Value)
+    2. Debt to Equity Ratio: < 1.0 (Avoid Weak Balance Sheets)
+    """
+    pb_pass = False
+    de_pass = False
+    pb_val = None
+    de_val = None
+
+    try:
+        pb_val = float(str(pb_str).replace(",", "").strip())
+        if 0.3 <= pb_val <= 0.8:
+            pb_pass = True
+    except (ValueError, TypeError):
+        pass
+
+    try:
+        de_val = float(str(de_str).replace(",", "").strip())
+        if 0.0 <= de_val < 1.0:
+            de_pass = True
+    except (ValueError, TypeError):
+        pass
+
+    if pb_pass and de_pass:
+        status = "PASS"
+        badge = "💎 Value (P/B 0.3-0.8 & D/E < 1)"
+        badge_class = "badge-success"
+        desc = "Passes both P/B (0.3-0.8x) & D/E (< 1.0) deep value screens"
+    elif pb_pass and not de_pass:
+        status = "P/B ONLY"
+        badge = "⚠️ P/B (0.3-0.8) Only"
+        badge_class = "badge-warning"
+        desc = f"Low P/B ({pb_val}x) but elevated debt (D/E: {de_str})"
+    elif de_pass and not pb_pass:
+        status = "D/E ONLY"
+        badge = "🛡️ D/E (< 1) Only"
+        badge_class = "badge-neutral"
+        desc = f"Healthy balance sheet (D/E: {de_val}) but P/B ({pb_str}) outside 0.3-0.8x"
+    else:
+        status = "FAIL"
+        badge = "❌ Fail"
+        badge_class = "badge-danger"
+        desc = "Fails both deep value criteria"
+
+    return {
+        "status": status,
+        "badge": badge,
+        "badge_class": badge_class,
+        "desc": desc,
+        "pb_pass": pb_pass,
+        "de_pass": de_pass,
+        "pb_val": pb_val,
+        "de_val": de_val
+    }
+
+def compute_avi_score(pe_str: str, growth_str: str, peg_str: str, div_str: str, roce_str: str = "N/A", roe_str: str = "N/A", pb_str: str = "N/A", de_str: str = "N/A") -> dict:
     """
     Computes Applied Value Investing (AVI) Score (0.0 to 10.0) based on Graham, Greenblatt, and Lynch principles:
     1. Earnings Yield (E/P): Valuation yield (max 3.5 pts)
     2. Margin of Safety & Growth (PEG/PEGY) (max 2.5 pts)
     3. Capital Efficiency (ROCE / ROE) (max 2.5 pts)
     4. Cash Yield / Dividend Protection (max 1.5 pts)
+    Bonus: Deep Value check (+0.5 pts if P/B 0.3-0.8x and D/E < 1.0)
     """
     ey_pct = 0.0
     pe_val = None
@@ -325,7 +383,15 @@ def compute_avi_score(pe_str: str, growth_str: str, peg_str: str, div_str: str, 
     except (ValueError, AttributeError):
         div_score = 0.5
 
-    total_avi = round(val_score + mos_score + cap_score + div_score, 1)
+    # 5. Deep Value Bonus (Screenshot Rule: P/B 0.3-0.8x and D/E < 1.0)
+    dv_bonus = 0.0
+    val_rule = evaluate_deep_value_criteria(pb_str, de_str)
+    if val_rule["status"] == "PASS":
+        dv_bonus = 0.8
+    elif val_rule["pb_pass"]:
+        dv_bonus = 0.3
+
+    total_avi = round(min(10.0, val_score + mos_score + cap_score + div_score + dv_bonus), 1)
 
     if total_avi >= 8.0:
         badge = "💎 Deep Value"
@@ -351,14 +417,20 @@ def compute_avi_score(pe_str: str, growth_str: str, peg_str: str, div_str: str, 
         "badge": badge,
         "badge_class": badge_class,
         "category": category,
-        "breakdown": f"EY:{val_score} MoS:{mos_score} Cap:{cap_score} Div:{div_score}"
+        "breakdown": f"EY:{val_score} MoS:{mos_score} Cap:{cap_score} Div:{div_score} DV:{dv_bonus}"
     }
 
 def fetch_company_metrics(session: requests.Session, slug: str) -> Dict[str, str]:
-    """Fetch company details, P/E, Market Cap, Growth, Dividend Yield, ROCE/ROE, and calculate PEG & PEGY ratios."""
+    """Fetch company details, P/E, Market Cap, Growth, Dividend Yield, ROCE/ROE, Book Value, P/B, Debt/Equity, and calculate PEG & PEGY ratios."""
     url = f"https://www.screener.in/company/{slug}/"
     metrics = {
         "fullname": slug,
+        "current_price": "N/A",
+        "book_value": "N/A",
+        "pb": "N/A",
+        "debt_to_equity": "N/A",
+        "borrowings": "0.0",
+        "equity": "0.0",
         "pe": "N/A",
         "mcap": "N/A",
         "div_yield": "0.00",
@@ -398,6 +470,61 @@ def fetch_company_metrics(session: requests.Session, slug: str) -> Dict[str, str
         metrics["mcap"] = ratios.get("Market Cap", "N/A")
         metrics["roce"] = ratios.get("ROCE", "N/A").replace("%", "").strip() if ratios.get("ROCE") else "N/A"
         metrics["roe"] = ratios.get("ROE", "N/A").replace("%", "").strip() if ratios.get("ROE") else "N/A"
+        
+        # Extract Current Price, Book Value, and compute P/B (Price to Book)
+        cur_p_str = ratios.get("Current Price", "N/A").replace(",", "").strip()
+        bv_str = ratios.get("Book Value", "N/A").replace(",", "").strip()
+        pb_str = "N/A"
+        try:
+            cur_p = float(cur_p_str)
+            bv = float(bv_str)
+            if bv > 0:
+                pb_str = f"{cur_p / bv:.2f}"
+            elif bv < 0:
+                pb_str = "Negative BV"
+        except (ValueError, TypeError, ZeroDivisionError):
+            pb_str = "N/A"
+            
+        metrics["current_price"] = cur_p_str if cur_p_str else "N/A"
+        metrics["book_value"] = bv_str if bv_str else "N/A"
+        metrics["pb"] = pb_str
+
+        # Extract Debt and Equity from Balance Sheet table
+        borrowings = 0.0
+        equity = 0.0
+        found_bs = False
+        bs_sec = soup.find("section", id="balance-sheet")
+        if bs_sec:
+            found_bs = True
+            for tr in bs_sec.find_all("tr"):
+                tds = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+                if not tds:
+                    continue
+                label = tds[0].replace("+", "").strip().lower()
+                val_str = tds[-1].replace(",", "").strip() if len(tds) > 1 else "0"
+                try:
+                    val = float(val_str)
+                except (ValueError, TypeError):
+                    val = 0.0
+                if "borrowing" in label:
+                    borrowings = val
+                elif "equity capital" in label or "share capital" in label:
+                    equity += val
+                elif "reserve" in label:
+                    equity += val
+
+        de_str = "N/A"
+        if found_bs:
+            if equity > 0:
+                de_str = f"{borrowings / equity:.2f}"
+            elif equity <= 0 and borrowings > 0:
+                de_str = "Neg Net Worth"
+            elif equity == 0 and borrowings == 0:
+                de_str = "0.00"
+                
+        metrics["debt_to_equity"] = de_str
+        metrics["borrowings"] = str(borrowings)
+        metrics["equity"] = str(equity)
         
         # Extract Dividend Yield
         div_str = ratios.get("Dividend Yield", "0.00").replace("%", "").strip()
@@ -509,6 +636,11 @@ def main():
                 "Company Name": name,
                 "Screener Slug": "N/A",
                 "Company Full Name": "N/A",
+                "Current Price": "N/A",
+                "Book Value (Rs)": "N/A",
+                "Price to Book (P/B)": "N/A",
+                "Debt to Equity": "N/A",
+                "Deep Value Criteria": "N/A",
                 "Stock P/E": "N/A",
                 "Market Cap (Cr)": "N/A",
                 "Dividend Yield (%)": "N/A",
@@ -536,12 +668,18 @@ def main():
         if metrics["pe"] != "N/A":
             vlrt = compute_vlrt_score(metrics['peg_3y'], metrics['pegy_3y'], metrics['mcap'], metrics['growth_3y'], metrics['div_yield'], metrics['pe'])
             scurve = compute_s_curve_stage(metrics['growth_3y'], metrics['peg_3y'], metrics['pe'])
-            avi = compute_avi_score(metrics['pe'], metrics['growth_3y'], metrics['peg_3y'], metrics['div_yield'], metrics.get('roce', 'N/A'), metrics.get('roe', 'N/A'))
-            print(f" ✅ P/E: {metrics['pe']} | EY: {avi['earnings_yield']} | PEG 3Y: {metrics['peg_3y']} | VLRT: {vlrt['score']}/10 | AVI: {avi['score']}/10 ({avi['category']}) | S-Curve: {scurve['badge']}")
+            val_rule = evaluate_deep_value_criteria(metrics['pb'], metrics['debt_to_equity'])
+            avi = compute_avi_score(metrics['pe'], metrics['growth_3y'], metrics['peg_3y'], metrics['div_yield'], metrics.get('roce', 'N/A'), metrics.get('roe', 'N/A'), metrics['pb'], metrics['debt_to_equity'])
+            print(f" ✅ P/E: {metrics['pe']} | P/B: {metrics['pb']} | D/E: {metrics['debt_to_equity']} | {val_rule['badge']} | VLRT: {vlrt['score']}/10 | AVI: {avi['score']}/10")
             results.append({
                 "Company Name": name,
                 "Screener Slug": slug,
                 "Company Full Name": metrics["fullname"],
+                "Current Price": metrics["current_price"],
+                "Book Value (Rs)": metrics["book_value"],
+                "Price to Book (P/B)": metrics["pb"],
+                "Debt to Equity": metrics["debt_to_equity"],
+                "Deep Value Criteria": val_rule["badge"],
                 "Stock P/E": metrics["pe"],
                 "Earnings Yield (%)": avi["earnings_yield"],
                 "ROCE (%)": metrics.get("roce", "N/A"),
@@ -567,6 +705,11 @@ def main():
                 "Company Name": name,
                 "Screener Slug": slug,
                 "Company Full Name": "N/A",
+                "Current Price": "N/A",
+                "Book Value (Rs)": "N/A",
+                "Price to Book (P/B)": "N/A",
+                "Debt to Equity": "N/A",
+                "Deep Value Criteria": "N/A",
                 "Stock P/E": "N/A",
                 "Earnings Yield (%)": "N/A",
                 "ROCE (%)": "N/A",
@@ -590,7 +733,8 @@ def main():
     # Write CSV output
     output_file.parent.mkdir(parents=True, exist_ok=True)
     fieldnames = [
-        "Company Name", "Screener Slug", "Company Full Name", "Stock P/E", "Earnings Yield (%)",
+        "Company Name", "Screener Slug", "Company Full Name", "Current Price", "Book Value (Rs)",
+        "Price to Book (P/B)", "Debt to Equity", "Deep Value Criteria", "Stock P/E", "Earnings Yield (%)",
         "ROCE (%)", "ROE (%)", "Market Cap (Cr)", "Dividend Yield (%)", "Profit Growth 3Y (%)", 
         "Profit Growth 5Y (%)", "PEG Ratio 3Y", "PEG Ratio 5Y", "PEGY Ratio 3Y", "PEGY Ratio 5Y",
         "VLRT Score", "VLRT Breakdown", "S-Curve Stage", "AVI Score", "AVI Breakdown", "AVI Category"
@@ -606,12 +750,13 @@ def main():
         print(f"\n❌ Error writing output CSV: {e}", file=sys.stderr)
 
     # Print summary table
-    print("\n" + "=" * 135)
-    print(f"{'Company Name':<25} | {'P/E':<6} | {'Div Yield':<9} | {'3Y Growth':<9} | {'PEG 3Y':<8} | {'PEGY 3Y':<8} | {'Mkt Cap (Cr)':<12}")
-    print("=" * 135)
+    print("\n" + "=" * 145)
+    print(f"{'Company Name':<22} | {'P/E':<6} | {'P/B':<6} | {'D/E':<6} | {'Deep Value Criteria':<28} | {'PEG 3Y':<7} | {'Mkt Cap (Cr)':<12}")
+    print("=" * 145)
     for r in results:
-        print(f"{r['Company Name'][:25]:<25} | {r['Stock P/E']:<6} | {r['Dividend Yield (%)']:<9} | {r['Profit Growth 3Y (%)']:<9} | {r['PEG Ratio 3Y']:<8} | {r['PEGY Ratio 3Y']:<8} | {r['Market Cap (Cr)']:<12}")
-    print("=" * 135)
+        print(f"{r['Company Name'][:22]:<22} | {r.get('Stock P/E', 'N/A'):<6} | {r.get('Price to Book (P/B)', 'N/A'):<6} | {r.get('Debt to Equity', 'N/A'):<6} | {r.get('Deep Value Criteria', 'N/A')[:28]:<28} | {r.get('PEG Ratio 3Y', 'N/A'):<7} | {r.get('Market Cap (Cr)', 'N/A'):<12}")
+    print("=" * 145)
 
 if __name__ == "__main__":
     main()
+
